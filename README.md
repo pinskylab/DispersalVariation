@@ -7,3 +7,5 @@ Katrina Catalano's project measuring variability in larval dispersal for clownfi
 3. genomics
   -This is the version of https://github.com/pinskylab/genomics as it was at the time of this project. It contains all molecular wetlab metadata, raw genomic data, bioinformatics code, and protocols.
   
+  Please contact Katrina at kat.catalano@rutgers.edu with any questions.
+  
