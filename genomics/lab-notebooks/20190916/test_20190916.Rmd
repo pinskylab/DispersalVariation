@@ -1,0 +1,76 @@
+---
+title: "2019-09-16 dDocent re-run"
+output: html_notebook
+---
+
+```{r setup}
+library(dplyr)
+library(tidyr)
+library(readr)
+library(stringr)
+library(purrr)
+```
+
+Ran dDocent, entered manually on the command line, started on 9/16/2019
+
+- Checked in on the run at 10:30am on Tuesday, 9/17/2019 and it was running samtools on L0355.  Still a long ways to go.
+- Checked at 6:45am on Wednesday, 9/18/2019, running bedtools and writing to mapped.bed
+- Checked at 2pm on 9/19/2019, running freebayes
+- Checked at 8:55am on 9/20/2019, running freebayes
+- checked at 11:00am on 9/21/2019, running freebayes, 26gig of memory free in the buffers/cache
+
+Finished on Sunday, 9/22/2019.
+
+Did it include the files from known_issues?
+
+```{bash eval=FALSE}
+cp /data/apcl/all_samples/20190916/namelist ./
+```
+
+
+```{r}
+
+samples <- tibble(ligation_id = read_lines("namelist")) %>% 
+  mutate(ligation_id = str_replace(ligation_id, "APCL_", ""))
+
+issues <- readRDS(here::here("data", "known_issues.rds"))
+write_csv(issues, here::here("data", "known_issues.csv"))
+
+missing <- anti_join(issues, samples, by = "ligation_id") %>% 
+  filter(!grepl("do not use", issue),
+         !grepl("Non-APCL", issue))
+
+not_missing <- map_dfr(unique(missing$ligation_id), ~samples %>% filter(grepl(.x, ligation_id))) %>% 
+  separate(ligation_id, into = c("ligation_id", "regeno"), sep = "\\.")
+
+found <- not_missing %>% 
+  select(regeno) %>% 
+  rename(ligation_id = regeno) %>% 
+  rbind(select(not_missing, ligation_id)) %>% 
+  filter(ligation_id != "F")
+
+missing <- anti_join(missing, found, by = "ligation_id") %>% 
+  arrange(ligation_id)
+
+write_csv(missing, here::here("data", "missing_from_all_samples.csv"))
+```
+
+```{bash}
+mkdir /data/apcl/all_samples/20190925
+
+mv /local/home/michelles/02-apcl-ddocent/regenos/L1607_L1042.F.fq.gz /data/apcl/all_samples/20190925/L1607.L1042.F.fq.gz
+
+mv /local/home/michelles/02-apcl-ddocent/regenos/L0936_L3145.F.fq.gz /data/apcl/all_samples/20190925/L0936.L3145.F.fq.gz
+
+mv /local/home/michelles/02-apcl-ddocent/regenos/L0973_L3122.F.fq.gz /data/apcl/all_samples/20190925/L0973.L3122.F.fq.gz
+
+mv /local/home/michelles/02-apcl-ddocent/regenos/L0697_L3021.F.fq.gz /data/apcl/all_samples/20190925/L0697.L3021.F.fq.gz
+
+mv /local/home/michelles/02-apcl-ddocent/regenos/L2716_L3169.F.fq.gz /data/apcl/all_samples/20190925/L2716.L3169.F.fq.gz
+
+
+
+
+
+```
+

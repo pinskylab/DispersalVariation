@@ -1,0 +1,242 @@
+---
+title: "Determine Cervus Parameters"
+date: 2019-05-09
+output:
+  html_notebook:
+    code_folding: hide
+    df_print: paged
+    highlight: kate
+---
+#### Cervus requires hard numbers instead of percentages for cutoffs in identity analysis.  We enter 80% of the total loci in the analysis for matching loci and 10% mismatch. However, some fish have missing data and so 80%/10% of *their* total loci is much less than the numbers that are hard coded into the analysis and potential recaptures are ignored.  
+
+
+```{r setup, include=FALSE, message=FALSE}
+# load libraries
+library(tidyverse)
+library(here)
+library(clownfish)
+library(kableExtra)
+library(knitr)
+
+# while db connection using helper file isn't working 
+source("~/Documents/clownfish-pkg/R/db_connections.R")
+leyte <- read_db("Leyte")
+lab <- read_db("Laboratory")
+```
+
+Our dataset is made up of 2774 individuals and a total of 1447 loci.  We allowed individuals with 30% missing data during SNP filtering.
+
+
+```{r message=FALSE, warning=FALSE}
+idcsv_raw <- read_csv("https://raw.githubusercontent.com/pinskylab/genomics/master/data/seq03-33_identity/33-03_seq_identity_ID.csv", col_types = cols(
+  `First ID` = col_character(),
+  `Loci typed` = col_integer(),
+  `Second ID` = col_character(),
+  `Loci typed_1` = col_integer(),
+  `Matching loci` = col_integer(),
+  `Mismatching loci` = col_integer(),
+  pID = col_double(),
+  pIDsib = col_double(),
+  Status = col_character()
+)) 
+
+names(idcsv_raw) <- c("first_id",  "first_loci_typed",  "second_id",  "second_loci_typed",  "matching_loci",  "mismatching_loci",  "p_id",  "p_id_sib",  "status")
+
+# add mismatch rate
+idcsv <- idcsv_raw %>%
+  mutate(loci_compared = mismatching_loci + matching_loci,
+    mismatch_prop = mismatching_loci/loci_compared) %>% 
+  # order by number of matching loci
+  arrange(matching_loci) 
+
+# ggplot(idcsv, aes(x = loci_compared, y = mismatch_prop)) +
+  # geom_point() +
+  # theme_bw()
+```
+
+```{r eval=TRUE}
+# construct table of tests
+(test_table <- read_csv("test, perc_matching_loci, num_matching_loci, perc_mismatching_loci, num_mismatching_loci, num_recaptures, notes
+                       1, 80, 1157, 10, 145, 403, some individuals have less than 80% of the data and so are eliminated from the analysis by this 80% cutoff
+                       2, 70, 1013, 10, 145, 422, this increase in individuals makes sense because we are now including individuals who have less than 80% data
+                       3, 60, 868, 10, 145, 427, this small increase could be individuals who are close to but not quite 70%
+                       4, 50, 724, 10, 145, 428,
+                       5, 10, 146, 10, 145, 428, 
+                       6, 50, 724, 7, 108, 423, 10% of the lowest number of loci present which is still higher than the 6% genotyping error
+                       7, 50, 724, 5, 72, 377, because the mismatch allowance is lower than the genotype error rate it is missing some true recaptures"))
+
+# kable(test_table) %>% 
+#   kable_styling()
+```
+
+# Test 1 
+- 80% matching loci (1157), 10% mismatching allowed (145) resulted in 403 proposed recapture events.
+
+This test potentially misses some recaptures because individuals are missing more data than the 20% cutoff (80% data must be present to be considered for a recapture event).
+
+
+# Test 2 
+- 70% matching loci (1013), 10% mismatching allowed (145) resulted in 422 proposed recapture events.  This increase in individuals makes sense because we are now including individuals that had more missing data.
+
+
+# Test 3 
+- 60% matching loci (868), 10% mismatching allowed (145) resulted in 427 proposed recapture events. This slight jump might represent individuals who were on the border of the 30% missing data cutoff (for example they might've had 69% matching loci).
+
+
+# Test 4 
+- 50% matching loci (724), 10% mismatching allowed (145) resulted in 428 proposed recapture events. Not a big increase because we got most of the samples that are missing data at the 70% mark (where the missing data cutoff was for filtering)
+
+# Test 5
+- 10% matching loci (146), 10% mismatching allowed (145) resulted in 428 proposed recapture events. No change because the 50% matching loci captured all of the events.
+
+# Test 6
+- 50% matching loci (724), 10% mismatching of the lowest number of loci allowed (108, equivalent to 7% of the total number of loci, still higher than genotyping error) resulted in 423 proposed recapture events. Fewer recapture events makes sense because the mismatch is more conservative.
+
+# Test 7
+- 50% matching loci (724), 5% mismatching allowed (72), which is lower than the genotype error rate resulted in  proposed recapture events. This resulted in 377 recapture events.  Because this number is lower than the genotype error, it is expected that this is missing some true recaptures.
+
+# Test 8
+- run all fish including regenotyped samples through to verify that all tagged recaptures and regenotypes are captured by the identity analysis
+```{r, include=FALSE}
+# Malin would also like a plot of # of matching against proportion mismatch(x axis)
+
+idcsv_raw <- read_csv("https://raw.githubusercontent.com/pinskylab/genomics/master/data/seq03-33_identity/33-03_seq-with-regeno_identity_ID.csv", col_types = cols(
+  `First ID` = col_character(),
+  `Loci typed` = col_integer(),
+  `Second ID` = col_character(),
+  `Loci typed_1` = col_integer(),
+  `Matching loci` = col_integer(),
+  `Mismatching loci` = col_integer(),
+  pID = col_double(),
+  pIDsib = col_double(),
+  Status = col_character()
+)) 
+
+names(idcsv_raw) <- c("first_id",  "first_loci_typed",  "second_id",  "second_loci_typed",  "matching_loci",  "mismatching_loci",  "p_id",  "p_id_sib",  "status")
+
+# add mismatch rate
+idcsv <- idcsv_raw %>%
+  mutate(loci_compared = mismatching_loci + matching_loci,
+    mismatch_prop = mismatching_loci/loci_compared) %>% 
+  # order by number of matching loci
+  arrange(matching_loci) 
+
+# add sample_ids
+first <- idcsv %>% 
+  rename(ligation_id = first_id) %>% 
+  samp_from_lig(.)
+idcsv_w_sample <- left_join(idcsv, first, by = c("first_id" = "ligation_id")) %>% 
+  rename(first_sample_id = sample_id)
+rm(first)
+second <- idcsv %>% 
+  rename(ligation_id = second_id) %>% 
+  samp_from_lig(.)
+idcsv_w_sample <- left_join(idcsv_w_sample, second, by = c("second_id" = "ligation_id")) %>% 
+  rename(second_sample_id = sample_id)
+rm(second)
+
+# add meta data
+meta <- get_fish() %>% 
+  filter(sample_id %in% idcsv_w_sample$first_sample_id | 
+           sample_id %in% idcsv_w_sample$second_sample_id) %>% 
+  select(sample_id, tag_id)
+
+idcsv_w_meta <- idcsv_w_sample %>% 
+  left_join(meta, by = c("first_sample_id" = "sample_id")) %>% 
+  rename(first_tag_id = tag_id) %>% 
+  left_join(meta, by = c("second_sample_id" = "sample_id")) %>% 
+  rename(second_tag_id = tag_id)
+  
+
+(known <- idcsv_w_meta %>%
+  filter(first_tag_id == second_tag_id | first_sample_id == second_sample_id) %>% 
+  select(contains("tag_id"), contains("sample_id"), matching_loci, mismatching_loci, mismatch_prop)) %>% 
+  mutate(status = "known")
+```
+
+
+```{r}
+# are there any genotyped tagged recaptures that are not captured by the analysis
+tag_recaps <- get_fish() %>% 
+  # remove tags without tissue samples now so that you only retain tagged_fish that have been sampled more than once and successfully genotyped
+  filter(!is.na(tag_id), !is.na(sample_id), !is.na(gen_id)) %>% 
+  group_by(tag_id) %>% 
+  filter(n() > 1)
+
+anti_join(tag_recaps, known, by = c("tag_id"="first_tag_id")) %>% 
+  anti_join(known, by = c("tag_id" = "second_tag_id"))
+
+# For these 2 tagged fish, see the "all comparisions" to find out why they were not matches
+```
+```{r}
+# are there any regenotypes that are not captured by this analysis
+regenos <- get_lig() %>% 
+  filter(!is.na(total_reads)) %>%
+  samp_from_lig() %>% 
+  group_by(sample_id) %>% 
+  filter(n() > 1) 
+
+regeno_fish <- get_fish() %>% 
+  filter(sample_id %in% regenos$sample_id) %>% 
+  # only keep those that were successfully genotyped
+  filter(!is.na(gen_id))
+
+regenos <- regenos %>% 
+  filter(sample_id %in% regeno_fish$sample_id)
+
+anti_join(regenos, known, by = c("ligation_id"="first_id")) %>% 
+  anti_join(known, by = c("ligation_id" = "second_id"))
+
+```
+
+
+```{r}
+# Malin would like histograms of #matching loci, # mismatching loci, and mismatch proportion for known recaptures/regenotypes and for known non-recaptures (fish from different sites)
+
+ggplot(known, aes(matching_loci)) + 
+  geom_histogram(binwidth = 10)
+```
+
+```{r}
+ggplot(known, aes(mismatching_loci)) + 
+  geom_histogram(binwidth = 10)
+```
+```{r}
+ggplot(known, aes(mismatch_prop)) + 
+  geom_histogram(binwidth = 0.01) 
+```
+# how is there a negative mismatch proportion - there isn't, this must be that a data point has a width
+```{r}
+idcsv_w_meta %>% 
+  filter(mismatch_prop < 0)
+```
+
+```{r}
+all_comps <- read_csv(here("data", "seq03-33_identity"))
+
+unknown <- all_comps %>% 
+  filter(first_site != second_site) %>% 
+  select(contains("sample_id"), matching_loci, mismatching_loc, mismatch_prop) %>% 
+  mutate(status = "unknown")
+```
+
+```{r}
+ggplot(unknown, aes(matching_loci)) + 
+  geom_histogram(binwidth = 10)
+```
+
+```{r}
+ggplot(unknown, aes(mismatching_loci)) + 
+  geom_histogram(binwidth = 10)
+```
+```{r}
+ggplot(unknown, aes(mismatch_prop)) + 
+  geom_histogram(binwidth = 0.01) 
+```
+
+```{r}
+ggplot(unknown, aes(mismatch_prop, matching_loci)) +
+  geom_point(color = status) +
+  geom_jitter()
+```
+

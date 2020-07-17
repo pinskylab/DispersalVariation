@@ -1,0 +1,521 @@
+Identity Protocol for APCL project
+================
+
+This notebook continues where filtering and removing regenos left off,
+moving the genepop into cervus and processing identity results.
+
+## Import the genepop to cervus
+
+The no regenos genepop should be stored on github and downloaded onto
+the windows machine.  
+\- On the github website, click on the genepop (noregeno.gen).  
+\- Right click on “view raw” and save link as…
+
+\#\#\#Open Cervus and convert the genepop to ceruvs: - Tools \> Convert
+genotype file \> Genepop to Cervus - A window will open, navigate to the
+genepop file that has been downloaded to the windows machine - Choose 2
+digit format, do not use the first id as a population name **(2790
+individuals, 1005 loci)**
+
+### Run an allele frequency analysis:
+
+  - Analysis \> Allele frequency analysis
+  - make sure the converted file is in the genotype file field
+  - Yes Header Row
+  - Yes Read Locus Names
+  - ID in column 2
+  - First allele in column 3
+  - Type in number of loci from conversion (1005)
+  - Save as “…..\_AF”
+  - Leave all the output option boxes checked
+
+### Run an identity analysis
+
+  - Genotype file should be autofilled with the convert file created
+    above
+  - Yes Header Row
+  - Id in column 2
+  - First allele in column 3
+  - Do not test sexes separately
+  - Allele freq data should be autofilled with the AF file created above
+  - Save as “….\_ID”
+  - Fill in minimum number of matching loci, this should be comparable
+    to the amount of missing data allowed in the filtering step. For
+    example, if we allow 30% missing data for individuals during
+    filtering, we should not require more than 70% matching loci.
+    Because the 70-30 line is the cutoff, 65% or 60% would include fish
+    who are on the borderline. For this analysis 50% ()
+  - allow fuzzy matching with 10% mismatch (10% of total = 145)
+  - don’t show all comparisons - this generates a HUGE csv of every
+    single pairwise comparison.
+
+### Upload the output to github, pull to mac
+
+### Import the data into R
+
+``` r
+idcsv_raw <- read_csv("https://github.com/pinskylab/genomics/raw/master/data/seq03-33_identity/33-03_seq_identity_ID.csv", col_types = cols(
+  `First ID` = col_character(),
+  `Loci typed` = col_integer(),
+  `Second ID` = col_character(),
+  `Loci typed_1` = col_integer(),
+  `Matching loci` = col_integer(),
+  `Mismatching loci` = col_integer(),
+  pID = col_double(),
+  pIDsib = col_double(),
+  Status = col_character()
+)) 
+
+names(idcsv_raw) <- c("first_id",  "first_loci_typed",  "second_id",  "second_loci_typed",  "matching_loci",  "mismatching_loci",  "p_id",  "p_id_sib",  "status")
+
+# add mismatch rate
+idcsv <- idcsv_raw %>%
+  mutate(mismatch_prop = mismatching_loci/(mismatching_loci + matching_loci)) %>% 
+  # order by number of matching loci
+  arrange(matching_loci)
+```
+
+Plot proportion mismatch, pay attention to axis limits
+
+``` r
+ggplot(idcsv, aes(x = mismatch_prop, y = matching_loci)) +
+  geom_point() +
+  theme_bw()
+```
+
+#### Make a histogram of mismatch proportion
+
+``` r
+idcsv %>% 
+  ggplot(aes(mismatch_prop)) +
+  geom_histogram(binwidth = 0.001)
+```
+
+### Add sample\_ids
+
+``` r
+ # for first_sample_id
+ temp <- idcsv %>% 
+   rename(ligation_id = first_id)
+ lab1 <- samp_from_lig(temp)
+ names(lab1) <- paste("first_", names(lab1), sep = "")
+ 
+ 
+ # for second_sample_id
+ temp <- idcsv %>% 
+   rename(ligation_id = second_id)
+ lab2 <- samp_from_lig(temp)
+ names(lab2) <- paste("second_", names(lab2), sep = "")
+ 
+ # add the ids to the idcsv
+  idcsv <- idcsv %>% 
+    left_join(lab1, by = c("first_id" = "first_ligation_id")) %>% 
+    left_join(lab2, by = c("second_id" = "second_ligation_id")) 
+
+rm(lab1, lab2, temp)
+```
+
+### Add gen\_ids
+
+``` r
+gen_ids <- readRDS(here::here("data", "fish-obs.RData")) %>% 
+  select(sample_id, gen_id)
+
+idcsv <- idcsv %>% 
+  left_join(gen_ids, by = c("first_sample_id" = "sample_id")) %>% 
+  rename(first_gen_id = gen_id) %>% 
+  left_join(gen_ids, by = c("second_sample_id" = "sample_id")) %>% 
+  rename(second_gen_id = gen_id)
+```
+
+### Add field data
+
+``` r
+first <- fish_anem_dive() %>% 
+  filter(sample_id %in% idcsv$first_sample_id)
+names(first) <- paste0("first_", names(first))
+
+sec <- fish_anem_dive() %>% 
+  filter(sample_id %in% idcsv$second_sample_id)
+names(sec) <- paste0("second_", names(sec))
+
+idcsv <- left_join(idcsv, first, by = "first_sample_id") %>% 
+  left_join(sec, by = "second_sample_id")
+
+# rearrange columns
+idcsv <- idcsv %>% 
+  select(contains("first"), contains("second"), everything())
+
+rm(first, sec)
+```
+
+## Get lat lons
+
+``` r
+#find the lat lon of the first anem
+first <- idcsv %>% 
+  mutate(first_anem_obs_time = force_tz(ymd_hms(str_c(first_date, first_anem_obs_time, sep = " ")), tzone = "Asia/Manila")) %>% 
+  mutate(first_anem_obs_time = with_tz(first_anem_obs_time, tzone = "UTC")) %>% 
+  mutate(first_hour = hour(first_anem_obs_time), 
+         first_minute = minute(first_anem_obs_time))
+
+lat <- leyte %>%
+    tbl("GPX")  %>% 
+    mutate(gpx_date = date(time)) %>%
+    filter(gpx_date %in% !!idcsv$first_date) %>% 
+    mutate(gpx_hour = hour(time)) %>%
+    mutate(minute = minute(time)) %>%
+    mutate(second = second(time)) %>%
+    select(-time, -second)%>%
+    collect() 
+
+# attach the lat lons
+first <- left_join(first, lat, by = c("first_date" = "gpx_date", "first_hour" = "gpx_hour", "first_minute" = "minute", "first_gps" = "unit"))
+
+# summarize the lat lons
+first <- first %>% 
+  group_by(first_id) %>% 
+  summarise(first_lat = mean(as.numeric(lat)), 
+            first_lon = mean(as.numeric(lon)))
+
+idcsv <- left_join(idcsv, first, by = "first_id")
+rm(first, lat)
+
+# find the lat lon of the second anem
+second <- idcsv %>% 
+  mutate(second_anem_obs_time = force_tz(ymd_hms(str_c(second_date, second_anem_obs_time, sep = " ")), tzone = "Asia/Manila")) %>% 
+  mutate(second_anem_obs_time = with_tz(second_anem_obs_time, tzone = "UTC")) %>% 
+  mutate(second_hour = hour(second_anem_obs_time), 
+         second_minute = minute(second_anem_obs_time))
+
+lat <- leyte %>%
+    tbl("GPX")  %>% 
+    mutate(gpx_date = date(time)) %>%
+    filter(gpx_date %in% !!idcsv$second_date) %>% 
+    mutate(gpx_hour = hour(time)) %>%
+    mutate(minute = minute(time)) %>%
+    mutate(second = second(time)) %>%
+    select(-time, -second)%>%
+    collect() 
+
+# attach the lat lons
+second <- left_join(second, lat, by = c("second_date" = "gpx_date", "second_hour" = "gpx_hour", "second_minute" = "minute", "second_gps" = "unit"))
+
+# summarize the lat lons
+second <- second %>% 
+  group_by(second_id) %>% 
+  summarise(second_lat = mean(as.numeric(lat)), 
+            second_lon = mean(as.numeric(lon)))
+
+idcsv <- left_join(idcsv, second, by = "second_id")
+rm(lat, second)  
+```
+
+# Write big table into a file
+
+``` r
+# saveRDS(idcsv, here::here("data", "identity_big-table.RData"))
+# write_csv(idcsv, here::here("data", "identity_big-table.csv"))
+
+# idcsv <- readRDS(here::here("data", "identity_big-table.RData"))
+```
+
+# Does the first gen\_id match the second gen id?
+
+``` r
+old_pairs <- idcsv %>% 
+  filter(first_gen_id == second_gen_id, 
+         !is.na(first_gen_id)) %>% 
+  select(first_sample_id, second_sample_id, first_gen_id, second_gen_id, first_tag_id, second_tag_id, mismatching_loci, matching_loci, contains("lat"), contains("lon"), contains("sex"))
+```
+
+# Examine new matches
+
+``` r
+new_pairs <- idcsv %>% 
+  filter(first_gen_id != second_gen_id) %>% 
+  # reduce number of columns
+  select(first_sample_id, second_sample_id, first_gen_id, second_gen_id, first_tag_id, second_tag_id, mismatch_prop,mismatching_loci, matching_loci, contains("lat"), contains("lon"), contains("sex"), contains("date"), contains("site"), first_id, second_id, contains("notes"))
+
+# make sure no known_issues are included
+iss <- lab %>% 
+  tbl("known_issues") %>% 
+  collect()
+
+new_pairs <- new_pairs %>% 
+  filter(!first_id %in% iss$ligation_id, 
+         !second_id %in% iss$ligation_id)
+
+
+new_pairs$dist <- distGeo(new_pairs[, c("first_lon", "first_lat")], new_pairs[, c("second_lon", "second_lat")])
+
+(new_pairs %>% select(first_sample_id, second_sample_id, dist, first_date, second_date, first_site, second_site, everything(), -contains("corr"), -contains("lat"), -contains("lon")))
+```
+
+# Which pairs are on the same ligation plate?
+
+``` r
+# what plates were the new pairs on?
+first <- new_pairs %>% 
+  rename(sample_id = first_sample_id)
+first <- work_history(first, "sample_id") %>% 
+  filter(!is.na(lig_well))
+
+names(first) <- paste("first", names(first), sep = "_")
+
+new_pairs_first <- left_join(new_pairs, first, by = "first_sample_id")
+
+second <- new_pairs_first %>% 
+  rename(sample_id = second_sample_id)
+
+second <- work_history(second, "sample_id") %>% 
+  filter(!is.na(lig_well))
+
+names(second) <- paste("second", names(second), sep = "_")
+
+new_pairs <- left_join(new_pairs_first, second, by = "second_sample_id")
+
+
+
+same_lig_plate <- new_pairs %>% 
+  filter(first_lig_plate == second_lig_plate) %>% 
+  select(first_sample_id, second_sample_id, first_site, second_site, dist, everything()) %>% 
+  distinct()
+```
+
+# Which fish are at different sites and captured far away from each other?
+
+2019-05-20 - 4 rows of observations are flagged as “far fish”. 2 rows
+involve 3 fish that all match to each other. 2 other rows are movements
+of smaller distance and are believable.
+
+``` r
+(far_fish <- new_pairs %>% 
+  filter(dist > 50 & first_site != second_site) %>% 
+   select(first_sample_id, second_sample_id, dist, contains("lig"), contains("dig"), contains("extr"), everything()) %>% 
+   arrange(desc(dist)))
+
+# investigate far fish to determine if they are true recaptures
+photos <- read_csv("https://raw.githubusercontent.com/pinskylab/Clown_Fish_Tail_Color_Darrow/master/Data/fish-by-photo.csv?token=AG664YORQYQZKCBS3ZMQSGK4422VY", col_types = cols(
+  image = col_character(),
+  fish_table_id = col_double(),
+  best_image = col_character(),
+  num_images = col_double(),
+  sample_id = col_character(),
+  tag_id = col_double()
+))
+
+far_fish_photos <- left_join(far_fish, photos, by = c("first_sample_id" = "sample_id")) %>% 
+  rename(first_image = image) %>% 
+  select(-fish_table_id, -best_image, -num_images, -tag_id) %>% 
+  left_join(photos, by = c("second_sample_id" = "sample_id")) %>% 
+  rename(second_image = image) %>% 
+  select(-fish_table_id, -best_image, -num_images, -tag_id, -contains("corr")) %>% 
+  select(first_sample_id, first_image, second_sample_id, second_image, dist, first_date, second_date, first_site, second_site, everything()) %>% 
+  filter(!is.na(first_image) & !is.na(second_image))
+```
+
+# Which fish are tag recaptures?
+
+``` r
+(tag_fish <- new_pairs %>% 
+  filter(first_tag_id == second_tag_id))
+```
+
+# Which fish were captured in the same year? The fish that were captured on the same day have a note that the tail was already cut so all of these look ok.
+
+``` r
+same_year <- new_pairs %>% 
+  filter(year(first_date) == year(second_date)) %>% 
+  select(first_sample_id, second_sample_id, first_date, second_date, first_fish_notes, second_fish_notes)
+```
+
+# Assign gen\_ids
+
+``` r
+max_gen <- max(gen_ids$gen_id, na.rm = T)
+
+new_gen_ids <- new_pairs %>% 
+ # make the second gen_id the same as the first gen-id
+   mutate(second_gen_id = ifelse(!is.na(first_gen_id), first_gen_id, second_gen_id)) %>% 
+  select(contains("sample_id"), contains("gen_id"))
+
+# is anyone still missing a gen_id
+need_gen_id <- new_gen_ids %>% 
+  filter(first_gen_id != second_gen_id)
+# should be 0 rows
+
+new_gen_ids <- new_gen_ids %>% 
+  select(-second_gen_id) %>% 
+  rename(gen_id = first_gen_id)
+
+# combine into a list that can be imported in to the fish-obs table
+first <- new_gen_ids %>% 
+  select(first_sample_id, gen_id) %>% 
+  rename(sample_id = first_sample_id)
+
+second <- new_gen_ids %>% 
+  select(second_sample_id, gen_id) %>% 
+  rename(sample_id = second_sample_id)
+
+recap_gen_ids <- rbind(first, second) %>% 
+  distinct()
+
+# loop to make sure all recaptures of a fish get the same gen_id
+for_processing <- recap_gen_ids
+gens_to_keep <- tibble()
+while(nrow(for_processing) >= 1){
+  # all samples that belong to this gen_id
+  samps <- for_processing %>% 
+    filter(gen_id == for_processing$gen_id[1])
+  
+  # all gen_ids that belong to these samples 
+  gens <- for_processing %>% 
+    filter(sample_id %in% samps$sample_id) %>% 
+    rbind(samps) %>% 
+    distinct()
+  
+  # all the samples that belong to these other gen_ids
+  more_samps <- for_processing %>% 
+    filter(gen_id %in% gens$gen_id) %>% 
+    rbind(gens) %>% 
+    distinct()
+  
+  min_gen <- min(more_samps$gen_id)
+  
+  one_gen <- more_samps %>% 
+    mutate(gen_id = min_gen)
+  
+  for_processing <- anti_join(for_processing, one_gen, by = "sample_id")
+  
+  
+  test <- one_gen %>% 
+    distinct(gen_id)
+  
+  stopifnot(nrow(test)==1)
+  
+  gens_to_keep <- rbind(gens_to_keep, one_gen) %>% 
+    distinct()
+
+}
+gens_to_keep <- gens_to_keep %>% 
+  rename(new_gen_id = gen_id))
+
+# all of the sample_ids in recap_gen_ids are  in gens to keep
+test <- anti_join(recap_gen_ids, gens_to_keep, by = "sample_id")
+
+
+# test - how many recapture events for each gen_id
+num_gens <- gens_to_keep %>%
+  group_by(gen_id) %>%
+  count()
+
+# change the gen_ids in the fish_obs file to reflect the recaptures
+fish_obs <- read_csv("https://github.com/pinskylab/genomics/raw/master/data/fish-obs.csv", col_types = cols(
+  fish_table_id = col_double(),
+  sample_id = col_character(),
+  tag_id = col_character(), # because numeric uses scientific notation and loses the end numbers
+  gen_id = col_double(),
+  fish_indiv = col_character() # because numeric uses scientific notation and loses the end numbers
+))
+
+
+fish_obs <- left_join(fish_obs, gens_to_keep, by = "sample_id")
+fish_obs <- fish_obs %>% 
+  mutate(gen_id = ifelse(!is.na(new_gen_id) & gen_id != new_gen_id, new_gen_id, gen_id)) %>% 
+  select(-new_gen_id)
+
+saveRDS(fish_obs, here::here("data", "fish-obs.RData"))
+write_csv(fish_obs, here::here("data", "fish-obs.csv"))
+```
+
+# Write new genepop with only one representative of each gen\_id
+
+``` r
+# Read in genepop
+gen_file <- here::here("data", "seq33-03_noregeno.gen")
+genedf <- read_genepop(gen_file) %>% 
+  rename(ligation_id = names)
+
+# pull sample_ids from db
+sample_ids <- samp_from_lig(genedf) 
+
+# get gen_ids for the sample_ids
+gen_ids <- readRDS(here::here("data", "fish-obs.RData")) %>% 
+  filter(sample_id %in% sample_ids$sample_id) %>% 
+  select(sample_id, gen_id) %>% 
+  left_join(sample_ids, by = "sample_id")
+
+# replace 0000 with na
+non_zero <- genedf  %>% 
+  na_if(., "0000")
+
+# count how many loci are represented on each line
+numloci <- non_zero %>% 
+  is.na %>% 
+  `!` %>% 
+  rowSums
+
+# add numloci as a column
+numgen <- cbind(gen_ids, numloci)
+
+# create a data frame of sample ids to keep or drop based on the number of loci present
+keep_drop <- numgen %>% 
+  # select only the columns to identify which to keep
+  select(gen_id, ligation_id, numloci) %>%
+  group_by(gen_id) %>% 
+  # create a maxloci column that holds the most loci each sample id carries
+  mutate(maxloci = max(numloci), 
+         # create a drop column that holds the decision to keep or drop that row
+         drop = ifelse(numloci == maxloci, "KEEP", "DROP")) %>% 
+  # keep only the columns that hold the maxloci and say "KEEP"
+  filter(drop == "KEEP") %>% 
+  ungroup() %>% 
+  # keep only the columns needed to identify these "keeper rows"
+  select(ligation_id)
+
+# keep only the version of the sample id that has the most loci
+no_recap <- numgen %>% 
+  filter(ligation_id %in% keep_drop$ligation_id)
+
+
+# Some samples were not dropped because both regenotypes have the same number of loci. This is just one line out of multiple, so keeping just the one line 
+recaps <- no_recap %>%
+  filter(duplicated(no_recap$gen_id)) %>%
+  select(gen_id, ligation_id)
+
+# drop the ligation_ids for these duplicated samples
+no_recap1 <- no_recap %>% 
+  filter(!ligation_id %in% recaps$ligation_id)
+
+# rerun the above line to make sure no recaps remain
+
+# filter the genedf according to this list
+norecaps <- genedf %>% 
+  filter(ligation_id %in% no_recap1$ligation_id)
+```
+
+# Write the genepop
+
+``` r
+# Build the genepop components
+msg <- c("This genepop file was generated using a script called process_genepop.Rmd written by Michelle Stuart ")
+write_lines(msg, path = str_c(here::here("data", "seq33-03_norecap.gen"), sep = ""), append = F)
+
+# find all of the column names that contain contig and collapse them into a comma separated string
+loci <-  str_c(names(select(norecaps, contains("contig"))), collapse = ",")
+write_lines(loci, path = str_c(here::here("data", "seq33-03_norecap.gen"), sep = ""), append = T)
+
+pop <- "pop"
+write_lines(pop, path = str_c(here::here("data", "seq33-03_norecap.gen"), sep = ""), append = T)
+
+gene <- vector()
+sample <- vector()
+for (i in 1:nrow(norecaps)){
+  gene[i] <- str_c(select(norecaps[i,], contains("contig")), collapse = " ")
+  sample[i] <- str_c(norecaps$ligation_id[i], gene[i], sep = ", ")
+  write_lines(sample[i], path = str_c(here::here("data", "seq33-03_norecap.gen"), sep = ""), append = T)
+}
+```
+
+# Then run the recaptured-fish.Rmd protocol to make sure the gen\_ids and tag\_ids are all matched up in fish-obs.Rdata.
