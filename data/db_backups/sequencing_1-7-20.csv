@@ -1,0 +1,26 @@
+"seq_id","date","contents","vol_pooled_libs","vol_TE","library_type","facility","platform",num_lanes,"read_length","pe_se","amphiprion_folder","notes"
+"Fish-Ci","2013-03-04","P10H, J9H","NA","NA","TruSeq_RNA","PrincetonLSI","hiseq",0,"187","se","hiseq_2013_03_04","25% of run was APCL. shared with Landwebber lab"
+"MLP01","2013-04-02","P3H, P4H, P6H, P10H, J5H, J9H, J11H, J13H","NA","NA","TruSeq_RNA","PrincetonLSI","hiseq",0,"148","se","hiseq_2013_04_02","75% of run was APCL. shared with Landwebber lab."
+"MLP03","2013-09-04","P14H, P16H, J3H, J15H, J17H, N1H, N2H, N3H, N4H, N5H, N6H, N7H","NA","NA","TruSeq_RNA","PrincetonLSI","hiseq",0,"148","se","hiseq_2013_09_04",""
+"MLP04","2013-11-08","P18H, P20H, P22H, P24H, J19H","NA","NA","TruSeq_RNA","PrincetonLSI","hiseq",0,"186","se","hiseq_2013_11_08","50% of run was APCL. shared with Landwebber lab"
+"SEQ01","2014-02-13","P001","NA","NA","ddRADseq","Rutgersbhattacharya","miseq",0,"150","pe","miseq_2014_02_13","failed on the turn-around. cluster density too low to register"
+"SEQ02","2014-04-28","P007","NA","NA","ddRADseq","Rutgersbhattacharya","miseq",0,"2x150","pe","miseq_2014_04_28","40% of returned reads were not our sample"
+"SEQ03","2014-07-29","P012, P013, P014, P015","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x214","se","hiseq_2014_08_07_SEQ03","library prepared in TX by MRS under the supervision of JbP"
+"SEQ04","2014-12-11","P020, P021, P022, P023","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x214","se","hiseq_2014_12_19_SEQ04","Didn't calculate the values properly, actually sent a 30킠 solution @ 13.5nM, 3.83 ng/킠"
+"SEQ05","2014-12-11","P024, P025, P026, P027","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x214","se","hiseq_2014_12_19_SEQ05","Didn't calculate the values properly, actually sent a 30킠 solution @ 8.5nM, 2.41ng/킠"
+"SEQ06","2015-04-22","P028, P029","NA","NA","ddRADseq","Rutgersbhattacharya","miseq",0,"1x200","se","miseq_2015_04_22_SEQ06",""
+"SEQ07","2015-05-01","P016, P017, P018, P019","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x214","se","hiseq_2015_05_01_SEQ07",""
+"SEQ08","2015-05-11","P030, P031, P032, P033","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x214","se","hiseq_2015_05_11_SEQ08",""
+"SEQ09","2015-07-08","P039, P040, P041, P042","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x214","se","hiseq_2015_07_08_SEQ09",""
+"SEQ10","2015-09-14","P034, P035, P036, P037, P038","NA","NA","ddRADseq","PrincetonLSI","hiseq",1,"1x141","se","hiseq_2015_09_11_SEQ10","Paralichthys dentatus"
+"SEQ11","2015-12-07","P043, P044, P045, P046, P047","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x150","se","hiseq_2015_12_07_SEQ11","Paralichthys dentatus; 2 flow cells, single run"
+"SEQ12","2015-12-18","P053, P054, P055, P056","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x141","se","hiseq_2015_12_18_SEQ12",""
+"SEQ13","2015-12-18","P057, P058, P059, P060","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x141","se","hiseq_2015_12_18_SEQ13",""
+"SEQ14","2016-02-08","P048, P049, P050, P051, P052","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x150","se","hiseq_2016_02_08_SEQ14","11.7nM in 100ul, Paralichthys dentatus; 2 flow cells, single run"
+"SEQ15","2016-04-21","P061, P062, P063, P064","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x141","se","hiseq_2016_04_21_SEQ15",""
+"SEQ16","2016-06-01","P065, P066, P067, P068","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x141","se","hiseq_2016_06_01_SEQ16",""
+"SEQ17","2016-10-24","P069, P070, P071, P072","NA","NA","ddRADseq","PrincetonLSI","hiseq",2,"1x141","se","hiseq_2016_10_25_SEQ17",""
+"SEQ28","2018-09-13","B001, B002, B003","13.21","16.79","ddRADSeq","PrincetonLSI","hiseq",2,NULL,"se",NULL,NULL
+"SEQ29","2018-09-13","B004, B005, B006","21.864406779661","8.13559322033899","ddRADSeq","PrincetonLSI","hiseq",2,NULL,"se",NULL,NULL
+"SEQ30","2018-09-13","B007, B008, B009","7.77534246575342","22.2246575342466","ddRADSeq","PrincetonLSI","hiseq",2,NULL,"se",NULL,NULL
+"SEQ31","2018-09-13","B010, B011, B012","3.8622754491018","26.1377245508982","ddRADSeq","PrincetonLSI","hiseq",2,NULL,"se",NULL,NULL

@@ -1,0 +1,6 @@
+"row_names","field_name","description"
+"1","lat","latitude reading from gps"
+"2","lon","longitude reading from gps"
+"3","time","time of gps reading in UTC"
+"4","unit","number of gps unit"
+"5","elev","A field provided by the GPS unit that holds no value because we are underwater at the time of the reading."

@@ -1,0 +1,6 @@
+"table_name","description"
+"anemones","table recording observations of anemones in Leyte, Philippines, starting in 2012"
+"clownfish","table recording observations of clownfish, including unprocessed, non-APCL clownfish, in Leyte, Philippines, starting in 2012"
+"diveinfo","table recording dive information for clownfish surveys, anemone surveys, coral fish transects, coral quadrat transects in Leyte, Philippines, starting in 2012"
+"GPX","table recording all data from all gps units in Leyte, Philippines, starting in 2012"
+"pitscan","table recording data from the PIT scanner used on APCL clownfish in Leyte, Philippines, starting in 2015-January"

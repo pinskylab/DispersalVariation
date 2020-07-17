@@ -1,0 +1,57 @@
+"row_names","field_name","description"
+"1","dive_table_id","unique identifier of dive, links to anemones table as \"dive_table_id\""
+"2","dive_num","dive number within field season"
+"3","dive_type","dive type options:
+A - anemone survey dive
+B
+C - clownfish collection dive
+D - clownfish collection with transect (2012)
+E - clownfish collection with transect and mapping fish survey (2012)
+F - fish transect with quadrats for coral survey
+G
+H
+I
+J
+K
+L
+M - mapping fish survey with transect (2012)
+N 
+O
+P
+Q
+R - recapture survey
+S
+T
+U
+V
+W
+X
+Y
+Z
+0 - none of the above"
+"4","date","date of the dive"
+"5","site","site where dive occurred"
+"6","municipality","municipality where dive occurred (Albuera or BayBay)"
+"7","gps","number of GPS unit"
+"8","divers","divers who participated in the dive, regardless of role"
+"9","start_time","time began objective, searching for clownfish, anemones or transect, recorded in Asia/Manila timezone"
+"10","end_time","time ended objective, as described in starttime, recorded in Asia/Manila timezone"
+"11","duration","end time minus start time"
+"12","discontinuous","1 if objective was interrupted for some reason, like returning to the surface to change gear or stopping to watch a cuddlefish, 0 if there were no interruptions"
+"13","pause_start","the beginning time of the interruption, recorded in Asia/Manila timezone"
+"14","pause_end","the end of the interruption, recorded in Asia/Manila timezone"
+"15","weather","a one or few word description of the weather conditions"
+"16","current_knots","an estimation of the current speed"
+"17","wave_height_cm","an estimation of the height in cm of the waves"
+"18","visibility_m","an estimation of how far one can see underwater at reef depth"
+"19","wind_mph","an estimation of wind speed"
+"20","tide","the phase of the tide, rising, falling, high, low"
+"21","topo_m","the distance from depth_top to depth_bottom"
+"22","depth_top_m","the shallowest part of the survey in meters"
+"23","depth_bottom_m","the deepest part of the survey in meters"
+"24","cover","a brief discription of survey seascape"
+"25","dive_notes","any notes pertaining to the dive"
+"26","dive_correction","if a Y is present, a correction has been made to the data since data entry from the data sheet"
+"27","dive_corr_date","the date of the most recent correction"
+"28","dive_corr_editor","the editor of the most recent correction"
+"29","dive_corr_message","which field was changed from what old value to what new value and why, based on what evidence.  If another correction was already present, amend the message to include the date and correction editor of previous corrections"

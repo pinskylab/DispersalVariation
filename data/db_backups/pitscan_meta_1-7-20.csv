@@ -1,0 +1,6 @@
+"row_names","field_name","description"
+"1","city","city code where pit tag was made"
+"2","tag","pit tag id number"
+"3","date","date pit tag was scanned"
+"4","time","time pit tag was scanned, in local time, Manila time zone for this study"
+"5","pit_notes","notes regarding pitscan readings"
