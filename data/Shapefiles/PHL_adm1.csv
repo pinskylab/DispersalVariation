@@ -1,0 +1,82 @@
+"OBJECTID","ID_0","ISO","NAME_0","ID_1","NAME_1","TYPE_1","ENGTYPE_1","NL_NAME_1","VARNAME_1"
+1,179,"PHL","Philippines",1,"Abra","Lalawigan|Probinsya","Province",NA,NA
+2,179,"PHL","Philippines",2,"Agusan del Norte","Lalawigan|Probinsya","Province",NA,NA
+3,179,"PHL","Philippines",3,"Agusan del Sur","Lalawigan|Probinsya","Province",NA,NA
+4,179,"PHL","Philippines",4,"Aklan","Lalawigan|Probinsya","Province",NA,NA
+5,179,"PHL","Philippines",5,"Albay","Lalawigan|Probinsya","Province",NA,NA
+6,179,"PHL","Philippines",6,"Antique","Lalawigan|Probinsya","Province",NA,NA
+7,179,"PHL","Philippines",7,"Apayao","Lalawigan|Probinsya","Province",NA,NA
+8,179,"PHL","Philippines",8,"Aurora","Lalawigan|Probinsya","Province",NA,NA
+9,179,"PHL","Philippines",9,"Basilan","Lalawigan|Probinsya","Province",NA,NA
+10,179,"PHL","Philippines",10,"Bataan","Lalawigan|Probinsya","Province",NA,NA
+11,179,"PHL","Philippines",11,"Batanes","Lalawigan|Probinsya","Province",NA,NA
+12,179,"PHL","Philippines",12,"Batangas","Lalawigan|Probinsya","Province",NA,NA
+13,179,"PHL","Philippines",13,"Benguet","Lalawigan|Probinsya","Province",NA,NA
+14,179,"PHL","Philippines",14,"Biliran","Lalawigan|Probinsya","Province",NA,NA
+15,179,"PHL","Philippines",15,"Bohol","Lalawigan|Probinsya","Province",NA,NA
+16,179,"PHL","Philippines",16,"Bukidnon","Lalawigan|Probinsya","Province",NA,NA
+17,179,"PHL","Philippines",17,"Bulacan","Lalawigan|Probinsya","Province",NA,NA
+18,179,"PHL","Philippines",18,"Cagayan","Lalawigan|Probinsya","Province",NA,NA
+19,179,"PHL","Philippines",19,"Camarines Norte","Lalawigan|Probinsya","Province",NA,NA
+20,179,"PHL","Philippines",20,"Camarines Sur","Lalawigan|Probinsya","Province",NA,NA
+21,179,"PHL","Philippines",21,"Camiguin","Lalawigan|Probinsya","Province",NA,NA
+22,179,"PHL","Philippines",22,"Capiz","Lalawigan|Probinsya","Province",NA,NA
+23,179,"PHL","Philippines",23,"Catanduanes","Lalawigan|Probinsya","Province",NA,NA
+24,179,"PHL","Philippines",24,"Cavite","Lalawigan|Probinsya","Province",NA,NA
+25,179,"PHL","Philippines",25,"Cebu","Lalawigan|Probinsya","Province",NA,NA
+26,179,"PHL","Philippines",26,"Compostela Valley","Lalawigan|Probinsya","Province",NA,NA
+27,179,"PHL","Philippines",27,"Davao del Norte","Lalawigan|Probinsya","Province",NA,"Davao"
+28,179,"PHL","Philippines",28,"Davao del Sur","Lalawigan|Probinsya","Province",NA,NA
+29,179,"PHL","Philippines",29,"Davao Oriental","Lalawigan|Probinsya","Province",NA,NA
+30,179,"PHL","Philippines",30,"Dinagat Islands","Lalawigan|Probinsya","Province",NA,NA
+31,179,"PHL","Philippines",31,"Eastern Samar","Lalawigan|Probinsya","Province",NA,NA
+32,179,"PHL","Philippines",32,"Guimaras","Lalawigan|Probinsya","Province",NA,NA
+33,179,"PHL","Philippines",33,"Ifugao","Lalawigan|Probinsya","Province",NA,NA
+34,179,"PHL","Philippines",34,"Ilocos Norte","Lalawigan|Probinsya","Province",NA,NA
+35,179,"PHL","Philippines",35,"Ilocos Sur","Lalawigan|Probinsya","Province",NA,NA
+36,179,"PHL","Philippines",36,"Iloilo","Lalawigan|Probinsya","Province",NA,NA
+37,179,"PHL","Philippines",37,"Isabela","Lalawigan|Probinsya","Province",NA,NA
+38,179,"PHL","Philippines",38,"Kalinga","Lalawigan|Probinsya","Province",NA,NA
+39,179,"PHL","Philippines",39,"La Union","Lalawigan|Probinsya","Province",NA,NA
+40,179,"PHL","Philippines",40,"Laguna","Lalawigan|Probinsya","Province",NA,NA
+41,179,"PHL","Philippines",41,"Lanao del Norte","Lalawigan|Probinsya","Province",NA,NA
+42,179,"PHL","Philippines",42,"Lanao del Sur","Lalawigan|Probinsya","Province",NA,NA
+43,179,"PHL","Philippines",43,"Leyte","Lalawigan|Probinsya","Province",NA,NA
+44,179,"PHL","Philippines",44,"Maguindanao","Lalawigan|Probinsya","Province",NA,NA
+45,179,"PHL","Philippines",45,"Marinduque","Lalawigan|Probinsya","Province",NA,NA
+46,179,"PHL","Philippines",46,"Masbate","Lalawigan|Probinsya","Province",NA,NA
+47,179,"PHL","Philippines",47,"Metropolitan Manila","Lalawigan|Probinsya","Province",NA,NA
+48,179,"PHL","Philippines",48,"Misamis Occidental","Lalawigan|Probinsya","Province",NA,NA
+49,179,"PHL","Philippines",49,"Misamis Oriental","Lalawigan|Probinsya","Province",NA,NA
+50,179,"PHL","Philippines",50,"Mountain Province","Lalawigan|Probinsya","Province",NA,NA
+51,179,"PHL","Philippines",51,"Negros Occidental","Lalawigan|Probinsya","Province",NA,NA
+52,179,"PHL","Philippines",52,"Negros Oriental","Lalawigan|Probinsya","Province",NA,NA
+53,179,"PHL","Philippines",53,"North Cotabato","Lalawigan|Probinsya","Province",NA,NA
+54,179,"PHL","Philippines",54,"Northern Samar","Lalawigan|Probinsya","Province",NA,NA
+55,179,"PHL","Philippines",55,"Nueva Ecija","Lalawigan|Probinsya","Province",NA,NA
+56,179,"PHL","Philippines",56,"Nueva Vizcaya","Lalawigan|Probinsya","Province",NA,NA
+57,179,"PHL","Philippines",57,"Occidental Mindoro","Lalawigan|Probinsya","Province",NA,NA
+58,179,"PHL","Philippines",58,"Oriental Mindoro","Lalawigan|Probinsya","Province",NA,NA
+59,179,"PHL","Philippines",59,"Palawan","Lalawigan|Probinsya","Province",NA,"Paragua"
+60,179,"PHL","Philippines",60,"Pampanga","Lalawigan|Probinsya","Province",NA,NA
+61,179,"PHL","Philippines",61,"Pangasinan","Lalawigan|Probinsya","Province",NA,NA
+62,179,"PHL","Philippines",62,"Quezon","Lalawigan|Probinsya","Province",NA,NA
+63,179,"PHL","Philippines",63,"Quirino","Lalawigan|Probinsya","Province",NA,NA
+64,179,"PHL","Philippines",64,"Rizal","Lalawigan|Probinsya","Province",NA,NA
+65,179,"PHL","Philippines",65,"Romblon","Lalawigan|Probinsya","Province",NA,NA
+66,179,"PHL","Philippines",66,"Samar","Lalawigan|Probinsya","Province",NA,"Western Samar"
+67,179,"PHL","Philippines",67,"Sarangani","Lalawigan|Probinsya","Province",NA,NA
+68,179,"PHL","Philippines",68,"Siquijor","Lalawigan|Probinsya","Province",NA,NA
+69,179,"PHL","Philippines",69,"Sorsogon","Lalawigan|Probinsya","Province",NA,NA
+70,179,"PHL","Philippines",70,"South Cotabato","Lalawigan|Probinsya","Province",NA,NA
+71,179,"PHL","Philippines",71,"Southern Leyte","Lalawigan|Probinsya","Province",NA,NA
+72,179,"PHL","Philippines",72,"Sultan Kudarat","Lalawigan|Probinsya","Province",NA,NA
+73,179,"PHL","Philippines",73,"Sulu","Lalawigan|Probinsya","Province",NA,NA
+74,179,"PHL","Philippines",74,"Surigao del Norte","Lalawigan|Probinsya","Province",NA,NA
+75,179,"PHL","Philippines",75,"Surigao del Sur","Lalawigan|Probinsya","Province",NA,NA
+76,179,"PHL","Philippines",76,"Tarlac","Lalawigan|Probinsya","Province",NA,NA
+77,179,"PHL","Philippines",77,"Tawi-Tawi","Lalawigan|Probinsya","Province",NA,NA
+78,179,"PHL","Philippines",78,"Zambales","Lalawigan|Probinsya","Province",NA,NA
+79,179,"PHL","Philippines",79,"Zamboanga del Norte","Lalawigan|Probinsya","Province",NA,NA
+80,179,"PHL","Philippines",80,"Zamboanga del Sur","Lalawigan|Probinsya","Province",NA,NA
+81,179,"PHL","Philippines",81,"Zamboanga Sibugay","Lalawigan|Probinsya","Province",NA,NA
