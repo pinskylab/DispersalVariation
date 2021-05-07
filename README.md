@@ -8,8 +8,8 @@ This repository is organized into 3 folders:
   -This contains the data to run the analysis using the code. The genomic data here is a filtered to use in Colony2. It also contains a backup of the SQL database with all data for the clownfish field and wetlab work in the Pinsky lab.
 3. genomics
   -This is the version of https://github.com/pinskylab/genomics as it was at the time of this project. It contains all molecular wetlab metadata, raw genomic data, bioinformatics code, and protocols.
-  -The final VCF created from the "genomics" repository filtering pipeline is [FIL_6.recode.vcf](https://github.com/pinskylab/genomics/blob/master/data/FIL_6.recode.vcf.zip)
-  -The final genepop file used to make Colony2 input files is [seq33-03_norecap.gen](https://github.com/pinskylab/DispersalVariation/blob/master/data/seq33-03_norecap.gen)
+  - The final VCF created from the "genomics" repository filtering pipeline is [FIL_6.recode.vcf](https://github.com/pinskylab/genomics/blob/master/data/FIL_6.recode.vcf.zip)
+  - The final genepop file used to make Colony2 input files is [seq33-03_norecap.gen](https://github.com/pinskylab/DispersalVariation/blob/master/data/seq33-03_norecap.gen)
   
   Please contact Katrina at kat.catalano@rutgers.edu with any questions.
   
