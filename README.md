@@ -11,7 +11,7 @@ This repository is organized into 3 folders:
   - The final VCF created from the "genomics" repository filtering pipeline is [FIL_6.recode.vcf](https://github.com/pinskylab/genomics/blob/master/data/FIL_6.recode.vcf.zip)
   - The final genepop file used to make Colony2 input files is [seq33-03_norecap.gen](https://github.com/pinskylab/DispersalVariation/blob/master/data/seq33-03_norecap.gen)
   
-  Please contact Katrina at kat.catalano@rutgers.edu with any questions.
+  Please contact Katrina at kat.catalano[at]rutgers.edu with any questions.
   
   ## Workflow
   1. Protocols for sample collection in the field can be found within this separate repository: https://github.com/pinskylab/field
