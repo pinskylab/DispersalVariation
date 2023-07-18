@@ -1,0 +1,1466 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{process\_migest\_output}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \subsection{Read in MigEst.out files, check against parentage results
+and visualize
+results}\label{read-in-migest.out-files-check-against-parentage-results-and-visualize-results}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} Packages \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{dplyr\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{viridis\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ggpubr\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{gridExtra\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{colorRamps\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{ggplot2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{fields\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{stringr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{reshape2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{splitstackshape\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{readr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{dplyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{tidyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{stringr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{tidyverse\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{tibble\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ggfortify\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{lubridate\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{RColorBrewer\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{vegan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{vcfR\PYZdq{}}\PY{p}{)}
+        
+        \PY{k+kp}{invisible}\PY{p}{(}\PY{k+kp}{suppressPackageStartupMessages}\PY{p}{(}\PY{k+kp}{lapply}\PY{p}{(}Packages\PY{p}{,} \PY{k+kn}{library}\PY{p}{,} character.only \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+        \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZpc{}!in\PYZpc{}\PYZdq{}} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kr}{function}\PY{p}{(}x\PY{p}{,}\PY{k+kp}{table}\PY{p}{)} \PY{k+kp}{match}\PY{p}{(}x\PY{p}{,}\PY{k+kp}{table}\PY{p}{,} nomatch \PY{o}{=} \PY{l+m}{0}\PY{p}{)} \PY{o}{==} \PY{l+m}{0}
+        
+        
+        \PY{k+kp}{setwd}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{/local/home/katrinac/migest\PYZsq{}}\PY{p}{)}
+        
+        \PY{k+kn}{source}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/scripts/conleyte.R\PYZdq{}}\PY{p}{)}
+        \PY{k+kn}{source}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/scripts/conlabor.R\PYZdq{}}\PY{p}{)}
+        labor \PY{o}{\PYZlt{}\PYZhy{}} conlabor\PY{p}{(}\PY{p}{)}
+        leyte \PY{o}{\PYZlt{}\PYZhy{}} conleyte\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{c+c1}{\PYZsh{}read in the site codes}
+        sites\PYZus{}all \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/average\PYZus{}allyears/input\PYZus{}sites\PYZus{}all.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        sites\PYZus{}all\PY{o}{\PYZdl{}}site \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{gsub}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{,} sites\PYZus{}all\PY{o}{\PYZdl{}}site\PY{p}{,} fixed\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        sites12 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2012/20180809\PYZus{}propsamp\PYZus{}corr/input\PYZus{}sites\PYZus{}2012.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+        sites12\PY{o}{\PYZdl{}}site \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{gsub}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{,} sites12\PY{o}{\PYZdl{}}site\PY{p}{,} fixed\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        sites13 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2013/20180809\PYZus{}propsamp\PYZus{}corr/input\PYZus{}sites\PYZus{}2013.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        sites13\PY{o}{\PYZdl{}}site \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{gsub}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{,} sites13\PY{o}{\PYZdl{}}site\PY{p}{,} fixed\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        sites14 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2014/20180809\PYZus{}propsamp\PYZus{}corr/input\PYZus{}sites\PYZus{}2014.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        sites14\PY{o}{\PYZdl{}}site \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{gsub}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{,} sites14\PY{o}{\PYZdl{}}site\PY{p}{,} fixed\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        sites15 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2015/20180809\PYZus{}propsamp\PYZus{}corr/input\PYZus{}sites\PYZus{}2015.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        sites15\PY{o}{\PYZdl{}}site \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{gsub}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{,} sites15\PY{o}{\PYZdl{}}site\PY{p}{,} fixed\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{}read in connectivity matrices }
+        \PY{c+c1}{\PYZsh{}conmat12}
+        \PY{c+c1}{\PYZsh{}conmat13}
+        conmat\PYZus{}all \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/average\PYZus{}allyears/20180827\PYZus{}conmat\PYZus{}allyears.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        conmat12 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2012/20180809\PYZus{}propsamp\PYZus{}corr/20180817\PYZus{}conmat12.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        conmat13 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2013/20180809\PYZus{}propsamp\PYZus{}corr/20180817\PYZus{}conmat13.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        conmat14 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2014/20180809\PYZus{}propsamp\PYZus{}corr/20180821\PYZus{}conmat14.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        conmat15 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2015/20180809\PYZus{}propsamp\PYZus{}corr/20180821\PYZus{}conmat15.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{}read in the confidence interval estimates}
+        confid\PYZus{}all \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/average\PYZus{}allyears/20180827\PYZus{}confid\PYZus{}allyears.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{,} sep\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}
+        confid12 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2012/20180809\PYZus{}propsamp\PYZus{}corr/20180820\PYZus{}confid12.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        confid13 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2013/20180809\PYZus{}propsamp\PYZus{}corr/20180820\PYZus{}confid13.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        confid14 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2014/20180809\PYZus{}propsamp\PYZus{}corr/20180821\PYZus{}confid14.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+        confid15 \PY{o}{\PYZlt{}\PYZhy{}} read.table\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/annual/2015/20180809\PYZus{}propsamp\PYZus{}corr/20180821\PYZus{}confid15.txt\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} conmat\PYZus{}all\PY{o}{\PYZdl{}}Pop \PY{o}{\PYZlt{}\PYZhy{}} sites\PYZus{}all\PY{o}{\PYZdl{}}site
+        conmat\PYZus{}all \PY{o}{\PYZlt{}\PYZhy{}} rename\PY{p}{(}conmat\PYZus{}all\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop1\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop3\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop4\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop5\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop6\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop7\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop8\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop9\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop10\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop11\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop12\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop13\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop14\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}} \PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop15\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop16\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop17\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop18\PYZdq{}}\PY{p}{)}
+        \PY{k+kp}{dim}\PY{p}{(}conmat\PYZus{}all\PY{p}{)}
+        
+        conmat12\PY{o}{\PYZdl{}}Pop \PY{o}{\PYZlt{}\PYZhy{}} sites12\PY{o}{\PYZdl{}}site
+        conmat12 \PY{o}{\PYZlt{}\PYZhy{}} rename\PY{p}{(}conmat12\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop1\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop3\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop4\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop5\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop6\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop7\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop8\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop9\PYZdq{}}\PY{p}{)}
+        \PY{k+kp}{dim}\PY{p}{(}conmat12\PY{p}{)}
+        
+        conmat13\PY{o}{\PYZdl{}}Pop \PY{o}{\PYZlt{}\PYZhy{}} sites13\PY{o}{\PYZdl{}}site
+        conmat13 \PY{o}{\PYZlt{}\PYZhy{}} rename\PY{p}{(}conmat13\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop1\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop3\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop4\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop5\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop6\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop7\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop8\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop9\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop10\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop11\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop12\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop13\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}} \PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop14\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop15\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop16\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop17\PYZdq{}}\PY{p}{)}
+        \PY{k+kp}{dim}\PY{p}{(}conmat13\PY{p}{)}
+        
+        conmat14\PY{o}{\PYZdl{}}Pop \PY{o}{\PYZlt{}\PYZhy{}} sites14\PY{o}{\PYZdl{}}site
+        conmat14 \PY{o}{\PYZlt{}\PYZhy{}} rename\PY{p}{(}conmat14\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop1\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop3\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop4\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop5\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop6\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop7\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop8\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop9\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop10\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop11\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop12\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop13\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop14\PYZdq{}}\PY{p}{)}
+        \PY{k+kp}{dim}\PY{p}{(}conmat14\PY{p}{)}
+        
+        conmat15\PY{o}{\PYZdl{}}Pop \PY{o}{\PYZlt{}\PYZhy{}} sites15\PY{o}{\PYZdl{}}site
+        conmat15 \PY{o}{\PYZlt{}\PYZhy{}} rename\PY{p}{(}conmat15\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop1\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop3\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop4\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop5\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop6\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop7\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop8\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop9\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop10\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop11\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pop12\PYZdq{}}\PY{p}{)}
+        \PY{k+kp}{dim}\PY{p}{(}conmat15\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{enumerate*}
+\item 18
+\item 20
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 9
+\item 11
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 17
+\item 19
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 14
+\item 16
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 12
+\item 14
+\end{enumerate*}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{}rename confidence interval matrices}
+        confid\PYZus{}all\PY{o}{\PYZdl{}}PopI \PY{o}{\PYZlt{}\PYZhy{}} sites\PYZus{}all\PY{o}{\PYZdl{}}site
+        confid\PYZus{}all \PY{o}{\PYZlt{}\PYZhy{}} rename\PY{p}{(}confid\PYZus{}all\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.1.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.2.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.3.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.4.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.5.\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.6.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.7.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.8.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.9.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.10.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.11.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.12.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.13.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.14.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.15.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.16.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.17.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.18.\PYZdq{}}\PY{p}{)}
+        \PY{k+kp}{dim}\PY{p}{(}confid\PYZus{}all\PY{p}{)}
+        
+        
+        confid12\PY{o}{\PYZdl{}}PopI \PY{o}{\PYZlt{}\PYZhy{}} sites12\PY{o}{\PYZdl{}}site
+        confid12 \PY{o}{\PYZlt{}\PYZhy{}} rename\PY{p}{(}confid12\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.1.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.2.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.3.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.4.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.5.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.6.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.7.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.8.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.9.\PYZdq{}}\PY{p}{)}
+        \PY{k+kp}{dim}\PY{p}{(}confid12\PY{p}{)}
+        
+        confid13\PY{o}{\PYZdl{}}PopI \PY{o}{\PYZlt{}\PYZhy{}} sites13\PY{o}{\PYZdl{}}site
+        confid13 \PY{o}{\PYZlt{}\PYZhy{}} rename\PY{p}{(}confid13\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.1.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.2.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.3.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.4.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.5.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.6.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.7.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.8.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.9.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.10.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.11.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.12.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.13.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.14.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.15.\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.16.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.17.\PYZdq{}}\PY{p}{)}
+        \PY{k+kp}{dim}\PY{p}{(}confid13\PY{p}{)}
+        
+        confid14\PY{o}{\PYZdl{}}PopI \PY{o}{\PYZlt{}\PYZhy{}} sites14\PY{o}{\PYZdl{}}site
+        confid14 \PY{o}{\PYZlt{}\PYZhy{}} rename\PY{p}{(}confid14\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.1.\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.2.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.3.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.4.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.5.\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.6.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.7.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.8.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.9.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.10.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.11.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.12.\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.13.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.14.\PYZdq{}}\PY{p}{)}
+        \PY{k+kp}{dim}\PY{p}{(}confid14\PY{p}{)}
+        
+        confid15\PY{o}{\PYZdl{}}PopI \PY{o}{\PYZlt{}\PYZhy{}} sites15\PY{o}{\PYZdl{}}site
+        confid15 \PY{o}{\PYZlt{}\PYZhy{}} rename\PY{p}{(}confid15\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.1.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.2.\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.3.\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.4.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.5.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.6.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.7.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.8.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.9.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.10.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.11.\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CI\PYZus{}.J.12.\PYZdq{}}\PY{p}{)}
+        \PY{k+kp}{dim}\PY{p}{(}confid15\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{enumerate*}
+\item 18
+\item 19
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 9
+\item 10
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 17
+\item 18
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 14
+\item 15
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 12
+\item 13
+\end{enumerate*}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c+c1}{\PYZsh{}check that rows destination pop percentages sum to one}
+        conmat\PYZus{}all\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} conmat\PYZus{}all
+        \PY{k+kp}{rownames}\PY{p}{(}conmat\PYZus{}all\PYZus{}check\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} conmat\PYZus{}all\PY{o}{\PYZdl{}}pop
+        conmat\PYZus{}all\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} conmat\PYZus{}all\PYZus{}check \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} select\PY{p}{(}\PY{o}{\PYZhy{}}Pop\PY{p}{)}
+        conmat\PYZus{}all\PYZus{}check\PY{o}{\PYZdl{}}rowsum \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rowSums}\PY{p}{(}conmat\PYZus{}all\PYZus{}check\PY{p}{)}
+        \PY{p}{(}conmat\PYZus{}all\PYZus{}check\PY{o}{\PYZdl{}}\PY{k+kp}{rowsum}\PY{p}{)}
+        
+        conmat\PYZus{}12\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} conmat12
+        \PY{k+kp}{rownames}\PY{p}{(}conmat\PYZus{}12\PYZus{}check\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} conmat12\PY{o}{\PYZdl{}}pop
+        conmat\PYZus{}12\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} conmat\PYZus{}12\PYZus{}check \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} select\PY{p}{(}\PY{o}{\PYZhy{}}Pop\PY{p}{)}
+        conmat\PYZus{}12\PYZus{}check\PY{o}{\PYZdl{}}rowsum \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rowSums}\PY{p}{(}conmat\PYZus{}12\PYZus{}check\PY{p}{)}
+        \PY{p}{(}conmat\PYZus{}12\PYZus{}check\PY{o}{\PYZdl{}}\PY{k+kp}{rowsum}\PY{p}{)}
+        
+        conmat\PYZus{}13\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} conmat13
+        \PY{k+kp}{rownames}\PY{p}{(}conmat\PYZus{}13\PYZus{}check\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} conmat13\PY{o}{\PYZdl{}}pop
+        conmat\PYZus{}13\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} conmat\PYZus{}13\PYZus{}check \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} select\PY{p}{(}\PY{o}{\PYZhy{}}Pop\PY{p}{)}
+        conmat\PYZus{}13\PYZus{}check\PY{o}{\PYZdl{}}rowsum \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rowSums}\PY{p}{(}conmat\PYZus{}13\PYZus{}check\PY{p}{)}
+        \PY{p}{(}conmat\PYZus{}13\PYZus{}check\PY{o}{\PYZdl{}}\PY{k+kp}{rowsum}\PY{p}{)}
+        
+        
+        conmat\PYZus{}14\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} conmat14
+        \PY{k+kp}{rownames}\PY{p}{(}conmat\PYZus{}14\PYZus{}check\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} conmat14\PY{o}{\PYZdl{}}pop
+        conmat\PYZus{}14\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} conmat\PYZus{}14\PYZus{}check \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} select\PY{p}{(}\PY{o}{\PYZhy{}}Pop\PY{p}{)}
+        conmat\PYZus{}14\PYZus{}check\PY{o}{\PYZdl{}}rowsum \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rowSums}\PY{p}{(}conmat\PYZus{}14\PYZus{}check\PY{p}{)}
+        \PY{p}{(}conmat\PYZus{}14\PYZus{}check\PY{o}{\PYZdl{}}\PY{k+kp}{rowsum}\PY{p}{)}
+        
+        conmat\PYZus{}15\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} conmat15
+        \PY{k+kp}{rownames}\PY{p}{(}conmat\PYZus{}15\PYZus{}check\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} conmat15\PY{o}{\PYZdl{}}pop
+        conmat\PYZus{}15\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} conmat\PYZus{}15\PYZus{}check \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} select\PY{p}{(}\PY{o}{\PYZhy{}}Pop\PY{p}{)}
+        conmat\PYZus{}15\PYZus{}check\PY{o}{\PYZdl{}}rowsum \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rowSums}\PY{p}{(}conmat\PYZus{}15\PYZus{}check\PY{p}{)}
+        \PY{p}{(}conmat\PYZus{}15\PYZus{}check\PY{o}{\PYZdl{}}\PY{k+kp}{rowsum}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{}weridly 2012 rows don\PYZsq{}t add up to one, and I think this is because we didn\PYZsq{}t catch any adults in that year but we caught an offspring, so our proportions sampled are causing funky conclusions... lowered the proportion sampled and reran in \PYZti{}/migest/annual/2012/secondtry folder}
+\end{Verbatim}
+
+
+    \begin{enumerate*}
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1.0316
+\item 1
+\item 1.1998
+\item 1.8492
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 1
+\item 1.0779
+\item 1.0037
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 0.9999
+\item 1.0752
+\item 1.7007
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 1.9983
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1.0127
+\end{enumerate*}
+
+
+    
+    \begin{enumerate*}
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\item 1
+\end{enumerate*}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} conmat\PYZus{}all
+\end{Verbatim}
+
+
+    \begin{tabular}{r|llllllllllllllllllll}
+ Pop & Cabatoan & Caridad Cemetery & Caridad Proper & Elementary School & Gabas & Haina & Hicgop South & Magbangon & Palanas & Poroc Rose & Poroc San Flower & San Agustin & Sitio Baybayon & Sitio Lonas & Sitio Tugas & Tamakin Dacot & Visca & Wangag & Ghost\\
+\hline
+	 Cabatoan          & 0.1095            & 0.0256            & 0.0256            & 0.0005            & 0.0256            & 0.0256            & 0.0256            & 0.1887            & 0.0909            & 0.0256            & 0.0001            & 0.0003            & 0.0255            & 0.0001            & 0.0256            & 0.0250            & 0.0002            & 0.2637            & 0.1163           \\
+	 Caridad Cemetery  & 0.0001            & 0.5648            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0255            & 0.0255            & 0.0256            & 0.0255            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0002            & 0.2042           \\
+	 Caridad Proper    & 0.0001            & 0.0001            & 0.5647            & 0.0001            & 0.0256            & 0.0256            & 0.0255            & 0.0002            & 0.0001            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0255            & 0.0256            & 0.0256            & 0.0004            & 0.2039           \\
+	 Elementary School & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0255            & 0.0256            & 0.0001            & 0.0001            & 0.1498            & 0.0002            & 0.0003            & 0.0256            & 0.0254            & 0.0001            & 0.0256            & 0.0002            & 0.0256            & 0.1535            & 0.4910           \\
+	 Gabas             & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.5648            & 0.0256            & 0.0256            & 0.0002            & 0.0001            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0254            & 0.0256            & 0.0001            & 0.2041           \\
+	 Haina             & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0257            & 0.0001            & 0.0002            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0255            & 0.8274            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0688           \\
+	 Hicgop South      & 0.0001            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.5648            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.0001            & 0.1530           \\
+	 Magbangon         & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0003            & 0.1058            & 0.0486            & 0.5531            & 0.0010            & 0.0001            & 0.0001            & 0.0001            & 0.0000            & 0.2329            & 0.0001            & 0.0889            & 0.0000           \\
+	 Palanas           & 0.0118            & 0.0020            & 0.0006            & 0.0002            & 0.0001            & 0.0002            & 0.0001            & 0.0485            & 0.1438            & 0.0001            & 0.0003            & 0.0001            & 0.2199            & 0.0005            & 0.0001            & 0.4361            & 0.0511            & 0.0620            & 0.0225           \\
+	 Poroc Rose        & 0.0505            & 0.0257            & 0.0001            & 0.0256            & 0.0257            & 0.0256            & 0.0002            & 0.0256            & 0.0001            & 0.0001            & 0.0001            & 0.4128            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0256            & 0.5817            & 0.0000           \\
+	 Poroc San Flower  & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.0001            & 0.0256            & 0.1520            & 0.0511            & 0.0256            & 0.0001            & 0.0256            & 0.9761            & 0.0256            & 0.0001            & 0.0256            & 0.0002            & 0.4135            & 0.0000           \\
+	 San Agustin       & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.1269            & 0.0001            & 0.0001            & 0.5648            & 0.0002            & 0.0256            & 0.0007            & 0.0256            & 0.0256            & 0.0001            & 0.1020           \\
+	 Sitio Baybayon    & 0.0187            & 0.0003            & 0.0259            & 0.0256            & 0.0001            & 0.0002            & 0.0002            & 0.0001            & 0.0001            & 0.0004            & 0.0003            & 0.0253            & 0.2984            & 0.0002            & 0.0001            & 0.2988            & 0.0001            & 0.0001            & 0.3051           \\
+	 Sitio Lonas       & 0.0001            & 0.0256            & 0.0001            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0256            & 0.0001            & 0.0255            & 0.0255            & 0.5648            & 0.0256            & 0.0256            & 0.0255            & 0.0002            & 0.1787           \\
+	 Sitio Tugas       & 0.0001            & 0.0001            & 0.0256            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0255            & 0.0002            & 0.0001            & 0.5648            & 0.0256            & 0.0256            & 0.0001            & 0.2295           \\
+	 Tamakin Dacot     & 0.0001            & 0.0256            & 0.0001            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.5648            & 0.0256            & 0.0256            & 0.1530           \\
+	 Visca             & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0256            & 0.0001            & 0.0001            & 0.2414            & 0.0001            & 0.0001            & 0.0007            & 0.0001            & 0.0257            & 0.0001            & 0.0001            & 0.5530            & 0.0001            & 0.1523           \\
+	 Wangag            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.3113            & 0.3631            & 0.0001            & 0.0425            & 0.0001            & 0.0001            & 0.0866            & 0.0531            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.1422            & 0.0000           \\
+\end{tabular}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{}check that the parentage matches line up\PYZhy{}\PYZhy{} read in all years matrix}
+        par \PY{o}{\PYZlt{}\PYZhy{}} read.csv\PY{p}{(}file\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/parentage/colony2/20180708\PYZus{}2237loci\PYZus{}correctedinput/results/201807013colony\PYZus{}dist\PYZus{}allyears\PYZus{}allmeta.csv\PYZdq{}}\PY{p}{,} header\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} par1 \PY{o}{\PYZlt{}\PYZhy{}} par \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            select\PY{p}{(}offs\PYZus{}ligation\PYZus{}id\PY{p}{,} offs\PYZus{}site\PY{p}{,} par1\PYZus{}ligation\PYZus{}id\PY{p}{,} par1\PYZus{}site\PY{p}{,} year\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            filter\PY{p}{(}\PY{o}{!}\PY{k+kp}{is.na}\PY{p}{(}par1\PYZus{}ligation\PYZus{}id\PY{p}{)}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            rename\PY{p}{(}par\PYZus{}ligation\PYZus{}id\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{par1\PYZus{}ligation\PYZus{}id\PYZdq{}}\PY{p}{,} par\PYZus{}site\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{par1\PYZus{}site\PYZdq{}}\PY{p}{)}
+        
+        
+        par2 \PY{o}{\PYZlt{}\PYZhy{}} par \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            select\PY{p}{(}offs\PYZus{}ligation\PYZus{}id\PY{p}{,} offs\PYZus{}site\PY{p}{,} par2\PYZus{}ligation\PYZus{}id\PY{p}{,} par2\PYZus{}site\PY{p}{,} year\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            filter\PY{p}{(}\PY{o}{!}\PY{k+kp}{is.na}\PY{p}{(}par2\PYZus{}ligation\PYZus{}id\PY{p}{)}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            rename\PY{p}{(}par\PYZus{}ligation\PYZus{}id\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{par2\PYZus{}ligation\PYZus{}id\PYZdq{}}\PY{p}{,} par\PYZus{}site\PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{par2\PYZus{}site\PYZdq{}}\PY{p}{)}
+        
+        par\PYZus{}beta \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{suppressWarnings}\PY{p}{(}bind\PYZus{}rows\PY{p}{(}par1\PY{p}{,} par2\PY{p}{)}\PY{p}{)}
+        par\PYZus{}fin \PY{o}{\PYZlt{}\PYZhy{}} par\PYZus{}beta \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            group\PYZus{}by\PY{p}{(}offs\PYZus{}ligation\PYZus{}id\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            filter\PY{p}{(}row\PYZus{}number\PY{p}{(}\PY{p}{)}\PY{o}{==}\PY{l+m}{1}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} par\PYZus{}2mat \PY{o}{\PYZlt{}\PYZhy{}} par\PYZus{}fin \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            ungroup \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            select\PY{p}{(}par\PYZus{}site\PY{p}{,} offs\PYZus{}site\PY{p}{,} year\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            group\PYZus{}by\PY{p}{(}par\PYZus{}site\PY{p}{,} offs\PYZus{}site\PY{p}{,} year\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            summarise\PY{p}{(}n\PY{o}{=}n\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+            arrange\PY{p}{(}par\PYZus{}site\PY{p}{,} offs\PYZus{}site\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k+kp}{dim}\PY{p}{(}conmat13\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{enumerate*}
+\item 17
+\item 19
+\end{enumerate*}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c+c1}{\PYZsh{}format  connectivity matrices for ggplot, use this to check parentage}
+         ggdfall \PY{o}{\PYZlt{}\PYZhy{}} conmat\PYZus{}all \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             gather\PY{p}{(}\PY{l+m}{2}\PY{o}{:}\PY{l+m}{20}\PY{p}{,} key\PY{o}{=}\PY{k+kn}{source}\PY{p}{,} value\PY{o}{=}migration\PYZus{}rate\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}destination\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             arrange\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}
+         
+         ggdf12 \PY{o}{\PYZlt{}\PYZhy{}} conmat12 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             gather\PY{p}{(}\PY{l+m}{2}\PY{o}{:}\PY{l+m}{11}\PY{p}{,} key\PY{o}{=}\PY{k+kn}{source}\PY{p}{,} value\PY{o}{=}migration\PYZus{}rate\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}destination\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             arrange\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}
+         
+         ggdf13 \PY{o}{\PYZlt{}\PYZhy{}} conmat13 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             gather\PY{p}{(}\PY{l+m}{2}\PY{o}{:}\PY{l+m}{19}\PY{p}{,} key\PY{o}{=}\PY{k+kn}{source}\PY{p}{,} value\PY{o}{=}migration\PYZus{}rate\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}destination\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             arrange\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}
+         
+         ggdf14 \PY{o}{\PYZlt{}\PYZhy{}} conmat14 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             gather\PY{p}{(}\PY{l+m}{2}\PY{o}{:}\PY{l+m}{16}\PY{p}{,} key\PY{o}{=}\PY{k+kn}{source}\PY{p}{,} value\PY{o}{=}migration\PYZus{}rate\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}destination\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             arrange\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}
+         
+         
+         ggdf15 \PY{o}{\PYZlt{}\PYZhy{}} conmat15 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             gather\PY{p}{(}\PY{l+m}{2}\PY{o}{:}\PY{l+m}{14}\PY{p}{,} key\PY{o}{=}\PY{k+kn}{source}\PY{p}{,} value\PY{o}{=}migration\PYZus{}rate\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}destination\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pop\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             arrange\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}******** check all of these and the parentage matches line up with the migration source/destination pairs}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} par\PYZus{}mat\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} par\PYZus{}2mat \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             group\PYZus{}by\PY{p}{(}offs\PYZus{}site\PY{p}{,} par\PYZus{}site\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             select\PY{p}{(}par\PYZus{}site\PY{p}{,} offs\PYZus{}site\PY{p}{,} everything\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             arrange\PY{p}{(}par\PYZus{}site\PY{p}{,} offs\PYZus{}site\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}\PYZsh{}just visually assess \PYZhy{}\PYZhy{} no particularly high rates between populations that don\PYZsq{}t have a parentage match recorded, etc.}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{c+c1}{\PYZsh{}format parentage matches to see if they line up}
+         ggparall \PY{o}{\PYZlt{}\PYZhy{}} par\PYZus{}2mat \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             filter\PY{p}{(}\PY{o}{!}\PY{k+kp}{is.na}\PY{p}{(}par\PYZus{}site\PY{p}{)}\PY{p}{)}
+         ggparall\PY{o}{\PYZdl{}}par\PYZus{}site \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggparall\PY{o}{\PYZdl{}}par\PYZus{}site\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ghost\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         ggparall\PY{o}{\PYZdl{}}offs\PYZus{}site \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggparall\PY{o}{\PYZdl{}}offs\PYZus{}site\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         
+         ggpar12 \PY{o}{\PYZlt{}\PYZhy{}} par\PYZus{}2mat \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             filter\PY{p}{(}year\PY{o}{==}\PY{l+m}{2012}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             filter\PY{p}{(}\PY{o}{!}\PY{k+kp}{is.na}\PY{p}{(}par\PYZus{}site\PY{p}{)}\PY{p}{)}
+         ggpar12\PY{o}{\PYZdl{}}par\PYZus{}site \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggpar12\PY{o}{\PYZdl{}}par\PYZus{}site\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         ggpar12\PY{o}{\PYZdl{}}offs\PYZus{}site \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggpar12\PY{o}{\PYZdl{}}offs\PYZus{}site\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         
+         ggpar13 \PY{o}{\PYZlt{}\PYZhy{}} par\PYZus{}2mat \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             filter\PY{p}{(}year\PY{o}{==}\PY{l+m}{2013}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             filter\PY{p}{(}\PY{o}{!}\PY{k+kp}{is.na}\PY{p}{(}par\PYZus{}site\PY{p}{)}\PY{p}{)}
+         ggpar13\PY{o}{\PYZdl{}}par\PYZus{}site \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggpar13\PY{o}{\PYZdl{}}par\PYZus{}site\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ghost\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         ggpar13\PY{o}{\PYZdl{}}offs\PYZus{}site \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggpar13\PY{o}{\PYZdl{}}offs\PYZus{}site\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         
+         ggpar14 \PY{o}{\PYZlt{}\PYZhy{}} par\PYZus{}2mat \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             filter\PY{p}{(}year\PY{o}{==}\PY{l+m}{2014}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             filter\PY{p}{(}\PY{o}{!}\PY{k+kp}{is.na}\PY{p}{(}par\PYZus{}site\PY{p}{)}\PY{p}{)}
+         ggpar14\PY{o}{\PYZdl{}}par\PYZus{}site \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggpar14\PY{o}{\PYZdl{}}par\PYZus{}site\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         ggpar14\PY{o}{\PYZdl{}}offs\PYZus{}site \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggpar14\PY{o}{\PYZdl{}}offs\PYZus{}site\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,}  \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         
+         ggpar15 \PY{o}{\PYZlt{}\PYZhy{}} par\PYZus{}2mat \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             filter\PY{p}{(}year\PY{o}{==}\PY{l+m}{2015}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             filter\PY{p}{(}\PY{o}{!}\PY{k+kp}{is.na}\PY{p}{(}par\PYZus{}site\PY{p}{)}\PY{p}{)}
+         ggpar15\PY{o}{\PYZdl{}}par\PYZus{}site \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggpar15\PY{o}{\PYZdl{}}par\PYZus{}site\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,}  \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         ggpar15\PY{o}{\PYZdl{}}offs\PYZus{}site \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggpar15\PY{o}{\PYZdl{}}offs\PYZus{}site\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,}  \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,}  \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{c+c1}{\PYZsh{}plot 2012 matrix}
+        ggdf12\PY{o}{\PYZdl{}}\PY{k+kn}{source} \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggdf12\PY{o}{\PYZdl{}}\PY{k+kn}{source}\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Ghost\PYZdq{}}\PY{p}{)}\PY{p}{)}
+        ggdf12\PY{o}{\PYZdl{}}destination \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggdf12\PY{o}{\PYZdl{}}destination\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{)}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{}levels(ggdf12\PYZdl{}source)\PYZsh{}data check}
+        \PY{c+c1}{\PYZsh{}levels(ggdf12\PYZdl{}destination)\PYZsh{}data check}
+        
+        
+        conn12 \PY{o}{\PYZlt{}\PYZhy{}} ggplot\PY{p}{(}ggdf12\PY{p}{,} aes\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}\PY{p}{)} \PY{o}{+}
+        geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} migration\PYZus{}rate\PY{p}{)}\PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{darkgrey\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} migration\PYZus{}rate\PY{p}{)}\PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{darkgrey\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            \PY{c+c1}{\PYZsh{}scale\PYZus{}fill\PYZus{}gradient(low = \PYZdq{}white\PYZdq{}, high = \PYZdq{}steelblue\PYZdq{}) +}
+            scale\PYZus{}fill\PYZus{}distiller\PY{p}{(}palette \PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{RdYlBu\PYZdq{}}\PY{p}{,} name\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Dispersal Probability\PYZdq{}}\PY{p}{)}\PY{o}{+} 
+            ylab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Destination Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            xlab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Source Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            theme\PY{p}{(}legend.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+            legend.text \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+            plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+            axis.title.y\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+            axis.title.x\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+            axis.text.x \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{9}\PY{p}{,} angle \PY{o}{=} \PY{l+m}{45}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{1}\PY{p}{)}\PY{p}{,}
+            axis.text.y \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{9}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+            coord\PYZus{}fixed\PY{p}{(}ratio \PY{o}{=} \PY{l+m}{1}\PY{p}{)} \PY{o}{+}
+            theme\PY{p}{(}axis.text.x\PY{o}{=}element\PYZus{}text\PY{p}{(}angle\PY{o}{=}\PY{l+m}{45}\PY{p}{,}hjust\PY{o}{=}\PY{l+m}{1}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+            ggtitle\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{2012\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            theme\PY{p}{(}plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+            theme\PY{p}{(}legend.text\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+            theme\PY{p}{(}legend.title\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}
+        
+        
+        
+        
+        \PY{c+c1}{\PYZsh{}08/28/2018 still off a bit(4 missing cells), need to correct once new runs come back}
+        conn12
+        ggsave\PY{p}{(}filename\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{conmat2012.png\PYZdq{}}\PY{p}{,} plot\PY{o}{=}conn12\PY{p}{,} path\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/figures\PYZdq{}} \PY{p}{)}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}08/27/2018 looks good against parentage}
+\end{Verbatim}
+
+
+    
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Saving 6.67 x 6.67 in image
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_15_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} ggdf13\PY{o}{\PYZdl{}}\PY{k+kn}{source} \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggdf13\PY{o}{\PYZdl{}}\PY{k+kn}{source}\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ghost\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         ggdf13\PY{o}{\PYZdl{}}destination \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggdf13\PY{o}{\PYZdl{}}destination\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}levels(ggdf14\PYZdl{}destination)\PYZsh{}data check}
+         
+         conn13 \PY{o}{\PYZlt{}\PYZhy{}} ggplot\PY{p}{(}ggdf13\PY{p}{,} aes\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}\PY{p}{)} \PY{o}{+}
+         geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} migration\PYZus{}rate\PY{p}{)}\PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{darkgrey\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} migration\PYZus{}rate\PY{p}{)}\PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{darkgrey\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             \PY{c+c1}{\PYZsh{}scale\PYZus{}fill\PYZus{}gradient(low = \PYZdq{}white\PYZdq{}, high = \PYZdq{}steelblue\PYZdq{}) +}
+             scale\PYZus{}fill\PYZus{}distiller\PY{p}{(}palette \PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{RdYlBu\PYZdq{}}\PY{p}{,} name\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Dispersal Probability\PYZdq{}}\PY{p}{)}\PY{o}{+} 
+             ylab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Destination Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             xlab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Source Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             theme\PY{p}{(}legend.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+             legend.text \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+             plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+             axis.title.y\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+             axis.title.x\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+             axis.text.x \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{9}\PY{p}{,} angle \PY{o}{=} \PY{l+m}{45}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{1}\PY{p}{)}\PY{p}{,}
+             axis.text.y \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{9}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+             coord\PYZus{}fixed\PY{p}{(}ratio \PY{o}{=} \PY{l+m}{1}\PY{p}{)} \PY{o}{+}
+             theme\PY{p}{(}axis.text.x\PY{o}{=}element\PYZus{}text\PY{p}{(}angle\PY{o}{=}\PY{l+m}{45}\PY{p}{,}hjust\PY{o}{=}\PY{l+m}{1}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+             ggtitle\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{2013\PYZdq{}}\PY{p}{)} \PY{o}{+}
+           theme\PY{p}{(}plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+             theme\PY{p}{(}legend.text\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+             theme\PY{p}{(}legend.title\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}
+         
+         
+         \PY{c+c1}{\PYZsh{}08/28/2018 still off a bit(4 missing cells), need to correct once new runs come back}
+         conn13
+         ggsave\PY{p}{(}filename\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{conmat2013.png\PYZdq{}}\PY{p}{,} plot\PY{o}{=}conn13\PY{p}{,} path\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/figures\PYZdq{}} \PY{p}{)}
+         \PY{c+c1}{\PYZsh{}08/28/2018 looks good against the parentage matches}
+\end{Verbatim}
+
+
+    
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Saving 6.67 x 6.67 in image
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_16_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} confid13
+\end{Verbatim}
+
+
+    \begin{tabular}{r|llllllllllllllllll}
+ PopI & Cabatoan & Caridad Cemetery & Caridad Proper & Elementary School & Haina & Hicgop South & Magbangon & Palanas & Poroc Rose & Poroc San Flower & San Agustin & Sitio Baybayon & Sitio Lonas & Sitio Tugas & Tamakin Dacot & Visca & Wangag\\
+\hline
+	 Cabatoan          & 0.0001-0.6938     & 0.0006-0.5001     & 0.0001-0.1907     & 0.0001-0.5277     & 0.0001-0.4721     & 0.0001-0.4645     & 0.0001-0.5999     & 0.0541-0.6012     & 0.0011-0.6902     & 0.0001-0.7628     & 0.0001-0.6898     & 0.0001-0.3098     & 0.0001-0.4263     & 0.0001-0.5103     & 0.0001-0.7348     & 0.0001-0.3192     & 0.0002-0.6899    \\
+	 Caridad Cemetery  & 0.0006-0.9982     & 0.0001-0.9982     & 0.0009-0.3096     & 0.0006-0.5616     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.8075     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0005-0.4999     & 0.0001-0.6898    \\
+	 Caridad Proper    & 0.0005-0.6216     & 0.0009-0.9982     & 0.0001-0.4991     & 0.0009-0.9982     & 0.0006-0.9982     & 0.0001-0.3813     & 0.0007-0.9982     & 0.0001-0.8079     & 0.0008-0.6968     & 0.0001-0.9982     & 0.0001-0.6241     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.3798     & 0.0002-0.6881    \\
+	 Elementary School & 0.0008-0.5716     & 0.0006-0.8790     & 0.0001-0.5727     & 0.0001-0.7624     & 0.0001-0.8806     & 0.0009-0.3096     & 0.0006-0.6902     & 0.1393-0.4587     & 0.0007-0.5105     & 0.0001-0.8081     & 0.0001-0.5270     & 0.0008-0.4998     & 0.0004-0.6906     & 0.0001-0.1919     & 0.0001-0.6902     & 0.0006-0.6625     & 0.0162-0.7208    \\
+	 Haina             & 0.0012-0.6175     & 0.0007-0.6004     & 0.0005-0.4999     & 0.0001-0.3823     & 0.0001-0.3028     & 0.0006-0.6901     & 0.0009-0.5726     & 0.0001-0.4999     & 0.0010-0.6837     & 0.0001-0.3880     & 0.0001-0.7114     & 0.0852-0.9982     & 0.0001-0.7058     & 0.0011-0.8119     & 0.0001-0.4991     & 0.0001-0.6124     & 0.0002-0.6898    \\
+	 Hicgop South      & 0.0001-0.4263     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.4991     & 0.0001-0.9982     & 0.0011-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0003-0.9982     & 0.0001-0.9982     & 0.0001-0.3088     & 0.0001-0.4991     & 0.0001-0.6788    \\
+	 Magbangon         & 0.0012-0.3373     & 0.0001-0.5891     & 0.0006-0.8079     & 0.0001-0.4263     & 0.0001-0.8075     & 0.0001-0.6833     & 0.2642-0.8629     & 0.0674-0.8239     & 0.0013-0.6640     & 0.0001-0.6726     & 0.0001-0.8804     & 0.0001-0.1179     & 0.0001-0.4263     & 0.0001-0.4992     & 0.0001-0.3060     & 0.0001-0.8698     & 0.0001-0.3388    \\
+	 Palanas           & 0.0208-0.6367     & 0.0006-0.6175     & 0.0001-0.7180     & 0.0002-0.6892     & 0.0001-0.8074     & 0.0001-0.6895     & 0.0586-0.7171     & 0.0335-0.4693     & 0.0002-0.3814     & 0.0001-0.3092     & 0.0001-0.5277     & 0.0100-0.6194     & 0.0001-0.8077     & 0.0001-0.8076     & 0.0068-0.8125     & 0.0001-0.4783     & 0.0022-0.3635    \\
+	 Poroc Rose        & 0.3268-0.8917     & 0.0001-0.6185     & 0.0001-0.7069     & 0.0001-0.7344     & 0.0001-0.4991     & 0.0001-0.7625     & 0.0001-0.4945     & 0.0001-0.3812     & 0.0001-0.4885     & 0.0007-0.4999     & 0.0001-0.4991     & 0.0001-0.6731     & 0.0001-0.8072     & 0.0001-0.3160     & 0.0001-0.5726     & 0.0001-0.4991     & 0.1280-0.6023    \\
+	 Poroc San Flower  & 0.1348-0.9095     & 0.0014-0.3096     & 0.0001-0.3429     & 0.0002-0.8186     & 0.0001-0.3192     & 0.0002-0.6448     & 0.0001-0.4994     & 0.0667-0.8764     & 0.0001-0.7175     & 0.0001-0.6104     & 0.0001-0.3813     & 0.3687-0.5394     & 0.0001-0.2645     & 0.0008-0.5261     & 0.0001-0.4263     & 0.0001-0.4885     & 0.0006-0.3889    \\
+	 San Agustin       & 0.0002-0.7693     & 0.0010-0.8790     & 0.0009-0.3092     & 0.0001-0.5726     & 0.0001-0.6797     & 0.0001-0.8012     & 0.0005-0.5723     & 0.1041-0.8179     & 0.0001-0.8066     & 0.0001-0.8354     & 0.0173-0.8265     & 0.0001-0.4991     & 0.0011-0.3094     & 0.0001-0.1917     & 0.0001-0.5335     & 0.0001-0.5335     & 0.0001-0.4260    \\
+	 Sitio Baybayon    & 0.0001-0.3087     & 0.0007-0.6176     & 0.0001-0.3085     & 0.0001-0.5030     & 0.0001-0.3774     & 0.0001-0.3875     & 0.0006-0.3374     & 0.0012-0.4832     & 0.0013-0.2646     & 0.0001-0.3651     & 0.0001-0.4992     & 0.0001-0.4550     & 0.0001-0.4994     & 0.0001-0.4984     & 0.0021-0.9982     & 0.0005-0.5013     & 0.0001-0.2808    \\
+	 Sitio Lonas       & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.7625     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.4713     & 0.0001-0.9982     & 0.4912-0.9982     & 0.0001-0.5264     & 0.0001-0.3585     & 0.0001-0.8870     & 0.0001-0.3538    \\
+	 Sitio Tugas       & 0.0001-0.6620     & 0.0006-0.6902     & 0.0001-0.4958     & 0.0014-0.3823     & 0.0001-0.9982     & 0.0001-0.6453     & 0.0001-0.9982     & 0.0001-0.5720     & 0.0001-0.4992     & 0.0001-0.5785     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.6686     & 0.0001-0.9982    \\
+	 Tamakin Dacot     & 0.0001-0.4992     & 0.0005-0.4997     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0007-0.9982     & 0.0001-0.3388     & 0.0001-0.6901     & 0.0001-0.5105     & 0.0007-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.6559     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0001-0.9982     & 0.0012-0.3096     & 0.0002-0.6892    \\
+	 Visca             & 0.0009-0.2924     & 0.0001-0.1114     & 0.0001-0.6898     & 0.0001-0.4998     & 0.0001-0.3773     & 0.0001-0.4829     & 0.0006-0.3823     & 0.4791-0.9503     & 0.0001-0.4992     & 0.0008-0.1749     & 0.0001-0.6173     & 0.0001-0.5030     & 0.0001-0.5092     & 0.0001-0.6175     & 0.0001-0.2636     & 0.0084-0.7072     & 0.0001-0.5613    \\
+	 Wangag            & 0.0009-0.5726     & 0.0001-0.3085     & 0.0001-0.5726     & 0.0001-0.4955     & 0.0127-0.7439     & 0.0001-0.8079     & 0.0001-0.4999     & 0.1282-0.7278     & 0.0009-0.6900     & 0.0014-0.2961     & 0.0001-0.4999     & 0.0001-0.5492     & 0.0001-0.5016     & 0.0001-0.3888     & 0.0001-0.4999     & 0.0001-0.1918     & 0.0148-0.7061    \\
+\end{tabular}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} ggdf14\PY{o}{\PYZdl{}}\PY{k+kn}{source} \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggdf14\PY{o}{\PYZdl{}}\PY{k+kn}{source}\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ghost\PYZdq{}}\PY{p}{)}\PY{p}{)}
+        ggdf14\PY{o}{\PYZdl{}}destination \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggdf14\PY{o}{\PYZdl{}}destination\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{)}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{}levels(ggdf14\PYZdl{}destination)\PYZsh{}data check}
+        
+        conn14 \PY{o}{\PYZlt{}\PYZhy{}} ggplot\PY{p}{(}ggdf14\PY{p}{,} aes\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}\PY{p}{)} \PY{o}{+}
+        geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} migration\PYZus{}rate\PY{p}{)}\PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{darkgrey\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} migration\PYZus{}rate\PY{p}{)}\PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{darkgrey\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            \PY{c+c1}{\PYZsh{}scale\PYZus{}fill\PYZus{}gradient(low = \PYZdq{}white\PYZdq{}, high = \PYZdq{}steelblue\PYZdq{}) +}
+            scale\PYZus{}fill\PYZus{}distiller\PY{p}{(}palette \PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{RdYlBu\PYZdq{}}\PY{p}{,} name\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Dispersal Probability\PYZdq{}}\PY{p}{)}\PY{o}{+} 
+            ylab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Destination Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            xlab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Source Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            theme\PY{p}{(}legend.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+            legend.text \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+            plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+            axis.title.y\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+            axis.title.x\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+            axis.text.x \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{9}\PY{p}{,} angle \PY{o}{=} \PY{l+m}{45}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{1}\PY{p}{)}\PY{p}{,}
+            axis.text.y \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{9}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+            coord\PYZus{}fixed\PY{p}{(}ratio \PY{o}{=} \PY{l+m}{1}\PY{p}{)} \PY{o}{+}
+            theme\PY{p}{(}axis.text.x\PY{o}{=}element\PYZus{}text\PY{p}{(}angle\PY{o}{=}\PY{l+m}{45}\PY{p}{,}hjust\PY{o}{=}\PY{l+m}{1}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+            ggtitle\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{2014\PYZdq{}}\PY{p}{)} \PY{o}{+}
+          theme\PY{p}{(}plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+            theme\PY{p}{(}legend.text\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+            theme\PY{p}{(}legend.title\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}
+        
+        
+        \PY{c+c1}{\PYZsh{}08/28/2018 still off a bit(4 missing cells), need to correct once new runs come back}
+        conn14
+        ggsave\PY{p}{(}filename\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{conmat2014.png\PYZdq{}}\PY{p}{,} plot\PY{o}{=}conn14\PY{p}{,} path\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/figures\PYZdq{}} \PY{p}{)}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{}check 08/21/2018 and parentage matrix matches migration rates}
+\end{Verbatim}
+
+
+    
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Saving 6.67 x 6.67 in image
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} ggdf15\PY{o}{\PYZdl{}}\PY{k+kn}{source} \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggdf15\PY{o}{\PYZdl{}}\PY{k+kn}{source}\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ghost\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         ggdf15\PY{o}{\PYZdl{}}destination \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggdf15\PY{o}{\PYZdl{}}destination\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         
+         \PY{k+kp}{levels}\PY{p}{(}ggdf15\PY{o}{\PYZdl{}}destination\PY{p}{)}\PY{c+c1}{\PYZsh{}data check}
+         
+         \PY{c+c1}{\PYZsh{}\PYZsh{}  get color, use \PYZus{}distiller to expand number of colors}
+         getPalette \PY{o}{\PYZlt{}\PYZhy{}} colorRampPalette\PY{p}{(}brewer.pal\PY{p}{(}\PY{l+m}{9}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{YlOrRd\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         
+                                                                         
+         conn15 \PY{o}{\PYZlt{}\PYZhy{}} ggplot\PY{p}{(}ggdf15\PY{p}{,} aes\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}\PY{p}{)} \PY{o}{+}
+         geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} migration\PYZus{}rate\PY{p}{)}\PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{darkgrey\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} migration\PYZus{}rate\PY{p}{)}\PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{darkgrey\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             \PY{c+c1}{\PYZsh{}scale\PYZus{}fill\PYZus{}gradient(low = \PYZdq{}white\PYZdq{}, high = \PYZdq{}steelblue\PYZdq{}) +}
+             scale\PYZus{}fill\PYZus{}distiller\PY{p}{(}palette \PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{RdYlBu\PYZdq{}}\PY{p}{,} name\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Dispersal Probability\PYZdq{}}\PY{p}{)}\PY{o}{+} 
+             ylab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Destination Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             xlab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Source Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             theme\PY{p}{(}legend.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+             legend.text \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+             plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+             axis.title.y\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+             axis.title.x\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+             axis.text.x \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{9}\PY{p}{,} angle \PY{o}{=} \PY{l+m}{45}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{1}\PY{p}{)}\PY{p}{,}
+             axis.text.y \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{9}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+             coord\PYZus{}fixed\PY{p}{(}ratio \PY{o}{=} \PY{l+m}{1}\PY{p}{)} \PY{o}{+}
+             theme\PY{p}{(}axis.text.x\PY{o}{=}element\PYZus{}text\PY{p}{(}angle\PY{o}{=}\PY{l+m}{45}\PY{p}{,}hjust\PY{o}{=}\PY{l+m}{1}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+             ggtitle\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{2015\PYZdq{}}\PY{p}{)} \PY{o}{+}
+           theme\PY{p}{(}plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+             theme\PY{p}{(}legend.text\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+             theme\PY{p}{(}legend.title\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}
+         
+         conn15
+         \PY{c+c1}{\PYZsh{}08/28/2018 still off a bit(4 missing cells), need to correct once new runs come back}
+         
+         ggsave\PY{p}{(}filename\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{conmat2015.png\PYZdq{}}\PY{p}{,} plot\PY{o}{=}conn15\PY{p}{,} path\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/figures\PYZdq{}} \PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{enumerate*}
+\item 'Palanas'
+\item 'Wangag'
+\item 'Magbangon'
+\item 'Cabatoan'
+\item 'Hicgop South'
+\item 'Elementary School'
+\item 'San Agustin'
+\item 'Visca'
+\item 'Gabas'
+\item 'Tamakin Dacot'
+\item 'Haina'
+\item 'Sitio Baybayon'
+\end{enumerate*}
+
+
+    
+    
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Saving 6.67 x 6.67 in image
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_19_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}131}]:} \PY{c+c1}{\PYZsh{}plot parentage matches to see if they match up}
+          ggplot\PY{p}{(}ggparall\PY{p}{,} aes\PY{p}{(}par\PYZus{}site\PY{p}{,} offs\PYZus{}site\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{c+c1}{\PYZsh{}one code for plot, just switch out the data frame of interest}
+            geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} n\PY{p}{)}\PY{p}{,} \PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{gray\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            scale\PYZus{}fill\PYZus{}gradient\PY{p}{(}low \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{white\PYZdq{}}\PY{p}{,} high \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{steelblue\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            ylab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{offspring site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            xlab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{parent site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            theme\PY{p}{(}legend.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{10}\PY{p}{)}\PY{p}{,}
+                  legend.text \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{12}\PY{p}{)}\PY{p}{,}
+                  plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+                  axis.title\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{12}\PY{p}{,}face\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{bold\PYZdq{}}\PY{p}{)}\PY{p}{,}
+                  axis.text.x \PY{o}{=} element\PYZus{}text\PY{p}{(}angle \PY{o}{=} \PY{l+m}{90}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{1}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+                  coord\PYZus{}fixed\PY{p}{(}ratio \PY{o}{=} \PY{l+m}{1}\PY{p}{)} \PY{o}{+}
+              theme\PY{p}{(}axis.text.x\PY{o}{=}element\PYZus{}text\PY{p}{(}angle\PY{o}{=}\PY{l+m}{45}\PY{p}{,}hjust\PY{o}{=}\PY{l+m}{1}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+            labs\PY{p}{(}fill \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{n\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}159}]:} \PY{c+c1}{\PYZsh{}all four years on single plot}
+          \PY{c+c1}{\PYZsh{}I give up. Do it in power point}
+          \PY{c+c1}{\PYZsh{}ggsave(filename=\PYZdq{}conmat\PYZus{}4plots.png\PYZdq{}, path=\PYZdq{}\PYZti{}/migest/figures\PYZdq{} )}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{c+c1}{\PYZsh{}check for immigration fractions equaling 1}
+         ggdfall\PYZus{}check \PY{o}{\PYZlt{}\PYZhy{}} ggdfall \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             group\PYZus{}by\PY{p}{(}destination\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             mutate\PY{p}{(}total\PYZus{}immigration\PY{o}{=} \PY{k+kp}{sum}\PY{p}{(}migration\PYZus{}rate\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} conmat\PYZus{}all
+\end{Verbatim}
+
+
+    \begin{tabular}{r|llllllllllllllllllll}
+ Pop & Cabatoan & Caridad Cemetery & Caridad Proper & Elementary School & Gabas & Haina & Hicgop South & Magbangon & Palanas & Poroc Rose & Poroc San Flower & San Agustin & Sitio Baybayon & Sitio Lonas & Sitio Tugas & Tamakin Dacot & Visca & Wangag & Ghost\\
+\hline
+	 Cabatoan          & 0.1095            & 0.0256            & 0.0256            & 0.0005            & 0.0256            & 0.0256            & 0.0256            & 0.1887            & 0.0909            & 0.0256            & 0.0001            & 0.0003            & 0.0255            & 0.0001            & 0.0256            & 0.0250            & 0.0002            & 0.2637            & 0.1163           \\
+	 Caridad Cemetery  & 0.0001            & 0.5648            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0255            & 0.0255            & 0.0256            & 0.0255            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0002            & 0.2042           \\
+	 Caridad Proper    & 0.0001            & 0.0001            & 0.5647            & 0.0001            & 0.0256            & 0.0256            & 0.0255            & 0.0002            & 0.0001            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0255            & 0.0256            & 0.0256            & 0.0004            & 0.2039           \\
+	 Elementary School & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0255            & 0.0256            & 0.0001            & 0.0001            & 0.1498            & 0.0002            & 0.0003            & 0.0256            & 0.0254            & 0.0001            & 0.0256            & 0.0002            & 0.0256            & 0.1535            & 0.4910           \\
+	 Gabas             & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.5648            & 0.0256            & 0.0256            & 0.0002            & 0.0001            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0254            & 0.0256            & 0.0001            & 0.2041           \\
+	 Haina             & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0257            & 0.0001            & 0.0002            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0255            & 0.8274            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0688           \\
+	 Hicgop South      & 0.0001            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.5648            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.0001            & 0.1530           \\
+	 Magbangon         & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0003            & 0.1058            & 0.0486            & 0.5531            & 0.0010            & 0.0001            & 0.0001            & 0.0001            & 0.0000            & 0.2329            & 0.0001            & 0.0889            & 0.0000           \\
+	 Palanas           & 0.0118            & 0.0020            & 0.0006            & 0.0002            & 0.0001            & 0.0002            & 0.0001            & 0.0485            & 0.1438            & 0.0001            & 0.0003            & 0.0001            & 0.2199            & 0.0005            & 0.0001            & 0.4361            & 0.0511            & 0.0620            & 0.0225           \\
+	 Poroc Rose        & 0.0505            & 0.0257            & 0.0001            & 0.0256            & 0.0257            & 0.0256            & 0.0002            & 0.0256            & 0.0001            & 0.0001            & 0.0001            & 0.4128            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0256            & 0.5817            & 0.0000           \\
+	 Poroc San Flower  & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.0001            & 0.0256            & 0.1520            & 0.0511            & 0.0256            & 0.0001            & 0.0256            & 0.9761            & 0.0256            & 0.0001            & 0.0256            & 0.0002            & 0.4135            & 0.0000           \\
+	 San Agustin       & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.1269            & 0.0001            & 0.0001            & 0.5648            & 0.0002            & 0.0256            & 0.0007            & 0.0256            & 0.0256            & 0.0001            & 0.1020           \\
+	 Sitio Baybayon    & 0.0187            & 0.0003            & 0.0259            & 0.0256            & 0.0001            & 0.0002            & 0.0002            & 0.0001            & 0.0001            & 0.0004            & 0.0003            & 0.0253            & 0.2984            & 0.0002            & 0.0001            & 0.2988            & 0.0001            & 0.0001            & 0.3051           \\
+	 Sitio Lonas       & 0.0001            & 0.0256            & 0.0001            & 0.0256            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0256            & 0.0001            & 0.0255            & 0.0255            & 0.5648            & 0.0256            & 0.0256            & 0.0255            & 0.0002            & 0.1787           \\
+	 Sitio Tugas       & 0.0001            & 0.0001            & 0.0256            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0255            & 0.0002            & 0.0001            & 0.5648            & 0.0256            & 0.0256            & 0.0001            & 0.2295           \\
+	 Tamakin Dacot     & 0.0001            & 0.0256            & 0.0001            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0001            & 0.0001            & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.0256            & 0.5648            & 0.0256            & 0.0256            & 0.1530           \\
+	 Visca             & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0256            & 0.0001            & 0.0001            & 0.2414            & 0.0001            & 0.0001            & 0.0007            & 0.0001            & 0.0257            & 0.0001            & 0.0001            & 0.5530            & 0.0001            & 0.1523           \\
+	 Wangag            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.3113            & 0.3631            & 0.0001            & 0.0425            & 0.0001            & 0.0001            & 0.0866            & 0.0531            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.1422            & 0.0000           \\
+\end{tabular}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} ggdfall\PY{o}{\PYZdl{}}\PY{k+kn}{source} \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggdfall\PY{o}{\PYZdl{}}\PY{k+kn}{source}\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ghost\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         ggdfall\PY{o}{\PYZdl{}}destination \PY{o}{\PYZlt{}\PYZhy{}}\PY{k+kp}{factor}\PY{p}{(}ggdfall\PY{o}{\PYZdl{}}destination\PY{p}{,} levels\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Palanas\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Wangag\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Magbangon\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Cabatoan\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Cemetery\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Caridad Proper\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hicgop South\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Tugas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Elementary School\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Lonas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{San Agustin\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc San Flower\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Poroc Rose\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Visca\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gabas\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tamakin Dacot\PYZdq{}} \PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Haina\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sitio Baybayon\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         
+         \PY{k+kp}{levels}\PY{p}{(}ggdfall\PY{o}{\PYZdl{}}\PY{k+kn}{source}\PY{p}{)}\PY{c+c1}{\PYZsh{}data check}
+         
+         conn\PYZus{}all \PY{o}{\PYZlt{}\PYZhy{}} ggplot\PY{p}{(}ggdfall\PY{p}{,} aes\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}\PY{p}{)} \PY{o}{+}
+             geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} migration\PYZus{}rate\PY{p}{)}\PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{darkgrey\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             \PY{c+c1}{\PYZsh{}scale\PYZus{}fill\PYZus{}gradient(low = \PYZdq{}white\PYZdq{}, high = \PYZdq{}steelblue\PYZdq{}) +}
+             scale\PYZus{}fill\PYZus{}distiller\PY{p}{(}palette \PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{RdYlBu\PYZdq{}}\PY{p}{,} name\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Dispersal Probability\PYZdq{}}\PY{p}{)}\PY{o}{+} 
+             ylab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Destination Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             xlab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Source Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+             theme\PY{p}{(}legend.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+             legend.text \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+             plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+             axis.title.y\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+             axis.title.x\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{)}\PY{p}{,}
+             axis.text.x \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{9}\PY{p}{,} angle \PY{o}{=} \PY{l+m}{45}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{1}\PY{p}{)}\PY{p}{,}
+             axis.text.y \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{9}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+             coord\PYZus{}fixed\PY{p}{(}ratio \PY{o}{=} \PY{l+m}{1}\PY{p}{)} \PY{o}{+}
+             theme\PY{p}{(}axis.text.x\PY{o}{=}element\PYZus{}text\PY{p}{(}angle\PY{o}{=}\PY{l+m}{45}\PY{p}{,}hjust\PY{o}{=}\PY{l+m}{1}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+             ggtitle\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{2012\PYZhy{}2015\PYZdq{}}\PY{p}{)} \PY{o}{+}
+           theme\PY{p}{(}plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+             theme\PY{p}{(}legend.text\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+             theme\PY{p}{(}legend.title\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{10}\PY{p}{)}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}08/28/2018 still off a bit(4 missing cells), need to correct once new runs come back}
+         conn\PYZus{}all
+         ggsave\PY{p}{(}filename\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{conmat\PYZus{}all.png\PYZdq{}}\PY{p}{,} plot\PY{o}{=}conn\PYZus{}all\PY{p}{,} path\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}/migest/figures\PYZdq{}} \PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{enumerate*}
+\item 'Palanas'
+\item 'Wangag'
+\item 'Magbangon'
+\item 'Cabatoan'
+\item 'Caridad Cemetery'
+\item 'Caridad Proper'
+\item 'Hicgop South'
+\item 'Sitio Tugas'
+\item 'Elementary School'
+\item 'Sitio Lonas'
+\item 'San Agustin'
+\item 'Poroc San Flower'
+\item 'Poroc Rose'
+\item 'Visca'
+\item 'Gabas'
+\item 'Tamakin Dacot'
+\item 'Haina'
+\item 'Sitio Baybayon'
+\item 'Ghost'
+\end{enumerate*}
+
+
+    
+    
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Saving 6.67 x 6.67 in image
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} setdiff12 \PY{o}{\PYZlt{}\PYZhy{}} ggdf12 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}migration\PYZus{}rate12 \PY{o}{=}migration\PYZus{}rate\PY{p}{)}
+         setdiff13 \PY{o}{\PYZlt{}\PYZhy{}} ggdf13 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}migration\PYZus{}rate13 \PY{o}{=}migration\PYZus{}rate\PY{p}{)}
+         setdiff14 \PY{o}{\PYZlt{}\PYZhy{}} ggdf14 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}migration\PYZus{}rate14 \PY{o}{=}migration\PYZus{}rate\PY{p}{)}
+         setdiff15 \PY{o}{\PYZlt{}\PYZhy{}} ggdf15 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}migration\PYZus{}rate15 \PY{o}{=}migration\PYZus{}rate\PY{p}{)}
+         setdiff\PYZus{}12\PYZus{}13 \PY{o}{\PYZlt{}\PYZhy{}} left\PYZus{}join\PY{p}{(}setdiff13\PY{p}{,} setdiff12\PY{p}{,} by\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{destination\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{source\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         setdiff\PYZus{}l2\PYZus{}14\PY{o}{\PYZlt{}\PYZhy{}} left\PYZus{}join\PY{p}{(}setdiff\PYZus{}12\PYZus{}13\PY{p}{,} setdiff14\PY{p}{,} by\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{destination\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{source\PYZdq{}} \PY{p}{)}\PY{p}{)} 
+         \PY{c+c1}{\PYZsh{}setdiff\PYZus{}all\PYZlt{}\PYZhy{} left\PYZus{}join(setdiff\PYZus{}12\PYZus{}14, setdiff15, by=c(\PYZdq{}destination\PYZdq{}, \PYZdq{}source\PYZdq{} )) \PYZsh{}\PYZpc{}\PYZgt{}\PYZpc{}}
+         
+         
+             \PY{c+c1}{\PYZsh{}group\PYZus{}by(destination, source) \PYZpc{}\PYZgt{}\PYZpc{}}
+             \PY{c+c1}{\PYZsh{}filter(row\PYZus{}number()\PYZgt{}=1 \PYZam{} row\PYZus{}number()\PYZlt{}=4)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Warning message:
+“Column `destination` joining factors with different levels, coercing to character vector”Warning message:
+“Column `source` joining factors with different levels, coercing to character vector”Warning message:
+“Column `destination` joining character vector and factor, coercing into character vector”Warning message:
+“Column `source` joining character vector and factor, coercing into character vector”
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} setdiff14
+\end{Verbatim}
+
+
+    \begin{tabular}{r|lll}
+ destination & source & migration\_rate14\\
+\hline
+	 Cabatoan          & Cabatoan          & 0.9948           \\
+	 Caridad Cemetery  & Cabatoan          & 0.0006           \\
+	 Elementary School & Cabatoan          & 0.0004           \\
+	 Haina             & Cabatoan          & 0.0004           \\
+	 Hicgop South      & Cabatoan          & 0.0004           \\
+	 Magbangon         & Cabatoan          & 0.0000           \\
+	 Palanas           & Cabatoan          & 0.0001           \\
+	 Poroc Rose        & Cabatoan          & 0.0004           \\
+	 Poroc San Flower  & Cabatoan          & 0.0004           \\
+	 San Agustin       & Cabatoan          & 0.0003           \\
+	 Sitio Baybayon    & Cabatoan          & 0.0001           \\
+	 Tamakin Dacot     & Cabatoan          & 0.0004           \\
+	 Visca             & Cabatoan          & 0.0004           \\
+	 Wangag            & Cabatoan          & 0.0001           \\
+	 Cabatoan          & Caridad Cemetery  & 0.0001           \\
+	 Caridad Cemetery  & Caridad Cemetery  & 0.9950           \\
+	 Elementary School & Caridad Cemetery  & 0.0004           \\
+	 Haina             & Caridad Cemetery  & 0.0004           \\
+	 Hicgop South      & Caridad Cemetery  & 0.0004           \\
+	 Magbangon         & Caridad Cemetery  & 0.0001           \\
+	 Palanas           & Caridad Cemetery  & 0.0004           \\
+	 Poroc Rose        & Caridad Cemetery  & 0.0001           \\
+	 Poroc San Flower  & Caridad Cemetery  & 0.0004           \\
+	 San Agustin       & Caridad Cemetery  & 0.0001           \\
+	 Sitio Baybayon    & Caridad Cemetery  & 0.0004           \\
+	 Tamakin Dacot     & Caridad Cemetery  & 0.0001           \\
+	 Visca             & Caridad Cemetery  & 0.0001           \\
+	 Wangag            & Caridad Cemetery  & 0.0001           \\
+	 Cabatoan          & Elementary School & 0.0004           \\
+	 Caridad Cemetery  & Elementary School & 0.0008           \\
+	 ⋮ & ⋮ & ⋮\\
+	 Visca             & Tamakin Dacot     & 0.0001           \\
+	 Wangag            & Tamakin Dacot     & 0.0001           \\
+	 Cabatoan          & Visca             & 0.0004           \\
+	 Caridad Cemetery  & Visca             & 0.0005           \\
+	 Elementary School & Visca             & 0.0004           \\
+	 Haina             & Visca             & 0.0004           \\
+	 Hicgop South      & Visca             & 0.0001           \\
+	 Magbangon         & Visca             & 0.0001           \\
+	 Palanas           & Visca             & 0.0004           \\
+	 Poroc Rose        & Visca             & 0.0004           \\
+	 Poroc San Flower  & Visca             & 0.0004           \\
+	 San Agustin       & Visca             & 0.0004           \\
+	 Sitio Baybayon    & Visca             & 0.0004           \\
+	 Tamakin Dacot     & Visca             & 0.0004           \\
+	 Visca             & Visca             & 0.9948           \\
+	 Wangag            & Visca             & 0.0001           \\
+	 Cabatoan          & Wangag            & 0.0001           \\
+	 Caridad Cemetery  & Wangag            & 0.0004           \\
+	 Elementary School & Wangag            & 0.0004           \\
+	 Haina             & Wangag            & 0.0001           \\
+	 Hicgop South      & Wangag            & 0.0001           \\
+	 Magbangon         & Wangag            & 0.0001           \\
+	 Palanas           & Wangag            & 0.0003           \\
+	 Poroc Rose        & Wangag            & 0.0002           \\
+	 Poroc San Flower  & Wangag            & 0.0004           \\
+	 San Agustin       & Wangag            & 0.0004           \\
+	 Sitio Baybayon    & Wangag            & 0.0002           \\
+	 Tamakin Dacot     & Wangag            & 0.0004           \\
+	 Visca             & Wangag            & 0.0001           \\
+	 Wangag            & Wangag            & 0.8058           \\
+\end{tabular}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} setdiff\PYZus{}12\PYZus{}15 \PY{o}{\PYZlt{}\PYZhy{}} setdiff\PYZus{}all \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             gather\PY{p}{(}\PY{l+m}{3}\PY{o}{:}\PY{l+m}{5}\PY{p}{,} key\PY{o}{=}year\PY{p}{,} value\PY{o}{=}migration\PYZus{}rate\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        Error in eval(lhs, parent, parent): object 'setdiff\_all' not found
+    Traceback:
+
+
+        1. setdiff\_all \%>\% gather(3:5, key = year, value = migration\_rate)
+
+        2. eval(lhs, parent, parent)
+
+        3. eval(lhs, parent, parent)
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} setdiff\PYZus{}all
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        Error in eval(expr, envir, enclos): object 'setdiff\_all' not found
+    Traceback:
+
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} setdiff\PYZus{}12\PYZus{}15\PYZus{}sum \PY{o}{\PYZlt{}\PYZhy{}} setdiff\PYZus{}12\PYZus{}15 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             group\PYZus{}by\PY{p}{(}destination\PY{p}{,} \PY{k+kn}{source}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             summarise\PY{p}{(}sd\PY{o}{=}sd\PY{p}{(}migration\PYZus{}rate\PY{p}{,} na.rm\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}\PY{p}{,} n\PY{o}{=}n\PY{p}{(}\PY{p}{)}\PY{p}{,} se\PY{o}{=}sd\PY{o}{/}\PY{k+kp}{sqrt}\PY{p}{(}n\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        Error in eval(lhs, parent, parent): object 'setdiff\_12\_15' not found
+    Traceback:
+
+
+        1. setdiff\_12\_15 \%>\% group\_by(destination, source) \%>\% summarise(sd = sd(migration\_rate, 
+     .     na.rm = TRUE), n = n(), se = sd/sqrt(n))
+
+        2. eval(lhs, parent, parent)
+
+        3. eval(lhs, parent, parent)
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}223}]:} \PY{c+c1}{\PYZsh{}setdiff\PYZus{}12\PYZus{}15\PYZus{}sum\PYZdl{}source \PYZlt{}\PYZhy{}factor(setdiff\PYZus{}12\PYZus{}15\PYZdl{}source, levels=c(\PYZdq{}Palanas\PYZdq{},\PYZdq{}Wangag\PYZdq{},\PYZdq{}Magbangon\PYZdq{}, \PYZdq{}Cabatoan\PYZdq{}, \PYZdq{}Caridad Cemetery\PYZdq{}, \PYZdq{}Caridad Proper\PYZdq{}, \PYZdq{}Hicgop South\PYZdq{}, \PYZdq{}Sitio Tugas\PYZdq{}, \PYZdq{}Elementary School\PYZdq{}, \PYZdq{}Sitio Lonas\PYZdq{}, \PYZdq{}San Agustin\PYZdq{}, \PYZdq{}Poroc San Flower\PYZdq{}, \PYZdq{}Poroc Rose\PYZdq{}, \PYZdq{}Visca\PYZdq{}, \PYZdq{}Gabas\PYZdq{}, \PYZdq{}Tamakin Dacot\PYZdq{} , \PYZdq{}Haina\PYZdq{},\PYZdq{}Sitio Baybayon\PYZdq{},\PYZdq{}Ghost\PYZdq{}))}
+          \PY{c+c1}{\PYZsh{}setdiff\PYZus{}12\PYZus{}15\PYZus{}sum\PYZdl{}destination \PYZlt{}\PYZhy{}factor(setdiff\PYZus{}12\PYZus{}15\PYZdl{}destination, levels=c(\PYZdq{}Palanas\PYZdq{},\PYZdq{}Wangag\PYZdq{},\PYZdq{}Magbangon\PYZdq{}, \PYZdq{}Cabatoan\PYZdq{}, \PYZdq{}Caridad Cemetery\PYZdq{}, \PYZdq{}Caridad Proper\PYZdq{}, \PYZdq{}Hicgop South\PYZdq{}, \PYZdq{}Sitio Tugas\PYZdq{}, \PYZdq{}Elementary School\PYZdq{}, \PYZdq{}Sitio Lonas\PYZdq{}, \PYZdq{}San Agustin\PYZdq{}, \PYZdq{}Poroc San Flower\PYZdq{}, \PYZdq{}Poroc Rose\PYZdq{}, \PYZdq{}Visca\PYZdq{}, \PYZdq{}Gabas\PYZdq{}, \PYZdq{}Tamakin Dacot\PYZdq{} , \PYZdq{}Haina\PYZdq{},\PYZdq{}Sitio Baybayon\PYZdq{}))}
+          
+          \PY{c+c1}{\PYZsh{}levels(setdiff\PYZus{}12\PYZus{}15\PYZus{}sum\PYZdl{}source)\PYZsh{}data check}
+          
+          sd \PY{o}{\PYZlt{}\PYZhy{}} ggplot\PY{p}{(}setdiff\PYZus{}12\PYZus{}15\PYZus{}sum\PY{p}{,} aes\PY{p}{(}\PY{k+kn}{source}\PY{p}{,} destination\PY{p}{)}\PY{p}{)} \PY{o}{+}
+          geom\PYZus{}tile\PY{p}{(}aes\PY{p}{(}fill \PY{o}{=} sd\PY{p}{)}\PY{p}{,} color \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{darkgrey\PYZdq{}}\PY{p}{)} \PY{o}{+}
+              \PY{c+c1}{\PYZsh{}scale\PYZus{}fill\PYZus{}gradient(low = \PYZdq{}white\PYZdq{}, high = \PYZdq{}steelblue\PYZdq{}) +}
+              scale\PYZus{}fill\PYZus{}distiller\PY{p}{(}palette \PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{RdYlBu\PYZdq{}}\PY{p}{,} name\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{Migration rate SD\PYZdq{}}\PY{p}{)}\PY{o}{+} 
+              ylab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Destination Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+              xlab\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Source Site\PYZdq{}}\PY{p}{)} \PY{o}{+}
+              theme\PY{p}{(}legend.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+              legend.text \PY{o}{=} element\PYZus{}text\PY{p}{(}size \PY{o}{=} \PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+              plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{18}\PY{p}{)}\PY{p}{,}
+              axis.title.y\PY{o}{=}element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{16}\PY{p}{,}face\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{bold\PYZdq{}}\PY{p}{)}\PY{p}{,}
+              axis.text.x \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{12}\PY{p}{,} angle \PY{o}{=} \PY{l+m}{45}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+              theme\PY{p}{(}axis.text.y \PY{o}{=} element\PYZus{}text\PY{p}{(}size\PY{o}{=}\PY{l+m}{12}\PY{p}{,} hjust \PY{o}{=} \PY{l+m}{1}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+              coord\PYZus{}fixed\PY{p}{(}ratio \PY{o}{=} \PY{l+m}{1}\PY{p}{)} \PY{o}{+}
+              theme\PY{p}{(}axis.text.x\PY{o}{=}element\PYZus{}text\PY{p}{(}angle\PY{o}{=}\PY{l+m}{45}\PY{p}{,}hjust\PY{o}{=}\PY{l+m}{1}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+              ggtitle\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{2012\PYZhy{}2015\PYZdq{}}\PY{p}{)} \PY{o}{+}
+            theme\PY{p}{(}plot.title \PY{o}{=} element\PYZus{}text\PY{p}{(}hjust \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}
+          
+          sd
+\end{Verbatim}
+
+
+    
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}27}]:} \PY{c+c1}{\PYZsh{}plot confidence interval estimates}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}44}]:} conmat14
+         confid14
+\end{Verbatim}
+
+
+    \begin{tabular}{r|llllllllllllllll}
+ Pop & Cabatoan & Caridad Cemetery & Elementary School & Haina & Hicgop South & Magbangon & Palanas & Poroc Rose & Poroc San Flower & San Agustin & Sitio Baybayon & Tamakin Dacot & Visca & Wangag & Ghost\\
+\hline
+	 Cabatoan          & 0.9948            & 0.0001            & 4e-04             & 1e-04             & 0.0004            & 0.9998            & 0.0001            & 5e-04             & 4e-04             & 0.0004            & 0.0004            & 0.0004            & 0.0004            & 0.0001            & 0.0000           \\
+	 Caridad Cemetery  & 0.0006            & 0.9950            & 8e-04             & 4e-04             & 0.0002            & 0.0003            & 0.0001            & 4e-04             & 4e-04             & 0.0004            & 0.0002            & 0.0003            & 0.0005            & 0.0004            & 0.0000           \\
+	 Elementary School & 0.0004            & 0.0004            & 1e-04             & 4e-04             & 0.0004            & 0.0004            & 0.0004            & 5e-04             & 4e-04             & 0.0004            & 0.0004            & 0.0004            & 0.0004            & 0.0004            & 0.9946           \\
+	 Haina             & 0.0004            & 0.0004            & 4e-04             & 1e-04             & 0.0004            & 0.0004            & 0.0004            & 5e-04             & 4e-04             & 0.0004            & 0.0001            & 0.0004            & 0.0004            & 0.0001            & 0.9952           \\
+	 Hicgop South      & 0.0004            & 0.0004            & 1e-04             & 1e-04             & 0.0001            & 0.0004            & 0.0004            & 5e-04             & 4e-04             & 0.0004            & 0.0001            & 0.0001            & 0.0001            & 0.0001            & 0.9964           \\
+	 Magbangon         & 0.0000            & 0.0001            & 4e-04             & 4e-04             & 0.0001            & 0.7658            & 0.1496            & 6e-04             & 3e-04             & 0.0002            & 0.0001            & 0.0224            & 0.0001            & 0.0001            & 0.0598           \\
+	 Palanas           & 0.0001            & 0.0004            & 1e-04             & 4e-04             & 0.0001            & 0.0002            & 0.8559            & 5e-04             & 5e-04             & 0.0001            & 0.0001            & 0.0001            & 0.0004            & 0.0003            & 0.1408           \\
+	 Poroc Rose        & 0.0004            & 0.0001            & 4e-04             & 4e-04             & 0.0001            & 0.0001            & 0.0003            & 1e-04             & 4e-04             & 0.0003            & 0.0002            & 0.0004            & 0.0004            & 0.0002            & 0.9962           \\
+	 Poroc San Flower  & 0.0004            & 0.0004            & 4e-04             & 4e-04             & 0.0004            & 0.0004            & 0.0004            & 5e-04             & 1e-04             & 0.0004            & 0.0004            & 0.0004            & 0.0004            & 0.0004            & 0.9946           \\
+	 San Agustin       & 0.0003            & 0.0001            & 1e-04             & 1e-04             & 0.0001            & 0.0002            & 0.0003            & 5e-04             & 4e-04             & 0.0001            & 0.0002            & 0.0001            & 0.0004            & 0.0004            & 0.9967           \\
+	 Sitio Baybayon    & 0.0001            & 0.0004            & 1e-04             & 4e-04             & 0.0004            & 0.0004            & 0.0001            & 5e-04             & 1e-04             & 0.0013            & 0.5207            & 0.0001            & 0.0004            & 0.0002            & 0.4748           \\
+	 Tamakin Dacot     & 0.0004            & 0.0001            & 1e-04             & 1e-04             & 0.0002            & 0.0001            & 0.0001            & 1e-04             & 1e-04             & 0.0004            & 0.0003            & 0.0001            & 0.0004            & 0.0004            & 0.9971           \\
+	 Visca             & 0.0004            & 0.0001            & 1e-04             & 4e-04             & 0.0001            & 0.0001            & 0.0001            & 1e-04             & 1e-04             & 0.0001            & 0.0001            & 0.0001            & 0.9948            & 0.0001            & 0.0033           \\
+	 Wangag            & 0.0001            & 0.0001            & 4e-04             & 1e-04             & 0.0560            & 0.0000            & 0.0813            & 1e-04             & 4e-04             & 0.0004            & 0.0678            & 0.0001            & 0.0001            & 0.8058            & 0.0000           \\
+\end{tabular}
+
+
+    
+    \begin{tabular}{r|lllllllllllllll}
+ PopI & Cabatoan & Caridad Cemetery & Elementary School & Haina & Hicgop South & Magbangon & Palanas & Poroc Rose & Poroc San Flower & San Agustin & Sitio Baybayon & Tamakin Dacot & Visca & Wangag\\
+\hline
+	 Cabatoan          & 0.0001-0.9955     & 0.0001-0.6900     & 0.0001-0.1910     & 0.0001-0.8816     & 0.0001-0.1910     & 0.6909-0.9985     & 0.0001-0.2637     & 0.0001-0.5723     & 0.0001-0.1632     & 0.0001-0.3088     & 0.0001-0.7629     & 0.0001-0.3087     & 0.0001-0.6910     & 0.0001-0.6162    \\
+	 Caridad Cemetery  & 0.0001-0.7629     & 0.0001-0.9974     & 0.0001-0.8076     & 0.0001-0.4651     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985    \\
+	 Elementary School & 0.0001-0.1910     & 0.0001-0.3088     & 0.0001-0.4993     & 0.0001-0.5329     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985    \\
+	 Haina             & 0.0001-0.3821     & 0.0001-0.4716     & 0.0001-0.4954     & 0.0001-0.6172     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985    \\
+	 Hicgop South      & 0.0001-0.1872     & 0.0001-0.3816     & 0.0001-0.5262     & 0.0001-0.6793     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985    \\
+	 Magbangon         & 0.0001-0.2939     & 0.0001-0.4993     & 0.0001-0.3088     & 0.0001-0.1976     & 0.0001-0.5787     & 0.3830-0.8168     & 0.1034-0.5770     & 0.0001-0.5030     & 0.0001-0.8716     & 0.0001-0.5100     & 0.0001-0.4279     & 0.0069-0.2968     & 0.0001-0.4265     & 0.0001-0.4952    \\
+	 Palanas           & 0.0001-0.3061     & 0.0001-0.3088     & 0.0001-0.3086     & 0.0001-0.3816     & 0.0001-0.2914     & 0.0001-0.5164     & 0.1635-0.9985     & 0.0001-0.6901     & 0.0001-0.8529     & 0.0001-0.7694     & 0.0001-0.4093     & 0.0001-0.3807     & 0.0001-0.8807     & 0.0001-0.8357    \\
+	 Poroc Rose        & 0.0001-0.1804     & 0.0001-0.5721     & 0.0001-0.5273     & 0.0001-0.3816     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985    \\
+	 Poroc San Flower  & 0.0001-0.3088     & 0.0001-0.5016     & 0.0001-0.4635     & 0.0001-0.1914     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985    \\
+	 San Agustin       & 0.0001-0.4716     & 0.0001-0.3364     & 0.0001-0.8078     & 0.0001-0.4993     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985    \\
+	 Sitio Baybayon    & 0.0001-0.6900     & 0.0001-0.1870     & 0.0001-0.5828     & 0.0001-0.2638     & 0.0001-0.4741     & 0.0001-0.7907     & 0.0001-0.7456     & 0.0001-0.2917     & 0.0001-0.4987     & 0.0001-0.2365     & 0.2209-0.9985     & 0.0001-0.2145     & 0.0001-0.5385     & 0.0001-0.8355    \\
+	 Tamakin Dacot     & 0.0001-0.3088     & 0.0001-0.3046     & 0.0001-0.4987     & 0.0001-0.6171     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985    \\
+	 Visca             & 0.0001-0.5273     & 0.0001-0.5034     & 0.0001-0.6894     & 0.0001-0.4995     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985     & 0.0001-0.9985    \\
+	 Wangag            & 0.0001-0.9257     & 0.0001-0.3814     & 0.0001-0.1648     & 0.0001-0.7628     & 0.0067-0.8873     & 0.0001-0.5008     & 0.0316-0.4753     & 0.0001-0.9519     & 0.0001-0.3816     & 0.0001-0.3366     & 0.0180-0.7628     & 0.0001-0.8807     & 0.0001-0.6899     & 0.3078-0.9162    \\
+\end{tabular}
+
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{c+c1}{\PYZsh{}\PYZsh{}plot confidence intervals}
+         \PY{c+c1}{\PYZsh{}ggwidth14\PYZdl{}source \PYZlt{}\PYZhy{}factor(ggwidth14\PYZdl{}source, levels=c(\PYZdq{}Palanas\PYZdq{},\PYZdq{}Wangag\PYZdq{},\PYZdq{}Magbangon\PYZdq{}, \PYZdq{}Cabatoan\PYZdq{},\PYZdq{}Sitio Lonas\PYZdq{}, \PYZdq{}San Agustin\PYZdq{}, \PYZdq{}Poroc San Flower\PYZdq{}, \PYZdq{}Poroc Rose\PYZdq{},\PYZdq{}Visca\PYZdq{}))}
+         \PY{c+c1}{\PYZsh{}ggwidth14\PYZdl{}destination \PYZlt{}\PYZhy{}factor(ggwidth14\PYZdl{}destination, levels=c(\PYZdq{}Palanas\PYZdq{},\PYZdq{}Wangag\PYZdq{},\PYZdq{}Magbangon\PYZdq{}, \PYZdq{}Cabatoan\PYZdq{}, \PYZdq{}Sitio Lonas\PYZdq{}, \PYZdq{}San Agustin\PYZdq{}, \PYZdq{}Poroc San Flower\PYZdq{}, \PYZdq{}Poroc Rose\PYZdq{},\PYZdq{}Visca\PYZdq{}))}
+         \PY{c+c1}{\PYZsh{}}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}levels(ggwidth12\PYZdl{}source)\PYZsh{}data check}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}levels(ggwidth12\PYZdl{}destination)\PYZsh{}data check}
+         \PY{c+c1}{\PYZsh{}}
+         \PY{c+c1}{\PYZsh{}}
+         \PY{c+c1}{\PYZsh{}ggplot(ggwidth14, aes(source, destination)) +}
+         \PY{c+c1}{\PYZsh{}  geom\PYZus{}tile(aes(fill = CI\PYZus{}width), , color = \PYZdq{}gray\PYZdq{}) +}
+         \PY{c+c1}{\PYZsh{}  scale\PYZus{}fill\PYZus{}gradient(low = \PYZdq{}white\PYZdq{}, high = \PYZdq{}red\PYZdq{}) +}
+         \PY{c+c1}{\PYZsh{}  ylab(\PYZdq{}destination\PYZus{}pop\PYZdq{}) +}
+         \PY{c+c1}{\PYZsh{}  xlab(\PYZdq{}source\PYZus{}pop\PYZdq{}) +}
+         \PY{c+c1}{\PYZsh{}  theme(legend.title = element\PYZus{}text(size = 10),}
+         \PY{c+c1}{\PYZsh{}        legend.text = element\PYZus{}text(size = 12),}
+         \PY{c+c1}{\PYZsh{}        plot.title = element\PYZus{}text(size=16),}
+         \PY{c+c1}{\PYZsh{}        axis.title=element\PYZus{}text(size=12,face=\PYZdq{}bold\PYZdq{}),}
+         \PY{c+c1}{\PYZsh{}        axis.text.x = element\PYZus{}text(angle = 90, hjust = 1)) +}
+         \PY{c+c1}{\PYZsh{}        coord\PYZus{}fixed(ratio = 1) +}
+         \PY{c+c1}{\PYZsh{}    theme(axis.text.x=element\PYZus{}text(angle=45,hjust=1)) +}
+         \PY{c+c1}{\PYZsh{}  labs(fill = \PYZdq{}CI\PYZus{}width\PYZdq{})}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{c+c1}{\PYZsh{}format confidence interval matrices for ggplot}
+         
+         \PY{c+c1}{\PYZsh{} compute interval width}
+         
+         confid12\PYZus{}U \PY{o}{\PYZlt{}\PYZhy{}} confid12 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             select\PY{p}{(}contains\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}U\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         confid12\PYZus{}L \PY{o}{\PYZlt{}\PYZhy{}} confid12 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             select\PY{p}{(}contains\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}L\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         width12 \PY{o}{\PYZlt{}\PYZhy{}} confid12\PYZus{}U\PY{o}{\PYZhy{}}confid12\PYZus{}L
+         width12\PY{o}{\PYZdl{}}PopI \PY{o}{\PYZlt{}\PYZhy{}} confid12\PY{o}{\PYZdl{}}PopI
+         \PY{k+kp}{names}\PY{p}{(}width12\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{gsub}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}U\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{,} \PY{k+kp}{names}\PY{p}{(}width12\PY{p}{)}\PY{p}{,} fixed\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+         
+         
+         confid14\PYZus{}U \PY{o}{\PYZlt{}\PYZhy{}} confid14 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             select\PY{p}{(}contains\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}U\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         confid14\PYZus{}L \PY{o}{\PYZlt{}\PYZhy{}} confid14 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             select\PY{p}{(}contains\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}L\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         width14 \PY{o}{\PYZlt{}\PYZhy{}} confid14\PYZus{}U\PY{o}{\PYZhy{}}confid14\PYZus{}L
+         width14\PY{o}{\PYZdl{}}PopI \PY{o}{\PYZlt{}\PYZhy{}} confid14\PY{o}{\PYZdl{}}PopI
+         \PY{k+kp}{names}\PY{p}{(}width14\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{gsub}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}U\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{,} \PY{k+kp}{names}\PY{p}{(}width14\PY{p}{)}\PY{p}{,} fixed\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+         
+         confid15\PYZus{}U \PY{o}{\PYZlt{}\PYZhy{}} confid15 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             select\PY{p}{(}contains\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}U\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         confid15\PYZus{}L \PY{o}{\PYZlt{}\PYZhy{}} confid15 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             select\PY{p}{(}contains\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}L\PYZdq{}}\PY{p}{)}\PY{p}{)}
+         width15 \PY{o}{\PYZlt{}\PYZhy{}} confid15\PYZus{}U\PY{o}{\PYZhy{}}confid15\PYZus{}L
+         width15\PY{o}{\PYZdl{}}PopI \PY{o}{\PYZlt{}\PYZhy{}} confid15\PY{o}{\PYZdl{}}PopI
+         \PY{k+kp}{names}\PY{p}{(}width15\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{gsub}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}U\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{,} \PY{k+kp}{names}\PY{p}{(}width15\PY{p}{)}\PY{p}{,} fixed\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}format for ggplot}
+         ggwidth12 \PY{o}{\PYZlt{}\PYZhy{}} width12 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             gather\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{9}\PY{p}{,} key\PY{o}{=}\PY{k+kn}{source}\PY{p}{,} value\PY{o}{=}CI\PYZus{}width\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}destination\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{PopI\PYZdq{}}\PY{p}{)}
+         
+         ggwidth14 \PY{o}{\PYZlt{}\PYZhy{}} width14 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             gather\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{14}\PY{p}{,} key\PY{o}{=}\PY{k+kn}{source}\PY{p}{,} value\PY{o}{=}CI\PYZus{}width\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}destination\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{PopI\PYZdq{}}\PY{p}{)} 
+         
+         ggwidth15 \PY{o}{\PYZlt{}\PYZhy{}} width15 \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             gather\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{12}\PY{p}{,} key\PY{o}{=}\PY{k+kn}{source}\PY{p}{,} value\PY{o}{=}CI\PYZus{}width\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+             rename\PY{p}{(}destination\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{PopI\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{c+c1}{\PYZsh{}ggwidth12 \PYZlt{}\PYZhy{} width12 \PYZpc{}\PYZgt{}\PYZpc{}}
+          \PY{c+c1}{\PYZsh{}   gather(1:9, key=source, value=CI\PYZus{}width) \PYZpc{}\PYZgt{}\PYZpc{}}
+           \PY{c+c1}{\PYZsh{}  rename(destination=\PYZdq{}PopI\PYZdq{})}
+         \PY{c+c1}{\PYZsh{}ggwidth12}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{c+c1}{\PYZsh{}checking column sums... what would that tell you...}
+        \PY{c+c1}{\PYZsh{}conmat\PYZus{}12\PYZus{}col \PYZlt{}\PYZhy{} conmat12}
+        \PY{c+c1}{\PYZsh{}rownames(conmat\PYZus{}12\PYZus{}col) \PYZlt{}\PYZhy{} conmat12\PYZdl{}pop}
+        \PY{c+c1}{\PYZsh{}conmat\PYZus{}12\PYZus{}col \PYZlt{}\PYZhy{} conmat\PYZus{}12\PYZus{}col \PYZpc{}\PYZgt{}\PYZpc{} select(\PYZhy{}Pop)}
+        \PY{c+c1}{\PYZsh{}}
+        \PY{c+c1}{\PYZsh{}colSums(conmat\PYZus{}12\PYZus{}col)}
+        \PY{c+c1}{\PYZsh{}}
+        \PY{c+c1}{\PYZsh{}conmat\PYZus{}14\PYZus{}col \PYZlt{}\PYZhy{} conmat14}
+        \PY{c+c1}{\PYZsh{}rownames(conmat\PYZus{}14\PYZus{}col) \PYZlt{}\PYZhy{} conmat14\PYZdl{}pop}
+        \PY{c+c1}{\PYZsh{}conmat\PYZus{}14\PYZus{}col \PYZlt{}\PYZhy{} conmat\PYZus{}14\PYZus{}col \PYZpc{}\PYZgt{}\PYZpc{} select(\PYZhy{}Pop)}
+        \PY{c+c1}{\PYZsh{}}
+        \PY{c+c1}{\PYZsh{}colSums(conmat\PYZus{}14\PYZus{}col)}
+        \PY{c+c1}{\PYZsh{}}
+        \PY{c+c1}{\PYZsh{}conmat\PYZus{}15\PYZus{}col \PYZlt{}\PYZhy{} conmat15}
+        \PY{c+c1}{\PYZsh{}rownames(conmat\PYZus{}15\PYZus{}col) \PYZlt{}\PYZhy{} conmat15\PYZdl{}pop}
+        \PY{c+c1}{\PYZsh{}conmat\PYZus{}15\PYZus{}col \PYZlt{}\PYZhy{} conmat\PYZus{}15\PYZus{}col \PYZpc{}\PYZgt{}\PYZpc{} select(\PYZhy{}Pop)}
+        \PY{c+c1}{\PYZsh{}colSums(conmat\PYZus{}15\PYZus{}col)}
+\end{Verbatim}
+
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
