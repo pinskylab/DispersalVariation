@@ -1,0 +1,17 @@
+site pop
+Cabatoan 1
+Caridad_Cemetery 2
+Caridad_Proper 3
+Elementary_School 4
+Haina 5
+Hicgop_South 6
+Magbangon 7
+Palanas 8
+Poroc_Rose 9
+Poroc_San_Flower 10
+San_Agustin 11
+Sitio_Baybayon 12
+Sitio_Tugas 13
+Tamakin_Dacot 14
+Visca 15
+Wangag 16
