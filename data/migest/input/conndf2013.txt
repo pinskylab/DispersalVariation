@@ -1,0 +1,273 @@
+destination,source,migration_rate
+Cabatoan,Cabatoan,1e-04
+Caridad Cemetery,Cabatoan,1e-04
+Caridad Proper,Cabatoan,1e-04
+Elementary School,Cabatoan,1e-04
+Haina,Cabatoan,1e-04
+Hicgop South,Cabatoan,1e-04
+Magbangon,Cabatoan,1e-04
+Palanas,Cabatoan,0.029
+Poroc Rose,Cabatoan,0.317
+Poroc San Flower,Cabatoan,0.3491
+San Agustin,Cabatoan,1e-04
+Sitio Baybayon,Cabatoan,1e-04
+Sitio Tugas,Cabatoan,1e-04
+Tamakin Dacot,Cabatoan,1e-04
+Visca,Cabatoan,1e-04
+Wangag,Cabatoan,1e-04
+Cabatoan,Caridad Cemetery,1e-04
+Caridad Cemetery,Caridad Cemetery,1e-04
+Caridad Proper,Caridad Cemetery,1e-04
+Elementary School,Caridad Cemetery,1e-04
+Haina,Caridad Cemetery,1e-04
+Hicgop South,Caridad Cemetery,3e-04
+Magbangon,Caridad Cemetery,1e-04
+Palanas,Caridad Cemetery,2e-04
+Poroc Rose,Caridad Cemetery,2e-04
+Poroc San Flower,Caridad Cemetery,1e-04
+San Agustin,Caridad Cemetery,1e-04
+Sitio Baybayon,Caridad Cemetery,1e-04
+Sitio Tugas,Caridad Cemetery,1e-04
+Tamakin Dacot,Caridad Cemetery,1e-04
+Visca,Caridad Cemetery,1e-04
+Wangag,Caridad Cemetery,1e-04
+Cabatoan,Caridad Proper,1e-04
+Caridad Cemetery,Caridad Proper,1e-04
+Caridad Proper,Caridad Proper,1e-04
+Elementary School,Caridad Proper,1e-04
+Haina,Caridad Proper,1e-04
+Hicgop South,Caridad Proper,1e-04
+Magbangon,Caridad Proper,1e-04
+Palanas,Caridad Proper,1e-04
+Poroc Rose,Caridad Proper,1e-04
+Poroc San Flower,Caridad Proper,1e-04
+San Agustin,Caridad Proper,1e-04
+Sitio Baybayon,Caridad Proper,1e-04
+Sitio Tugas,Caridad Proper,1e-04
+Tamakin Dacot,Caridad Proper,1e-04
+Visca,Caridad Proper,2e-04
+Wangag,Caridad Proper,1e-04
+Cabatoan,Elementary School,1e-04
+Caridad Cemetery,Elementary School,2e-04
+Caridad Proper,Elementary School,1e-04
+Elementary School,Elementary School,1e-04
+Haina,Elementary School,2e-04
+Hicgop South,Elementary School,1e-04
+Magbangon,Elementary School,1e-04
+Palanas,Elementary School,2e-04
+Poroc Rose,Elementary School,1e-04
+Poroc San Flower,Elementary School,1e-04
+San Agustin,Elementary School,2e-04
+Sitio Baybayon,Elementary School,1e-04
+Sitio Tugas,Elementary School,2e-04
+Tamakin Dacot,Elementary School,1e-04
+Visca,Elementary School,1e-04
+Wangag,Elementary School,1e-04
+Cabatoan,Ghost,0.7152
+Caridad Cemetery,Ghost,0.9981
+Caridad Proper,Ghost,0.9983
+Elementary School,Ghost,0.8924
+Haina,Ghost,0.7834
+Hicgop South,Ghost,0.9984
+Magbangon,Ghost,0.077
+Palanas,Ghost,0.2746
+Poroc Rose,Ghost,0.6813
+Poroc San Flower,Ghost,0
+San Agustin,Ghost,0.0159
+Sitio Baybayon,Ghost,0.7851
+Sitio Tugas,Ghost,0.9983
+Tamakin Dacot,Ghost,0.9983
+Visca,Ghost,0.3403
+Wangag,Ghost,0.7473
+Cabatoan,Haina,2e-04
+Caridad Cemetery,Haina,1e-04
+Caridad Proper,Haina,1e-04
+Elementary School,Haina,1e-04
+Haina,Haina,1e-04
+Hicgop South,Haina,0
+Magbangon,Haina,1e-04
+Palanas,Haina,1e-04
+Poroc Rose,Haina,1e-04
+Poroc San Flower,Haina,1e-04
+San Agustin,Haina,1e-04
+Sitio Baybayon,Haina,1e-04
+Sitio Tugas,Haina,1e-04
+Tamakin Dacot,Haina,1e-04
+Visca,Haina,1e-04
+Wangag,Haina,0.1298
+Cabatoan,Hicgop South,1e-04
+Caridad Cemetery,Hicgop South,3e-04
+Caridad Proper,Hicgop South,1e-04
+Elementary School,Hicgop South,1e-04
+Haina,Hicgop South,1e-04
+Hicgop South,Hicgop South,1e-04
+Magbangon,Hicgop South,1e-04
+Palanas,Hicgop South,1e-04
+Poroc Rose,Hicgop South,1e-04
+Poroc San Flower,Hicgop South,1e-04
+San Agustin,Hicgop South,1e-04
+Sitio Baybayon,Hicgop South,1e-04
+Sitio Tugas,Hicgop South,1e-04
+Tamakin Dacot,Hicgop South,2e-04
+Visca,Hicgop South,2e-04
+Wangag,Hicgop South,2e-04
+Cabatoan,Magbangon,1e-04
+Caridad Cemetery,Magbangon,1e-04
+Caridad Proper,Magbangon,1e-04
+Elementary School,Magbangon,1e-04
+Haina,Magbangon,1e-04
+Hicgop South,Magbangon,1e-04
+Magbangon,Magbangon,0.8033
+Palanas,Magbangon,0.1903
+Poroc Rose,Magbangon,1e-04
+Poroc San Flower,Magbangon,1e-04
+San Agustin,Magbangon,1e-04
+Sitio Baybayon,Magbangon,2e-04
+Sitio Tugas,Magbangon,1e-04
+Tamakin Dacot,Magbangon,1e-04
+Visca,Magbangon,1e-04
+Wangag,Magbangon,1e-04
+Cabatoan,Palanas,0.2832
+Caridad Cemetery,Palanas,0
+Caridad Proper,Palanas,1e-04
+Elementary School,Palanas,0.1059
+Haina,Palanas,1e-04
+Hicgop South,Palanas,1e-04
+Magbangon,Palanas,0.1181
+Palanas,Palanas,0.1202
+Poroc Rose,Palanas,1e-04
+Poroc San Flower,Palanas,0.4208
+San Agustin,Palanas,0.268
+Sitio Baybayon,Palanas,1e-04
+Sitio Tugas,Palanas,1e-04
+Tamakin Dacot,Palanas,1e-04
+Visca,Palanas,0.3289
+Wangag,Palanas,0.1211
+Cabatoan,Poroc Rose,1e-04
+Caridad Cemetery,Poroc Rose,1e-04
+Caridad Proper,Poroc Rose,1e-04
+Elementary School,Poroc Rose,2e-04
+Haina,Poroc Rose,1e-04
+Hicgop South,Poroc Rose,1e-04
+Magbangon,Poroc Rose,1e-04
+Palanas,Poroc Rose,2e-04
+Poroc Rose,Poroc Rose,1e-04
+Poroc San Flower,Poroc Rose,2e-04
+San Agustin,Poroc Rose,1e-04
+Sitio Baybayon,Poroc Rose,1e-04
+Sitio Tugas,Poroc Rose,1e-04
+Tamakin Dacot,Poroc Rose,1e-04
+Visca,Poroc Rose,1e-04
+Wangag,Poroc Rose,1e-04
+Cabatoan,Poroc San Flower,1e-04
+Caridad Cemetery,Poroc San Flower,1e-04
+Caridad Proper,Poroc San Flower,2e-04
+Elementary School,Poroc San Flower,2e-04
+Haina,Poroc San Flower,1e-04
+Hicgop South,Poroc San Flower,1e-04
+Magbangon,Poroc San Flower,1e-04
+Palanas,Poroc San Flower,1e-04
+Poroc Rose,Poroc San Flower,1e-04
+Poroc San Flower,Poroc San Flower,2e-04
+San Agustin,Poroc San Flower,1e-04
+Sitio Baybayon,Poroc San Flower,1e-04
+Sitio Tugas,Poroc San Flower,1e-04
+Tamakin Dacot,Poroc San Flower,1e-04
+Visca,Poroc San Flower,1e-04
+Wangag,Poroc San Flower,1e-04
+Cabatoan,San Agustin,1e-04
+Caridad Cemetery,San Agustin,1e-04
+Caridad Proper,San Agustin,1e-04
+Elementary School,San Agustin,1e-04
+Haina,San Agustin,1e-04
+Hicgop South,San Agustin,1e-04
+Magbangon,San Agustin,1e-04
+Palanas,San Agustin,2e-04
+Poroc Rose,San Agustin,1e-04
+Poroc San Flower,San Agustin,1e-04
+San Agustin,San Agustin,0.7146
+Sitio Baybayon,San Agustin,1e-04
+Sitio Tugas,San Agustin,1e-04
+Tamakin Dacot,San Agustin,1e-04
+Visca,San Agustin,1e-04
+Wangag,San Agustin,1e-04
+Cabatoan,Sitio Baybayon,1e-04
+Caridad Cemetery,Sitio Baybayon,1e-04
+Caridad Proper,Sitio Baybayon,1e-04
+Elementary School,Sitio Baybayon,1e-04
+Haina,Sitio Baybayon,0.215
+Hicgop South,Sitio Baybayon,1e-04
+Magbangon,Sitio Baybayon,1e-04
+Palanas,Sitio Baybayon,0.0481
+Poroc Rose,Sitio Baybayon,1e-04
+Poroc San Flower,Sitio Baybayon,0.3117
+San Agustin,Sitio Baybayon,1e-04
+Sitio Baybayon,Sitio Baybayon,1e-04
+Sitio Tugas,Sitio Baybayon,1e-04
+Tamakin Dacot,Sitio Baybayon,1e-04
+Visca,Sitio Baybayon,1e-04
+Wangag,Sitio Baybayon,1e-04
+Cabatoan,Sitio Tugas,1e-04
+Caridad Cemetery,Sitio Tugas,3e-04
+Caridad Proper,Sitio Tugas,1e-04
+Elementary School,Sitio Tugas,1e-04
+Haina,Sitio Tugas,1e-04
+Hicgop South,Sitio Tugas,1e-04
+Magbangon,Sitio Tugas,2e-04
+Palanas,Sitio Tugas,1e-04
+Poroc Rose,Sitio Tugas,1e-04
+Poroc San Flower,Sitio Tugas,1e-04
+San Agustin,Sitio Tugas,1e-04
+Sitio Baybayon,Sitio Tugas,1e-04
+Sitio Tugas,Sitio Tugas,1e-04
+Tamakin Dacot,Sitio Tugas,1e-04
+Visca,Sitio Tugas,1e-04
+Wangag,Sitio Tugas,4e-04
+Cabatoan,Tamakin Dacot,1e-04
+Caridad Cemetery,Tamakin Dacot,1e-04
+Caridad Proper,Tamakin Dacot,1e-04
+Elementary School,Tamakin Dacot,1e-04
+Haina,Tamakin Dacot,1e-04
+Hicgop South,Tamakin Dacot,1e-04
+Magbangon,Tamakin Dacot,1e-04
+Palanas,Tamakin Dacot,0.0016
+Poroc Rose,Tamakin Dacot,2e-04
+Poroc San Flower,Tamakin Dacot,1e-04
+San Agustin,Tamakin Dacot,1e-04
+Sitio Baybayon,Tamakin Dacot,2e-04
+Sitio Tugas,Tamakin Dacot,1e-04
+Tamakin Dacot,Tamakin Dacot,1e-04
+Visca,Tamakin Dacot,8e-04
+Wangag,Tamakin Dacot,1e-04
+Cabatoan,Visca,1e-04
+Caridad Cemetery,Visca,1e-04
+Caridad Proper,Visca,1e-04
+Elementary School,Visca,1e-04
+Haina,Visca,1e-04
+Hicgop South,Visca,0
+Magbangon,Visca,1e-04
+Palanas,Visca,0.1475
+Poroc Rose,Visca,1e-04
+Poroc San Flower,Visca,0
+San Agustin,Visca,1e-04
+Sitio Baybayon,Visca,0.2132
+Sitio Tugas,Visca,1e-04
+Tamakin Dacot,Visca,1e-04
+Visca,Visca,1e-04
+Wangag,Visca,1e-04
+Cabatoan,Wangag,1e-04
+Caridad Cemetery,Wangag,0
+Caridad Proper,Wangag,1e-04
+Elementary School,Wangag,1e-04
+Haina,Wangag,1e-04
+Hicgop South,Wangag,1e-04
+Magbangon,Wangag,2e-04
+Palanas,Wangag,0.1874
+Poroc Rose,Wangag,1e-04
+Poroc San Flower,Wangag,1e-04
+San Agustin,Wangag,1e-04
+Sitio Baybayon,Wangag,1e-04
+Sitio Tugas,Wangag,1e-04
+Tamakin Dacot,Wangag,1e-04
+Visca,Wangag,0.3285
+Wangag,Wangag,1e-04

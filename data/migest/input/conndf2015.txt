@@ -1,0 +1,157 @@
+destination,source,migration_rate
+Cabatoan,Cabatoan,0.7115
+Elementary School,Cabatoan,1e-04
+Gabas,Cabatoan,1e-04
+Haina,Cabatoan,1e-04
+Hicgop South,Cabatoan,2e-04
+Magbangon,Cabatoan,2e-04
+Palanas,Cabatoan,1e-04
+San Agustin,Cabatoan,2e-04
+Sitio Baybayon,Cabatoan,0.1534
+Tamakin Dacot,Cabatoan,2e-04
+Visca,Cabatoan,2e-04
+Wangag,Cabatoan,2e-04
+Cabatoan,Elementary School,0.0854
+Elementary School,Elementary School,0.9978
+Gabas,Elementary School,2e-04
+Haina,Elementary School,2e-04
+Hicgop South,Elementary School,2e-04
+Magbangon,Elementary School,2e-04
+Palanas,Elementary School,2e-04
+San Agustin,Elementary School,1e-04
+Sitio Baybayon,Elementary School,2e-04
+Tamakin Dacot,Elementary School,1e-04
+Visca,Elementary School,2e-04
+Wangag,Elementary School,2e-04
+Cabatoan,Gabas,0.0016
+Elementary School,Gabas,2e-04
+Gabas,Gabas,0.9978
+Haina,Gabas,2e-04
+Hicgop South,Gabas,1e-04
+Magbangon,Gabas,2e-04
+Palanas,Gabas,2e-04
+San Agustin,Gabas,2e-04
+Sitio Baybayon,Gabas,2e-04
+Tamakin Dacot,Gabas,1e-04
+Visca,Gabas,2e-04
+Wangag,Gabas,2e-04
+Cabatoan,Ghost,0.0842
+Elementary School,Ghost,9e-04
+Gabas,Ghost,0.001
+Haina,Ghost,7e-04
+Hicgop South,Ghost,0.998
+Magbangon,Ghost,0.864
+Palanas,Ghost,0.8167
+San Agustin,Ghost,0.9978
+Sitio Baybayon,Ghost,0.8449
+Tamakin Dacot,Ghost,0.998
+Visca,Ghost,0.9984
+Wangag,Ghost,0.9354
+Cabatoan,Haina,2e-04
+Elementary School,Haina,1e-04
+Gabas,Haina,1e-04
+Haina,Haina,0.9978
+Hicgop South,Haina,2e-04
+Magbangon,Haina,2e-04
+Palanas,Haina,2e-04
+San Agustin,Haina,2e-04
+Sitio Baybayon,Haina,2e-04
+Tamakin Dacot,Haina,2e-04
+Visca,Haina,1e-04
+Wangag,Haina,3e-04
+Cabatoan,Hicgop South,2e-04
+Elementary School,Hicgop South,1e-04
+Gabas,Hicgop South,1e-04
+Haina,Hicgop South,1e-04
+Hicgop South,Hicgop South,1e-04
+Magbangon,Hicgop South,0.0039
+Palanas,Hicgop South,2e-04
+San Agustin,Hicgop South,2e-04
+Sitio Baybayon,Hicgop South,2e-04
+Tamakin Dacot,Hicgop South,2e-04
+Visca,Hicgop South,1e-04
+Wangag,Hicgop South,2e-04
+Cabatoan,Magbangon,0.059
+Elementary School,Magbangon,1e-04
+Gabas,Magbangon,1e-04
+Haina,Magbangon,1e-04
+Hicgop South,Magbangon,2e-04
+Magbangon,Magbangon,0.1028
+Palanas,Magbangon,0.1814
+San Agustin,Magbangon,2e-04
+Sitio Baybayon,Magbangon,1e-04
+Tamakin Dacot,Magbangon,2e-04
+Visca,Magbangon,1e-04
+Wangag,Magbangon,2e-04
+Cabatoan,Palanas,0.056
+Elementary School,Palanas,1e-04
+Gabas,Palanas,1e-04
+Haina,Palanas,1e-04
+Hicgop South,Palanas,1e-04
+Magbangon,Palanas,2e-04
+Palanas,Palanas,1e-04
+San Agustin,Palanas,2e-04
+Sitio Baybayon,Palanas,1e-04
+Tamakin Dacot,Palanas,1e-04
+Visca,Palanas,1e-04
+Wangag,Palanas,0
+Cabatoan,San Agustin,1e-04
+Elementary School,San Agustin,1e-04
+Gabas,San Agustin,1e-04
+Haina,San Agustin,1e-04
+Hicgop South,San Agustin,1e-04
+Magbangon,San Agustin,0.0275
+Palanas,San Agustin,1e-04
+San Agustin,San Agustin,1e-04
+Sitio Baybayon,San Agustin,1e-04
+Tamakin Dacot,San Agustin,1e-04
+Visca,San Agustin,1e-04
+Wangag,San Agustin,1e-04
+Cabatoan,Sitio Baybayon,3e-04
+Elementary School,Sitio Baybayon,2e-04
+Gabas,Sitio Baybayon,1e-04
+Haina,Sitio Baybayon,1e-04
+Hicgop South,Sitio Baybayon,2e-04
+Magbangon,Sitio Baybayon,2e-04
+Palanas,Sitio Baybayon,2e-04
+San Agustin,Sitio Baybayon,2e-04
+Sitio Baybayon,Sitio Baybayon,1e-04
+Tamakin Dacot,Sitio Baybayon,2e-04
+Visca,Sitio Baybayon,1e-04
+Wangag,Sitio Baybayon,2e-04
+Cabatoan,Tamakin Dacot,1e-04
+Elementary School,Tamakin Dacot,1e-04
+Gabas,Tamakin Dacot,1e-04
+Haina,Tamakin Dacot,1e-04
+Hicgop South,Tamakin Dacot,2e-04
+Magbangon,Tamakin Dacot,2e-04
+Palanas,Tamakin Dacot,2e-04
+San Agustin,Tamakin Dacot,2e-04
+Sitio Baybayon,Tamakin Dacot,2e-04
+Tamakin Dacot,Tamakin Dacot,2e-04
+Visca,Tamakin Dacot,1e-04
+Wangag,Tamakin Dacot,0.0629
+Cabatoan,Visca,0.0012
+Elementary School,Visca,1e-04
+Gabas,Visca,1e-04
+Haina,Visca,2e-04
+Hicgop South,Visca,2e-04
+Magbangon,Visca,2e-04
+Palanas,Visca,2e-04
+San Agustin,Visca,2e-04
+Sitio Baybayon,Visca,1e-04
+Tamakin Dacot,Visca,2e-04
+Visca,Visca,1e-04
+Wangag,Visca,0
+Cabatoan,Wangag,2e-04
+Elementary School,Wangag,1e-04
+Gabas,Wangag,1e-04
+Haina,Wangag,2e-04
+Hicgop South,Wangag,2e-04
+Magbangon,Wangag,2e-04
+Palanas,Wangag,2e-04
+San Agustin,Wangag,2e-04
+Sitio Baybayon,Wangag,2e-04
+Tamakin Dacot,Wangag,2e-04
+Visca,Wangag,2e-04
+Wangag,Wangag,1e-04

@@ -1,0 +1,73 @@
+destination,source,migration_rate
+Cabatoan,Cabatoan,0.9986
+Magbangon,Cabatoan,0
+Palanas,Cabatoan,1e-04
+Poroc Rose,Cabatoan,2e-04
+Poroc San Flower,Cabatoan,1e-04
+San Agustin,Cabatoan,2e-04
+Visca,Cabatoan,2e-04
+Wangag,Cabatoan,1e-04
+Cabatoan,Ghost,6e-04
+Magbangon,Ghost,0
+Palanas,Ghost,0
+Poroc Rose,Ghost,0
+Poroc San Flower,Ghost,0.8958
+San Agustin,Ghost,0.9991
+Visca,Ghost,5e-04
+Wangag,Ghost,6e-04
+Cabatoan,Magbangon,1e-04
+Magbangon,Magbangon,0
+Palanas,Magbangon,1e-04
+Poroc Rose,Magbangon,0
+Poroc San Flower,Magbangon,0.1031
+San Agustin,Magbangon,1e-04
+Visca,Magbangon,1e-04
+Wangag,Magbangon,1e-04
+Cabatoan,Palanas,1e-04
+Magbangon,Palanas,2e-04
+Palanas,Palanas,0.9999
+Poroc Rose,Palanas,1e-04
+Poroc San Flower,Palanas,1e-04
+San Agustin,Palanas,1e-04
+Visca,Palanas,1e-04
+Wangag,Palanas,1e-04
+Cabatoan,Poroc Rose,1e-04
+Magbangon,Poroc Rose,0.9999
+Palanas,Poroc Rose,3e-04
+Poroc Rose,Poroc Rose,1e-04
+Poroc San Flower,Poroc Rose,1e-04
+San Agustin,Poroc Rose,1e-04
+Visca,Poroc Rose,1e-04
+Wangag,Poroc Rose,1e-04
+Cabatoan,Poroc San Flower,2e-04
+Magbangon,Poroc San Flower,2e-04
+Palanas,Poroc San Flower,0
+Poroc Rose,Poroc San Flower,2e-04
+Poroc San Flower,Poroc San Flower,1e-04
+San Agustin,Poroc San Flower,1e-04
+Visca,Poroc San Flower,1e-04
+Wangag,Poroc San Flower,1e-04
+Cabatoan,San Agustin,1e-04
+Magbangon,San Agustin,2e-04
+Palanas,San Agustin,2e-04
+Poroc Rose,San Agustin,0.9999
+Poroc San Flower,San Agustin,2e-04
+San Agustin,San Agustin,1e-04
+Visca,San Agustin,1e-04
+Wangag,San Agustin,1e-04
+Cabatoan,Visca,1e-04
+Magbangon,Visca,2e-04
+Palanas,Visca,2e-04
+Poroc Rose,Visca,0
+Poroc San Flower,Visca,2e-04
+San Agustin,Visca,1e-04
+Visca,Visca,0.9986
+Wangag,Visca,2e-04
+Cabatoan,Wangag,1e-04
+Magbangon,Wangag,2e-04
+Palanas,Wangag,2e-04
+Poroc Rose,Wangag,1e-04
+Poroc San Flower,Wangag,3e-04
+San Agustin,Wangag,1e-04
+Visca,Wangag,2e-04
+Wangag,Wangag,0.9986

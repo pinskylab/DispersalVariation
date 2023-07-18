@@ -1,0 +1,841 @@
+destination,source,year,migration_rate
+Cabatoan,Cabatoan,migration_rate13,1e-04
+Caridad Cemetery,Cabatoan,migration_rate13,1e-04
+Elementary School,Cabatoan,migration_rate13,1e-04
+Haina,Cabatoan,migration_rate13,1e-04
+Hicgop South,Cabatoan,migration_rate13,1e-04
+Magbangon,Cabatoan,migration_rate13,1e-04
+Palanas,Cabatoan,migration_rate13,0.029
+Poroc Rose,Cabatoan,migration_rate13,0.317
+Poroc San Flower,Cabatoan,migration_rate13,0.3491
+San Agustin,Cabatoan,migration_rate13,1e-04
+Sitio Baybayon,Cabatoan,migration_rate13,1e-04
+Tamakin Dacot,Cabatoan,migration_rate13,1e-04
+Visca,Cabatoan,migration_rate13,1e-04
+Wangag,Cabatoan,migration_rate13,1e-04
+Cabatoan,Caridad Cemetery,migration_rate13,1e-04
+Caridad Cemetery,Caridad Cemetery,migration_rate13,1e-04
+Elementary School,Caridad Cemetery,migration_rate13,1e-04
+Haina,Caridad Cemetery,migration_rate13,1e-04
+Hicgop South,Caridad Cemetery,migration_rate13,3e-04
+Magbangon,Caridad Cemetery,migration_rate13,1e-04
+Palanas,Caridad Cemetery,migration_rate13,2e-04
+Poroc Rose,Caridad Cemetery,migration_rate13,2e-04
+Poroc San Flower,Caridad Cemetery,migration_rate13,1e-04
+San Agustin,Caridad Cemetery,migration_rate13,1e-04
+Sitio Baybayon,Caridad Cemetery,migration_rate13,1e-04
+Tamakin Dacot,Caridad Cemetery,migration_rate13,1e-04
+Visca,Caridad Cemetery,migration_rate13,1e-04
+Wangag,Caridad Cemetery,migration_rate13,1e-04
+Cabatoan,Elementary School,migration_rate13,1e-04
+Caridad Cemetery,Elementary School,migration_rate13,2e-04
+Elementary School,Elementary School,migration_rate13,1e-04
+Haina,Elementary School,migration_rate13,2e-04
+Hicgop South,Elementary School,migration_rate13,1e-04
+Magbangon,Elementary School,migration_rate13,1e-04
+Palanas,Elementary School,migration_rate13,2e-04
+Poroc Rose,Elementary School,migration_rate13,1e-04
+Poroc San Flower,Elementary School,migration_rate13,1e-04
+San Agustin,Elementary School,migration_rate13,2e-04
+Sitio Baybayon,Elementary School,migration_rate13,1e-04
+Tamakin Dacot,Elementary School,migration_rate13,1e-04
+Visca,Elementary School,migration_rate13,1e-04
+Wangag,Elementary School,migration_rate13,1e-04
+Cabatoan,Ghost,migration_rate13,0.7152
+Caridad Cemetery,Ghost,migration_rate13,0.9981
+Elementary School,Ghost,migration_rate13,0.8924
+Haina,Ghost,migration_rate13,0.7834
+Hicgop South,Ghost,migration_rate13,0.9984
+Magbangon,Ghost,migration_rate13,0.077
+Palanas,Ghost,migration_rate13,0.2746
+Poroc Rose,Ghost,migration_rate13,0.6813
+Poroc San Flower,Ghost,migration_rate13,0
+San Agustin,Ghost,migration_rate13,0.0159
+Sitio Baybayon,Ghost,migration_rate13,0.7851
+Tamakin Dacot,Ghost,migration_rate13,0.9983
+Visca,Ghost,migration_rate13,0.3403
+Wangag,Ghost,migration_rate13,0.7473
+Cabatoan,Haina,migration_rate13,2e-04
+Caridad Cemetery,Haina,migration_rate13,1e-04
+Elementary School,Haina,migration_rate13,1e-04
+Haina,Haina,migration_rate13,1e-04
+Hicgop South,Haina,migration_rate13,0
+Magbangon,Haina,migration_rate13,1e-04
+Palanas,Haina,migration_rate13,1e-04
+Poroc Rose,Haina,migration_rate13,1e-04
+Poroc San Flower,Haina,migration_rate13,1e-04
+San Agustin,Haina,migration_rate13,1e-04
+Sitio Baybayon,Haina,migration_rate13,1e-04
+Tamakin Dacot,Haina,migration_rate13,1e-04
+Visca,Haina,migration_rate13,1e-04
+Wangag,Haina,migration_rate13,0.1298
+Cabatoan,Hicgop South,migration_rate13,1e-04
+Caridad Cemetery,Hicgop South,migration_rate13,3e-04
+Elementary School,Hicgop South,migration_rate13,1e-04
+Haina,Hicgop South,migration_rate13,1e-04
+Hicgop South,Hicgop South,migration_rate13,1e-04
+Magbangon,Hicgop South,migration_rate13,1e-04
+Palanas,Hicgop South,migration_rate13,1e-04
+Poroc Rose,Hicgop South,migration_rate13,1e-04
+Poroc San Flower,Hicgop South,migration_rate13,1e-04
+San Agustin,Hicgop South,migration_rate13,1e-04
+Sitio Baybayon,Hicgop South,migration_rate13,1e-04
+Tamakin Dacot,Hicgop South,migration_rate13,2e-04
+Visca,Hicgop South,migration_rate13,2e-04
+Wangag,Hicgop South,migration_rate13,2e-04
+Cabatoan,Magbangon,migration_rate13,1e-04
+Caridad Cemetery,Magbangon,migration_rate13,1e-04
+Elementary School,Magbangon,migration_rate13,1e-04
+Haina,Magbangon,migration_rate13,1e-04
+Hicgop South,Magbangon,migration_rate13,1e-04
+Magbangon,Magbangon,migration_rate13,0.8033
+Palanas,Magbangon,migration_rate13,0.1903
+Poroc Rose,Magbangon,migration_rate13,1e-04
+Poroc San Flower,Magbangon,migration_rate13,1e-04
+San Agustin,Magbangon,migration_rate13,1e-04
+Sitio Baybayon,Magbangon,migration_rate13,2e-04
+Tamakin Dacot,Magbangon,migration_rate13,1e-04
+Visca,Magbangon,migration_rate13,1e-04
+Wangag,Magbangon,migration_rate13,1e-04
+Cabatoan,Palanas,migration_rate13,0.2832
+Caridad Cemetery,Palanas,migration_rate13,0
+Elementary School,Palanas,migration_rate13,0.1059
+Haina,Palanas,migration_rate13,1e-04
+Hicgop South,Palanas,migration_rate13,1e-04
+Magbangon,Palanas,migration_rate13,0.1181
+Palanas,Palanas,migration_rate13,0.1202
+Poroc Rose,Palanas,migration_rate13,1e-04
+Poroc San Flower,Palanas,migration_rate13,0.4208
+San Agustin,Palanas,migration_rate13,0.268
+Sitio Baybayon,Palanas,migration_rate13,1e-04
+Tamakin Dacot,Palanas,migration_rate13,1e-04
+Visca,Palanas,migration_rate13,0.3289
+Wangag,Palanas,migration_rate13,0.1211
+Cabatoan,Poroc Rose,migration_rate13,1e-04
+Caridad Cemetery,Poroc Rose,migration_rate13,1e-04
+Elementary School,Poroc Rose,migration_rate13,2e-04
+Haina,Poroc Rose,migration_rate13,1e-04
+Hicgop South,Poroc Rose,migration_rate13,1e-04
+Magbangon,Poroc Rose,migration_rate13,1e-04
+Palanas,Poroc Rose,migration_rate13,2e-04
+Poroc Rose,Poroc Rose,migration_rate13,1e-04
+Poroc San Flower,Poroc Rose,migration_rate13,2e-04
+San Agustin,Poroc Rose,migration_rate13,1e-04
+Sitio Baybayon,Poroc Rose,migration_rate13,1e-04
+Tamakin Dacot,Poroc Rose,migration_rate13,1e-04
+Visca,Poroc Rose,migration_rate13,1e-04
+Wangag,Poroc Rose,migration_rate13,1e-04
+Cabatoan,Poroc San Flower,migration_rate13,1e-04
+Caridad Cemetery,Poroc San Flower,migration_rate13,1e-04
+Elementary School,Poroc San Flower,migration_rate13,2e-04
+Haina,Poroc San Flower,migration_rate13,1e-04
+Hicgop South,Poroc San Flower,migration_rate13,1e-04
+Magbangon,Poroc San Flower,migration_rate13,1e-04
+Palanas,Poroc San Flower,migration_rate13,1e-04
+Poroc Rose,Poroc San Flower,migration_rate13,1e-04
+Poroc San Flower,Poroc San Flower,migration_rate13,2e-04
+San Agustin,Poroc San Flower,migration_rate13,1e-04
+Sitio Baybayon,Poroc San Flower,migration_rate13,1e-04
+Tamakin Dacot,Poroc San Flower,migration_rate13,1e-04
+Visca,Poroc San Flower,migration_rate13,1e-04
+Wangag,Poroc San Flower,migration_rate13,1e-04
+Cabatoan,San Agustin,migration_rate13,1e-04
+Caridad Cemetery,San Agustin,migration_rate13,1e-04
+Elementary School,San Agustin,migration_rate13,1e-04
+Haina,San Agustin,migration_rate13,1e-04
+Hicgop South,San Agustin,migration_rate13,1e-04
+Magbangon,San Agustin,migration_rate13,1e-04
+Palanas,San Agustin,migration_rate13,2e-04
+Poroc Rose,San Agustin,migration_rate13,1e-04
+Poroc San Flower,San Agustin,migration_rate13,1e-04
+San Agustin,San Agustin,migration_rate13,0.7146
+Sitio Baybayon,San Agustin,migration_rate13,1e-04
+Tamakin Dacot,San Agustin,migration_rate13,1e-04
+Visca,San Agustin,migration_rate13,1e-04
+Wangag,San Agustin,migration_rate13,1e-04
+Cabatoan,Sitio Baybayon,migration_rate13,1e-04
+Caridad Cemetery,Sitio Baybayon,migration_rate13,1e-04
+Elementary School,Sitio Baybayon,migration_rate13,1e-04
+Haina,Sitio Baybayon,migration_rate13,0.215
+Hicgop South,Sitio Baybayon,migration_rate13,1e-04
+Magbangon,Sitio Baybayon,migration_rate13,1e-04
+Palanas,Sitio Baybayon,migration_rate13,0.0481
+Poroc Rose,Sitio Baybayon,migration_rate13,1e-04
+Poroc San Flower,Sitio Baybayon,migration_rate13,0.3117
+San Agustin,Sitio Baybayon,migration_rate13,1e-04
+Sitio Baybayon,Sitio Baybayon,migration_rate13,1e-04
+Tamakin Dacot,Sitio Baybayon,migration_rate13,1e-04
+Visca,Sitio Baybayon,migration_rate13,1e-04
+Wangag,Sitio Baybayon,migration_rate13,1e-04
+Cabatoan,Tamakin Dacot,migration_rate13,1e-04
+Caridad Cemetery,Tamakin Dacot,migration_rate13,1e-04
+Elementary School,Tamakin Dacot,migration_rate13,1e-04
+Haina,Tamakin Dacot,migration_rate13,1e-04
+Hicgop South,Tamakin Dacot,migration_rate13,1e-04
+Magbangon,Tamakin Dacot,migration_rate13,1e-04
+Palanas,Tamakin Dacot,migration_rate13,0.0016
+Poroc Rose,Tamakin Dacot,migration_rate13,2e-04
+Poroc San Flower,Tamakin Dacot,migration_rate13,1e-04
+San Agustin,Tamakin Dacot,migration_rate13,1e-04
+Sitio Baybayon,Tamakin Dacot,migration_rate13,2e-04
+Tamakin Dacot,Tamakin Dacot,migration_rate13,1e-04
+Visca,Tamakin Dacot,migration_rate13,8e-04
+Wangag,Tamakin Dacot,migration_rate13,1e-04
+Cabatoan,Visca,migration_rate13,1e-04
+Caridad Cemetery,Visca,migration_rate13,1e-04
+Elementary School,Visca,migration_rate13,1e-04
+Haina,Visca,migration_rate13,1e-04
+Hicgop South,Visca,migration_rate13,0
+Magbangon,Visca,migration_rate13,1e-04
+Palanas,Visca,migration_rate13,0.1475
+Poroc Rose,Visca,migration_rate13,1e-04
+Poroc San Flower,Visca,migration_rate13,0
+San Agustin,Visca,migration_rate13,1e-04
+Sitio Baybayon,Visca,migration_rate13,0.2132
+Tamakin Dacot,Visca,migration_rate13,1e-04
+Visca,Visca,migration_rate13,1e-04
+Wangag,Visca,migration_rate13,1e-04
+Cabatoan,Wangag,migration_rate13,1e-04
+Caridad Cemetery,Wangag,migration_rate13,0
+Elementary School,Wangag,migration_rate13,1e-04
+Haina,Wangag,migration_rate13,1e-04
+Hicgop South,Wangag,migration_rate13,1e-04
+Magbangon,Wangag,migration_rate13,2e-04
+Palanas,Wangag,migration_rate13,0.1874
+Poroc Rose,Wangag,migration_rate13,1e-04
+Poroc San Flower,Wangag,migration_rate13,1e-04
+San Agustin,Wangag,migration_rate13,1e-04
+Sitio Baybayon,Wangag,migration_rate13,1e-04
+Tamakin Dacot,Wangag,migration_rate13,1e-04
+Visca,Wangag,migration_rate13,0.3285
+Wangag,Wangag,migration_rate13,1e-04
+Cabatoan,Cabatoan,migration_rate12,0.9986
+Caridad Cemetery,Cabatoan,migration_rate12,NA
+Elementary School,Cabatoan,migration_rate12,NA
+Haina,Cabatoan,migration_rate12,NA
+Hicgop South,Cabatoan,migration_rate12,NA
+Magbangon,Cabatoan,migration_rate12,0
+Palanas,Cabatoan,migration_rate12,1e-04
+Poroc Rose,Cabatoan,migration_rate12,2e-04
+Poroc San Flower,Cabatoan,migration_rate12,1e-04
+San Agustin,Cabatoan,migration_rate12,2e-04
+Sitio Baybayon,Cabatoan,migration_rate12,NA
+Tamakin Dacot,Cabatoan,migration_rate12,NA
+Visca,Cabatoan,migration_rate12,2e-04
+Wangag,Cabatoan,migration_rate12,1e-04
+Cabatoan,Caridad Cemetery,migration_rate12,NA
+Caridad Cemetery,Caridad Cemetery,migration_rate12,NA
+Elementary School,Caridad Cemetery,migration_rate12,NA
+Haina,Caridad Cemetery,migration_rate12,NA
+Hicgop South,Caridad Cemetery,migration_rate12,NA
+Magbangon,Caridad Cemetery,migration_rate12,NA
+Palanas,Caridad Cemetery,migration_rate12,NA
+Poroc Rose,Caridad Cemetery,migration_rate12,NA
+Poroc San Flower,Caridad Cemetery,migration_rate12,NA
+San Agustin,Caridad Cemetery,migration_rate12,NA
+Sitio Baybayon,Caridad Cemetery,migration_rate12,NA
+Tamakin Dacot,Caridad Cemetery,migration_rate12,NA
+Visca,Caridad Cemetery,migration_rate12,NA
+Wangag,Caridad Cemetery,migration_rate12,NA
+Cabatoan,Elementary School,migration_rate12,NA
+Caridad Cemetery,Elementary School,migration_rate12,NA
+Elementary School,Elementary School,migration_rate12,NA
+Haina,Elementary School,migration_rate12,NA
+Hicgop South,Elementary School,migration_rate12,NA
+Magbangon,Elementary School,migration_rate12,NA
+Palanas,Elementary School,migration_rate12,NA
+Poroc Rose,Elementary School,migration_rate12,NA
+Poroc San Flower,Elementary School,migration_rate12,NA
+San Agustin,Elementary School,migration_rate12,NA
+Sitio Baybayon,Elementary School,migration_rate12,NA
+Tamakin Dacot,Elementary School,migration_rate12,NA
+Visca,Elementary School,migration_rate12,NA
+Wangag,Elementary School,migration_rate12,NA
+Cabatoan,Ghost,migration_rate12,6e-04
+Caridad Cemetery,Ghost,migration_rate12,NA
+Elementary School,Ghost,migration_rate12,NA
+Haina,Ghost,migration_rate12,NA
+Hicgop South,Ghost,migration_rate12,NA
+Magbangon,Ghost,migration_rate12,0
+Palanas,Ghost,migration_rate12,0
+Poroc Rose,Ghost,migration_rate12,0
+Poroc San Flower,Ghost,migration_rate12,0.8958
+San Agustin,Ghost,migration_rate12,0.9991
+Sitio Baybayon,Ghost,migration_rate12,NA
+Tamakin Dacot,Ghost,migration_rate12,NA
+Visca,Ghost,migration_rate12,5e-04
+Wangag,Ghost,migration_rate12,6e-04
+Cabatoan,Haina,migration_rate12,NA
+Caridad Cemetery,Haina,migration_rate12,NA
+Elementary School,Haina,migration_rate12,NA
+Haina,Haina,migration_rate12,NA
+Hicgop South,Haina,migration_rate12,NA
+Magbangon,Haina,migration_rate12,NA
+Palanas,Haina,migration_rate12,NA
+Poroc Rose,Haina,migration_rate12,NA
+Poroc San Flower,Haina,migration_rate12,NA
+San Agustin,Haina,migration_rate12,NA
+Sitio Baybayon,Haina,migration_rate12,NA
+Tamakin Dacot,Haina,migration_rate12,NA
+Visca,Haina,migration_rate12,NA
+Wangag,Haina,migration_rate12,NA
+Cabatoan,Hicgop South,migration_rate12,NA
+Caridad Cemetery,Hicgop South,migration_rate12,NA
+Elementary School,Hicgop South,migration_rate12,NA
+Haina,Hicgop South,migration_rate12,NA
+Hicgop South,Hicgop South,migration_rate12,NA
+Magbangon,Hicgop South,migration_rate12,NA
+Palanas,Hicgop South,migration_rate12,NA
+Poroc Rose,Hicgop South,migration_rate12,NA
+Poroc San Flower,Hicgop South,migration_rate12,NA
+San Agustin,Hicgop South,migration_rate12,NA
+Sitio Baybayon,Hicgop South,migration_rate12,NA
+Tamakin Dacot,Hicgop South,migration_rate12,NA
+Visca,Hicgop South,migration_rate12,NA
+Wangag,Hicgop South,migration_rate12,NA
+Cabatoan,Magbangon,migration_rate12,1e-04
+Caridad Cemetery,Magbangon,migration_rate12,NA
+Elementary School,Magbangon,migration_rate12,NA
+Haina,Magbangon,migration_rate12,NA
+Hicgop South,Magbangon,migration_rate12,NA
+Magbangon,Magbangon,migration_rate12,0
+Palanas,Magbangon,migration_rate12,1e-04
+Poroc Rose,Magbangon,migration_rate12,0
+Poroc San Flower,Magbangon,migration_rate12,0.1031
+San Agustin,Magbangon,migration_rate12,1e-04
+Sitio Baybayon,Magbangon,migration_rate12,NA
+Tamakin Dacot,Magbangon,migration_rate12,NA
+Visca,Magbangon,migration_rate12,1e-04
+Wangag,Magbangon,migration_rate12,1e-04
+Cabatoan,Palanas,migration_rate12,1e-04
+Caridad Cemetery,Palanas,migration_rate12,NA
+Elementary School,Palanas,migration_rate12,NA
+Haina,Palanas,migration_rate12,NA
+Hicgop South,Palanas,migration_rate12,NA
+Magbangon,Palanas,migration_rate12,2e-04
+Palanas,Palanas,migration_rate12,0.9999
+Poroc Rose,Palanas,migration_rate12,1e-04
+Poroc San Flower,Palanas,migration_rate12,1e-04
+San Agustin,Palanas,migration_rate12,1e-04
+Sitio Baybayon,Palanas,migration_rate12,NA
+Tamakin Dacot,Palanas,migration_rate12,NA
+Visca,Palanas,migration_rate12,1e-04
+Wangag,Palanas,migration_rate12,1e-04
+Cabatoan,Poroc Rose,migration_rate12,1e-04
+Caridad Cemetery,Poroc Rose,migration_rate12,NA
+Elementary School,Poroc Rose,migration_rate12,NA
+Haina,Poroc Rose,migration_rate12,NA
+Hicgop South,Poroc Rose,migration_rate12,NA
+Magbangon,Poroc Rose,migration_rate12,0.9999
+Palanas,Poroc Rose,migration_rate12,3e-04
+Poroc Rose,Poroc Rose,migration_rate12,1e-04
+Poroc San Flower,Poroc Rose,migration_rate12,1e-04
+San Agustin,Poroc Rose,migration_rate12,1e-04
+Sitio Baybayon,Poroc Rose,migration_rate12,NA
+Tamakin Dacot,Poroc Rose,migration_rate12,NA
+Visca,Poroc Rose,migration_rate12,1e-04
+Wangag,Poroc Rose,migration_rate12,1e-04
+Cabatoan,Poroc San Flower,migration_rate12,2e-04
+Caridad Cemetery,Poroc San Flower,migration_rate12,NA
+Elementary School,Poroc San Flower,migration_rate12,NA
+Haina,Poroc San Flower,migration_rate12,NA
+Hicgop South,Poroc San Flower,migration_rate12,NA
+Magbangon,Poroc San Flower,migration_rate12,2e-04
+Palanas,Poroc San Flower,migration_rate12,0
+Poroc Rose,Poroc San Flower,migration_rate12,2e-04
+Poroc San Flower,Poroc San Flower,migration_rate12,1e-04
+San Agustin,Poroc San Flower,migration_rate12,1e-04
+Sitio Baybayon,Poroc San Flower,migration_rate12,NA
+Tamakin Dacot,Poroc San Flower,migration_rate12,NA
+Visca,Poroc San Flower,migration_rate12,1e-04
+Wangag,Poroc San Flower,migration_rate12,1e-04
+Cabatoan,San Agustin,migration_rate12,1e-04
+Caridad Cemetery,San Agustin,migration_rate12,NA
+Elementary School,San Agustin,migration_rate12,NA
+Haina,San Agustin,migration_rate12,NA
+Hicgop South,San Agustin,migration_rate12,NA
+Magbangon,San Agustin,migration_rate12,2e-04
+Palanas,San Agustin,migration_rate12,2e-04
+Poroc Rose,San Agustin,migration_rate12,0.9999
+Poroc San Flower,San Agustin,migration_rate12,2e-04
+San Agustin,San Agustin,migration_rate12,1e-04
+Sitio Baybayon,San Agustin,migration_rate12,NA
+Tamakin Dacot,San Agustin,migration_rate12,NA
+Visca,San Agustin,migration_rate12,1e-04
+Wangag,San Agustin,migration_rate12,1e-04
+Cabatoan,Sitio Baybayon,migration_rate12,NA
+Caridad Cemetery,Sitio Baybayon,migration_rate12,NA
+Elementary School,Sitio Baybayon,migration_rate12,NA
+Haina,Sitio Baybayon,migration_rate12,NA
+Hicgop South,Sitio Baybayon,migration_rate12,NA
+Magbangon,Sitio Baybayon,migration_rate12,NA
+Palanas,Sitio Baybayon,migration_rate12,NA
+Poroc Rose,Sitio Baybayon,migration_rate12,NA
+Poroc San Flower,Sitio Baybayon,migration_rate12,NA
+San Agustin,Sitio Baybayon,migration_rate12,NA
+Sitio Baybayon,Sitio Baybayon,migration_rate12,NA
+Tamakin Dacot,Sitio Baybayon,migration_rate12,NA
+Visca,Sitio Baybayon,migration_rate12,NA
+Wangag,Sitio Baybayon,migration_rate12,NA
+Cabatoan,Tamakin Dacot,migration_rate12,NA
+Caridad Cemetery,Tamakin Dacot,migration_rate12,NA
+Elementary School,Tamakin Dacot,migration_rate12,NA
+Haina,Tamakin Dacot,migration_rate12,NA
+Hicgop South,Tamakin Dacot,migration_rate12,NA
+Magbangon,Tamakin Dacot,migration_rate12,NA
+Palanas,Tamakin Dacot,migration_rate12,NA
+Poroc Rose,Tamakin Dacot,migration_rate12,NA
+Poroc San Flower,Tamakin Dacot,migration_rate12,NA
+San Agustin,Tamakin Dacot,migration_rate12,NA
+Sitio Baybayon,Tamakin Dacot,migration_rate12,NA
+Tamakin Dacot,Tamakin Dacot,migration_rate12,NA
+Visca,Tamakin Dacot,migration_rate12,NA
+Wangag,Tamakin Dacot,migration_rate12,NA
+Cabatoan,Visca,migration_rate12,1e-04
+Caridad Cemetery,Visca,migration_rate12,NA
+Elementary School,Visca,migration_rate12,NA
+Haina,Visca,migration_rate12,NA
+Hicgop South,Visca,migration_rate12,NA
+Magbangon,Visca,migration_rate12,2e-04
+Palanas,Visca,migration_rate12,2e-04
+Poroc Rose,Visca,migration_rate12,0
+Poroc San Flower,Visca,migration_rate12,2e-04
+San Agustin,Visca,migration_rate12,1e-04
+Sitio Baybayon,Visca,migration_rate12,NA
+Tamakin Dacot,Visca,migration_rate12,NA
+Visca,Visca,migration_rate12,0.9986
+Wangag,Visca,migration_rate12,2e-04
+Cabatoan,Wangag,migration_rate12,1e-04
+Caridad Cemetery,Wangag,migration_rate12,NA
+Elementary School,Wangag,migration_rate12,NA
+Haina,Wangag,migration_rate12,NA
+Hicgop South,Wangag,migration_rate12,NA
+Magbangon,Wangag,migration_rate12,2e-04
+Palanas,Wangag,migration_rate12,2e-04
+Poroc Rose,Wangag,migration_rate12,1e-04
+Poroc San Flower,Wangag,migration_rate12,3e-04
+San Agustin,Wangag,migration_rate12,1e-04
+Sitio Baybayon,Wangag,migration_rate12,NA
+Tamakin Dacot,Wangag,migration_rate12,NA
+Visca,Wangag,migration_rate12,2e-04
+Wangag,Wangag,migration_rate12,0.9986
+Cabatoan,Cabatoan,migration_rate14,1e-04
+Caridad Cemetery,Cabatoan,migration_rate14,0.0017
+Elementary School,Cabatoan,migration_rate14,0.0016
+Haina,Cabatoan,migration_rate14,1e-04
+Hicgop South,Cabatoan,migration_rate14,1e-04
+Magbangon,Cabatoan,migration_rate14,1e-04
+Palanas,Cabatoan,migration_rate14,1e-04
+Poroc Rose,Cabatoan,migration_rate14,0.0016
+Poroc San Flower,Cabatoan,migration_rate14,1e-04
+San Agustin,Cabatoan,migration_rate14,0.0016
+Sitio Baybayon,Cabatoan,migration_rate14,0.0016
+Tamakin Dacot,Cabatoan,migration_rate14,0.0016
+Visca,Cabatoan,migration_rate14,0.0016
+Wangag,Cabatoan,migration_rate14,1e-04
+Cabatoan,Caridad Cemetery,migration_rate14,0.0017
+Caridad Cemetery,Caridad Cemetery,migration_rate14,0.9794
+Elementary School,Caridad Cemetery,migration_rate14,0.0016
+Haina,Caridad Cemetery,migration_rate14,0.0016
+Hicgop South,Caridad Cemetery,migration_rate14,0.0016
+Magbangon,Caridad Cemetery,migration_rate14,0.0016
+Palanas,Caridad Cemetery,migration_rate14,0.0016
+Poroc Rose,Caridad Cemetery,migration_rate14,0.0016
+Poroc San Flower,Caridad Cemetery,migration_rate14,1e-04
+San Agustin,Caridad Cemetery,migration_rate14,0.0016
+Sitio Baybayon,Caridad Cemetery,migration_rate14,1e-04
+Tamakin Dacot,Caridad Cemetery,migration_rate14,1e-04
+Visca,Caridad Cemetery,migration_rate14,1e-04
+Wangag,Caridad Cemetery,migration_rate14,1e-04
+Cabatoan,Elementary School,migration_rate14,0.0017
+Caridad Cemetery,Elementary School,migration_rate14,0.0018
+Elementary School,Elementary School,migration_rate14,1e-04
+Haina,Elementary School,migration_rate14,1e-04
+Hicgop South,Elementary School,migration_rate14,0.0017
+Magbangon,Elementary School,migration_rate14,0.0017
+Palanas,Elementary School,migration_rate14,0.0017
+Poroc Rose,Elementary School,migration_rate14,0.0017
+Poroc San Flower,Elementary School,migration_rate14,1e-04
+San Agustin,Elementary School,migration_rate14,0.0017
+Sitio Baybayon,Elementary School,migration_rate14,1e-04
+Tamakin Dacot,Elementary School,migration_rate14,0.0017
+Visca,Elementary School,migration_rate14,0.0017
+Wangag,Elementary School,migration_rate14,0
+Cabatoan,Ghost,migration_rate14,0.9168
+Caridad Cemetery,Ghost,migration_rate14,0
+Elementary School,Ghost,migration_rate14,0.9866
+Haina,Ghost,migration_rate14,0.9941
+Hicgop South,Ghost,migration_rate14,0.9895
+Magbangon,Ghost,migration_rate14,0.8673
+Palanas,Ghost,migration_rate14,0.1727
+Poroc Rose,Ghost,migration_rate14,0.9835
+Poroc San Flower,Ghost,migration_rate14,0.9956
+San Agustin,Ghost,migration_rate14,0.979
+Sitio Baybayon,Ghost,migration_rate14,0.8083
+Tamakin Dacot,Ghost,migration_rate14,0.982
+Visca,Ghost,migration_rate14,0.988
+Wangag,Ghost,migration_rate14,0
+Cabatoan,Haina,migration_rate14,4e-04
+Caridad Cemetery,Haina,migration_rate14,0.0017
+Elementary School,Haina,migration_rate14,0.0016
+Haina,Haina,migration_rate14,1e-04
+Hicgop South,Haina,migration_rate14,0.0016
+Magbangon,Haina,migration_rate14,1e-04
+Palanas,Haina,migration_rate14,1e-04
+Poroc Rose,Haina,migration_rate14,0.0016
+Poroc San Flower,Haina,migration_rate14,0.0016
+San Agustin,Haina,migration_rate14,0.0016
+Sitio Baybayon,Haina,migration_rate14,0.0016
+Tamakin Dacot,Haina,migration_rate14,0.0016
+Visca,Haina,migration_rate14,1e-04
+Wangag,Haina,migration_rate14,0.0016
+Cabatoan,Hicgop South,migration_rate14,2e-04
+Caridad Cemetery,Hicgop South,migration_rate14,0.0015
+Elementary School,Hicgop South,migration_rate14,0.0016
+Haina,Hicgop South,migration_rate14,1e-04
+Hicgop South,Hicgop South,migration_rate14,1e-04
+Magbangon,Hicgop South,migration_rate14,0.0016
+Palanas,Hicgop South,migration_rate14,0.0016
+Poroc Rose,Hicgop South,migration_rate14,1e-04
+Poroc San Flower,Hicgop South,migration_rate14,1e-04
+San Agustin,Hicgop South,migration_rate14,0.0016
+Sitio Baybayon,Hicgop South,migration_rate14,0.0016
+Tamakin Dacot,Hicgop South,migration_rate14,0.0016
+Visca,Hicgop South,migration_rate14,1e-04
+Wangag,Hicgop South,migration_rate14,0.1558
+Cabatoan,Magbangon,migration_rate14,0.0712
+Caridad Cemetery,Magbangon,migration_rate14,0.0014
+Elementary School,Magbangon,migration_rate14,1e-04
+Haina,Magbangon,migration_rate14,1e-04
+Hicgop South,Magbangon,migration_rate14,1e-04
+Magbangon,Magbangon,migration_rate14,0.0454
+Palanas,Magbangon,migration_rate14,1e-04
+Poroc Rose,Magbangon,migration_rate14,0.0016
+Poroc San Flower,Magbangon,migration_rate14,1e-04
+San Agustin,Magbangon,migration_rate14,0.0016
+Sitio Baybayon,Magbangon,migration_rate14,1e-04
+Tamakin Dacot,Magbangon,migration_rate14,0.0016
+Visca,Magbangon,migration_rate14,1e-04
+Wangag,Magbangon,migration_rate14,0
+Cabatoan,Palanas,migration_rate14,0.0012
+Caridad Cemetery,Palanas,migration_rate14,0.0014
+Elementary School,Palanas,migration_rate14,5e-04
+Haina,Palanas,migration_rate14,1e-04
+Hicgop South,Palanas,migration_rate14,1e-04
+Magbangon,Palanas,migration_rate14,0.0534
+Palanas,Palanas,migration_rate14,0.8139
+Poroc Rose,Palanas,migration_rate14,0.0016
+Poroc San Flower,Palanas,migration_rate14,1e-04
+San Agustin,Palanas,migration_rate14,0.0016
+Sitio Baybayon,Palanas,migration_rate14,0.0016
+Tamakin Dacot,Palanas,migration_rate14,0.0016
+Visca,Palanas,migration_rate14,4e-04
+Wangag,Palanas,migration_rate14,0.065
+Cabatoan,Poroc Rose,migration_rate14,0.0016
+Caridad Cemetery,Poroc Rose,migration_rate14,0.0018
+Elementary School,Poroc Rose,migration_rate14,0.0016
+Haina,Poroc Rose,migration_rate14,0.0016
+Hicgop South,Poroc Rose,migration_rate14,0.0016
+Magbangon,Poroc Rose,migration_rate14,1e-04
+Palanas,Poroc Rose,migration_rate14,0.0016
+Poroc Rose,Poroc Rose,migration_rate14,1e-04
+Poroc San Flower,Poroc Rose,migration_rate14,1e-04
+San Agustin,Poroc Rose,migration_rate14,0.0016
+Sitio Baybayon,Poroc Rose,migration_rate14,0.0016
+Tamakin Dacot,Poroc Rose,migration_rate14,0.0016
+Visca,Poroc Rose,migration_rate14,0.0016
+Wangag,Poroc Rose,migration_rate14,0.0016
+Cabatoan,Poroc San Flower,migration_rate14,0.0016
+Caridad Cemetery,Poroc San Flower,migration_rate14,0.0017
+Elementary School,Poroc San Flower,migration_rate14,1e-04
+Haina,Poroc San Flower,migration_rate14,1e-04
+Hicgop South,Poroc San Flower,migration_rate14,1e-04
+Magbangon,Poroc San Flower,migration_rate14,3e-04
+Palanas,Poroc San Flower,migration_rate14,0.0016
+Poroc Rose,Poroc San Flower,migration_rate14,1e-04
+Poroc San Flower,Poroc San Flower,migration_rate14,1e-04
+San Agustin,Poroc San Flower,migration_rate14,0.0016
+Sitio Baybayon,Poroc San Flower,migration_rate14,2e-04
+Tamakin Dacot,Poroc San Flower,migration_rate14,0.0016
+Visca,Poroc San Flower,migration_rate14,0.0016
+Wangag,Poroc San Flower,migration_rate14,0.0016
+Cabatoan,San Agustin,migration_rate14,1e-04
+Caridad Cemetery,San Agustin,migration_rate14,0.0017
+Elementary School,San Agustin,migration_rate14,0.0016
+Haina,San Agustin,migration_rate14,0.0016
+Hicgop South,San Agustin,migration_rate14,1e-04
+Magbangon,San Agustin,migration_rate14,0.0016
+Palanas,San Agustin,migration_rate14,0.0016
+Poroc Rose,San Agustin,migration_rate14,0.0016
+Poroc San Flower,San Agustin,migration_rate14,1e-04
+San Agustin,San Agustin,migration_rate14,1e-04
+Sitio Baybayon,San Agustin,migration_rate14,1e-04
+Tamakin Dacot,San Agustin,migration_rate14,0.0016
+Visca,San Agustin,migration_rate14,0.0016
+Wangag,San Agustin,migration_rate14,1e-04
+Cabatoan,Sitio Baybayon,migration_rate14,0.0016
+Caridad Cemetery,Sitio Baybayon,migration_rate14,0.0011
+Elementary School,Sitio Baybayon,migration_rate14,0.0012
+Haina,Sitio Baybayon,migration_rate14,1e-04
+Hicgop South,Sitio Baybayon,migration_rate14,1e-04
+Magbangon,Sitio Baybayon,migration_rate14,0.0016
+Palanas,Sitio Baybayon,migration_rate14,1e-04
+Poroc Rose,Sitio Baybayon,migration_rate14,0.0016
+Poroc San Flower,Sitio Baybayon,migration_rate14,1e-04
+San Agustin,Sitio Baybayon,migration_rate14,0.0016
+Sitio Baybayon,Sitio Baybayon,migration_rate14,0.1798
+Tamakin Dacot,Sitio Baybayon,migration_rate14,1e-04
+Visca,Sitio Baybayon,migration_rate14,0.0013
+Wangag,Sitio Baybayon,migration_rate14,0.0192
+Cabatoan,Tamakin Dacot,migration_rate14,1e-04
+Caridad Cemetery,Tamakin Dacot,migration_rate14,0.0015
+Elementary School,Tamakin Dacot,migration_rate14,1e-04
+Haina,Tamakin Dacot,migration_rate14,1e-04
+Hicgop South,Tamakin Dacot,migration_rate14,1e-04
+Magbangon,Tamakin Dacot,migration_rate14,0.022
+Palanas,Tamakin Dacot,migration_rate14,1e-04
+Poroc Rose,Tamakin Dacot,migration_rate14,1e-04
+Poroc San Flower,Tamakin Dacot,migration_rate14,1e-04
+San Agustin,Tamakin Dacot,migration_rate14,0.0016
+Sitio Baybayon,Tamakin Dacot,migration_rate14,1e-04
+Tamakin Dacot,Tamakin Dacot,migration_rate14,1e-04
+Visca,Tamakin Dacot,migration_rate14,0.0016
+Wangag,Tamakin Dacot,migration_rate14,1e-04
+Cabatoan,Visca,migration_rate14,1e-04
+Caridad Cemetery,Visca,migration_rate14,0.0016
+Elementary School,Visca,migration_rate14,0.0016
+Haina,Visca,migration_rate14,1e-04
+Hicgop South,Visca,migration_rate14,0.0016
+Magbangon,Visca,migration_rate14,0.0016
+Palanas,Visca,migration_rate14,0.0016
+Poroc Rose,Visca,migration_rate14,0.0016
+Poroc San Flower,Visca,migration_rate14,0.0016
+San Agustin,Visca,migration_rate14,0.0016
+Sitio Baybayon,Visca,migration_rate14,0.0016
+Tamakin Dacot,Visca,migration_rate14,0.0016
+Visca,Visca,migration_rate14,1e-04
+Wangag,Visca,migration_rate14,0.0016
+Cabatoan,Wangag,migration_rate14,0.0016
+Caridad Cemetery,Wangag,migration_rate14,0.0017
+Elementary School,Wangag,migration_rate14,1e-04
+Haina,Wangag,migration_rate14,1e-04
+Hicgop South,Wangag,migration_rate14,0.0016
+Magbangon,Wangag,migration_rate14,0.0016
+Palanas,Wangag,migration_rate14,0.0016
+Poroc Rose,Wangag,migration_rate14,0.0016
+Poroc San Flower,Wangag,migration_rate14,1e-04
+San Agustin,Wangag,migration_rate14,0.0016
+Sitio Baybayon,Wangag,migration_rate14,0.0016
+Tamakin Dacot,Wangag,migration_rate14,0.0016
+Visca,Wangag,migration_rate14,1e-04
+Wangag,Wangag,migration_rate14,0.8158
+Cabatoan,Cabatoan,migration_rate15,0.7115
+Caridad Cemetery,Cabatoan,migration_rate15,NA
+Elementary School,Cabatoan,migration_rate15,1e-04
+Haina,Cabatoan,migration_rate15,1e-04
+Hicgop South,Cabatoan,migration_rate15,2e-04
+Magbangon,Cabatoan,migration_rate15,2e-04
+Palanas,Cabatoan,migration_rate15,1e-04
+Poroc Rose,Cabatoan,migration_rate15,NA
+Poroc San Flower,Cabatoan,migration_rate15,NA
+San Agustin,Cabatoan,migration_rate15,2e-04
+Sitio Baybayon,Cabatoan,migration_rate15,0.1534
+Tamakin Dacot,Cabatoan,migration_rate15,2e-04
+Visca,Cabatoan,migration_rate15,2e-04
+Wangag,Cabatoan,migration_rate15,2e-04
+Cabatoan,Caridad Cemetery,migration_rate15,NA
+Caridad Cemetery,Caridad Cemetery,migration_rate15,NA
+Elementary School,Caridad Cemetery,migration_rate15,NA
+Haina,Caridad Cemetery,migration_rate15,NA
+Hicgop South,Caridad Cemetery,migration_rate15,NA
+Magbangon,Caridad Cemetery,migration_rate15,NA
+Palanas,Caridad Cemetery,migration_rate15,NA
+Poroc Rose,Caridad Cemetery,migration_rate15,NA
+Poroc San Flower,Caridad Cemetery,migration_rate15,NA
+San Agustin,Caridad Cemetery,migration_rate15,NA
+Sitio Baybayon,Caridad Cemetery,migration_rate15,NA
+Tamakin Dacot,Caridad Cemetery,migration_rate15,NA
+Visca,Caridad Cemetery,migration_rate15,NA
+Wangag,Caridad Cemetery,migration_rate15,NA
+Cabatoan,Elementary School,migration_rate15,0.0854
+Caridad Cemetery,Elementary School,migration_rate15,NA
+Elementary School,Elementary School,migration_rate15,0.9978
+Haina,Elementary School,migration_rate15,2e-04
+Hicgop South,Elementary School,migration_rate15,2e-04
+Magbangon,Elementary School,migration_rate15,2e-04
+Palanas,Elementary School,migration_rate15,2e-04
+Poroc Rose,Elementary School,migration_rate15,NA
+Poroc San Flower,Elementary School,migration_rate15,NA
+San Agustin,Elementary School,migration_rate15,1e-04
+Sitio Baybayon,Elementary School,migration_rate15,2e-04
+Tamakin Dacot,Elementary School,migration_rate15,1e-04
+Visca,Elementary School,migration_rate15,2e-04
+Wangag,Elementary School,migration_rate15,2e-04
+Cabatoan,Ghost,migration_rate15,0.0842
+Caridad Cemetery,Ghost,migration_rate15,NA
+Elementary School,Ghost,migration_rate15,9e-04
+Haina,Ghost,migration_rate15,7e-04
+Hicgop South,Ghost,migration_rate15,0.998
+Magbangon,Ghost,migration_rate15,0.864
+Palanas,Ghost,migration_rate15,0.8167
+Poroc Rose,Ghost,migration_rate15,NA
+Poroc San Flower,Ghost,migration_rate15,NA
+San Agustin,Ghost,migration_rate15,0.9978
+Sitio Baybayon,Ghost,migration_rate15,0.8449
+Tamakin Dacot,Ghost,migration_rate15,0.998
+Visca,Ghost,migration_rate15,0.9984
+Wangag,Ghost,migration_rate15,0.9354
+Cabatoan,Haina,migration_rate15,2e-04
+Caridad Cemetery,Haina,migration_rate15,NA
+Elementary School,Haina,migration_rate15,1e-04
+Haina,Haina,migration_rate15,0.9978
+Hicgop South,Haina,migration_rate15,2e-04
+Magbangon,Haina,migration_rate15,2e-04
+Palanas,Haina,migration_rate15,2e-04
+Poroc Rose,Haina,migration_rate15,NA
+Poroc San Flower,Haina,migration_rate15,NA
+San Agustin,Haina,migration_rate15,2e-04
+Sitio Baybayon,Haina,migration_rate15,2e-04
+Tamakin Dacot,Haina,migration_rate15,2e-04
+Visca,Haina,migration_rate15,1e-04
+Wangag,Haina,migration_rate15,3e-04
+Cabatoan,Hicgop South,migration_rate15,2e-04
+Caridad Cemetery,Hicgop South,migration_rate15,NA
+Elementary School,Hicgop South,migration_rate15,1e-04
+Haina,Hicgop South,migration_rate15,1e-04
+Hicgop South,Hicgop South,migration_rate15,1e-04
+Magbangon,Hicgop South,migration_rate15,0.0039
+Palanas,Hicgop South,migration_rate15,2e-04
+Poroc Rose,Hicgop South,migration_rate15,NA
+Poroc San Flower,Hicgop South,migration_rate15,NA
+San Agustin,Hicgop South,migration_rate15,2e-04
+Sitio Baybayon,Hicgop South,migration_rate15,2e-04
+Tamakin Dacot,Hicgop South,migration_rate15,2e-04
+Visca,Hicgop South,migration_rate15,1e-04
+Wangag,Hicgop South,migration_rate15,2e-04
+Cabatoan,Magbangon,migration_rate15,0.059
+Caridad Cemetery,Magbangon,migration_rate15,NA
+Elementary School,Magbangon,migration_rate15,1e-04
+Haina,Magbangon,migration_rate15,1e-04
+Hicgop South,Magbangon,migration_rate15,2e-04
+Magbangon,Magbangon,migration_rate15,0.1028
+Palanas,Magbangon,migration_rate15,0.1814
+Poroc Rose,Magbangon,migration_rate15,NA
+Poroc San Flower,Magbangon,migration_rate15,NA
+San Agustin,Magbangon,migration_rate15,2e-04
+Sitio Baybayon,Magbangon,migration_rate15,1e-04
+Tamakin Dacot,Magbangon,migration_rate15,2e-04
+Visca,Magbangon,migration_rate15,1e-04
+Wangag,Magbangon,migration_rate15,2e-04
+Cabatoan,Palanas,migration_rate15,0.056
+Caridad Cemetery,Palanas,migration_rate15,NA
+Elementary School,Palanas,migration_rate15,1e-04
+Haina,Palanas,migration_rate15,1e-04
+Hicgop South,Palanas,migration_rate15,1e-04
+Magbangon,Palanas,migration_rate15,2e-04
+Palanas,Palanas,migration_rate15,1e-04
+Poroc Rose,Palanas,migration_rate15,NA
+Poroc San Flower,Palanas,migration_rate15,NA
+San Agustin,Palanas,migration_rate15,2e-04
+Sitio Baybayon,Palanas,migration_rate15,1e-04
+Tamakin Dacot,Palanas,migration_rate15,1e-04
+Visca,Palanas,migration_rate15,1e-04
+Wangag,Palanas,migration_rate15,0
+Cabatoan,Poroc Rose,migration_rate15,NA
+Caridad Cemetery,Poroc Rose,migration_rate15,NA
+Elementary School,Poroc Rose,migration_rate15,NA
+Haina,Poroc Rose,migration_rate15,NA
+Hicgop South,Poroc Rose,migration_rate15,NA
+Magbangon,Poroc Rose,migration_rate15,NA
+Palanas,Poroc Rose,migration_rate15,NA
+Poroc Rose,Poroc Rose,migration_rate15,NA
+Poroc San Flower,Poroc Rose,migration_rate15,NA
+San Agustin,Poroc Rose,migration_rate15,NA
+Sitio Baybayon,Poroc Rose,migration_rate15,NA
+Tamakin Dacot,Poroc Rose,migration_rate15,NA
+Visca,Poroc Rose,migration_rate15,NA
+Wangag,Poroc Rose,migration_rate15,NA
+Cabatoan,Poroc San Flower,migration_rate15,NA
+Caridad Cemetery,Poroc San Flower,migration_rate15,NA
+Elementary School,Poroc San Flower,migration_rate15,NA
+Haina,Poroc San Flower,migration_rate15,NA
+Hicgop South,Poroc San Flower,migration_rate15,NA
+Magbangon,Poroc San Flower,migration_rate15,NA
+Palanas,Poroc San Flower,migration_rate15,NA
+Poroc Rose,Poroc San Flower,migration_rate15,NA
+Poroc San Flower,Poroc San Flower,migration_rate15,NA
+San Agustin,Poroc San Flower,migration_rate15,NA
+Sitio Baybayon,Poroc San Flower,migration_rate15,NA
+Tamakin Dacot,Poroc San Flower,migration_rate15,NA
+Visca,Poroc San Flower,migration_rate15,NA
+Wangag,Poroc San Flower,migration_rate15,NA
+Cabatoan,San Agustin,migration_rate15,1e-04
+Caridad Cemetery,San Agustin,migration_rate15,NA
+Elementary School,San Agustin,migration_rate15,1e-04
+Haina,San Agustin,migration_rate15,1e-04
+Hicgop South,San Agustin,migration_rate15,1e-04
+Magbangon,San Agustin,migration_rate15,0.0275
+Palanas,San Agustin,migration_rate15,1e-04
+Poroc Rose,San Agustin,migration_rate15,NA
+Poroc San Flower,San Agustin,migration_rate15,NA
+San Agustin,San Agustin,migration_rate15,1e-04
+Sitio Baybayon,San Agustin,migration_rate15,1e-04
+Tamakin Dacot,San Agustin,migration_rate15,1e-04
+Visca,San Agustin,migration_rate15,1e-04
+Wangag,San Agustin,migration_rate15,1e-04
+Cabatoan,Sitio Baybayon,migration_rate15,3e-04
+Caridad Cemetery,Sitio Baybayon,migration_rate15,NA
+Elementary School,Sitio Baybayon,migration_rate15,2e-04
+Haina,Sitio Baybayon,migration_rate15,1e-04
+Hicgop South,Sitio Baybayon,migration_rate15,2e-04
+Magbangon,Sitio Baybayon,migration_rate15,2e-04
+Palanas,Sitio Baybayon,migration_rate15,2e-04
+Poroc Rose,Sitio Baybayon,migration_rate15,NA
+Poroc San Flower,Sitio Baybayon,migration_rate15,NA
+San Agustin,Sitio Baybayon,migration_rate15,2e-04
+Sitio Baybayon,Sitio Baybayon,migration_rate15,1e-04
+Tamakin Dacot,Sitio Baybayon,migration_rate15,2e-04
+Visca,Sitio Baybayon,migration_rate15,1e-04
+Wangag,Sitio Baybayon,migration_rate15,2e-04
+Cabatoan,Tamakin Dacot,migration_rate15,1e-04
+Caridad Cemetery,Tamakin Dacot,migration_rate15,NA
+Elementary School,Tamakin Dacot,migration_rate15,1e-04
+Haina,Tamakin Dacot,migration_rate15,1e-04
+Hicgop South,Tamakin Dacot,migration_rate15,2e-04
+Magbangon,Tamakin Dacot,migration_rate15,2e-04
+Palanas,Tamakin Dacot,migration_rate15,2e-04
+Poroc Rose,Tamakin Dacot,migration_rate15,NA
+Poroc San Flower,Tamakin Dacot,migration_rate15,NA
+San Agustin,Tamakin Dacot,migration_rate15,2e-04
+Sitio Baybayon,Tamakin Dacot,migration_rate15,2e-04
+Tamakin Dacot,Tamakin Dacot,migration_rate15,2e-04
+Visca,Tamakin Dacot,migration_rate15,1e-04
+Wangag,Tamakin Dacot,migration_rate15,0.0629
+Cabatoan,Visca,migration_rate15,0.0012
+Caridad Cemetery,Visca,migration_rate15,NA
+Elementary School,Visca,migration_rate15,1e-04
+Haina,Visca,migration_rate15,2e-04
+Hicgop South,Visca,migration_rate15,2e-04
+Magbangon,Visca,migration_rate15,2e-04
+Palanas,Visca,migration_rate15,2e-04
+Poroc Rose,Visca,migration_rate15,NA
+Poroc San Flower,Visca,migration_rate15,NA
+San Agustin,Visca,migration_rate15,2e-04
+Sitio Baybayon,Visca,migration_rate15,1e-04
+Tamakin Dacot,Visca,migration_rate15,2e-04
+Visca,Visca,migration_rate15,1e-04
+Wangag,Visca,migration_rate15,0
+Cabatoan,Wangag,migration_rate15,2e-04
+Caridad Cemetery,Wangag,migration_rate15,NA
+Elementary School,Wangag,migration_rate15,1e-04
+Haina,Wangag,migration_rate15,2e-04
+Hicgop South,Wangag,migration_rate15,2e-04
+Magbangon,Wangag,migration_rate15,2e-04
+Palanas,Wangag,migration_rate15,2e-04
+Poroc Rose,Wangag,migration_rate15,NA
+Poroc San Flower,Wangag,migration_rate15,NA
+San Agustin,Wangag,migration_rate15,2e-04
+Sitio Baybayon,Wangag,migration_rate15,2e-04
+Tamakin Dacot,Wangag,migration_rate15,2e-04
+Visca,Wangag,migration_rate15,2e-04
+Wangag,Wangag,migration_rate15,1e-04
