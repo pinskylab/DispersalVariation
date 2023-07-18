@@ -1,0 +1,10 @@
+site pop
+Cabatoan 1
+N.Magbangon 2
+Palanas 3
+Poroc_Rose 4
+Poroc_San_Flower 5
+S.Magbangon 6
+Sitio_Lonas 7
+Visca 8
+Wangag 9

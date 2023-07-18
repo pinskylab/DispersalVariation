@@ -1,0 +1,14 @@
+site pop
+Cabatoan 1
+Elementary_School 2
+Haina 3
+Hicgop_South 4
+N.Magbangon 5
+Palanas 6
+Poroc_Rose 7
+S.Magbangon 8
+San_Agustin 9
+Sitio_Baybayon 10
+Tamakin_Dacot 11
+Visca 12
+Wangag 13

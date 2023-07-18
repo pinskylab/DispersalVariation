@@ -1,0 +1,14 @@
+site pop
+Caridad_Cemetery 1
+Elementary_School 2
+Gabas 3
+Haina 4
+Hicgop_South 5
+Palanas 6
+Poroc_Rose 7
+Poroc_San_Flower 8
+San_Agustin 9
+Sitio_Baybayon 10
+Tamakin_Dacot 11
+Visca 12
+Wangag 13
